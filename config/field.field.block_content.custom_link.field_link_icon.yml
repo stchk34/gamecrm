@@ -1,0 +1,23 @@
+uuid: 0b5f7559-0e7b-4511-96f4-855afc9c1d48
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.custom_link
+    - field.storage.block_content.field_link_icon
+  module:
+    - text
+id: block_content.custom_link.field_link_icon
+field_name: field_link_icon
+entity_type: block_content
+bundle: custom_link
+label: 'Link icon'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

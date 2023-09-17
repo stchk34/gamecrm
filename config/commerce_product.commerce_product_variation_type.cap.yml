@@ -1,0 +1,10 @@
+uuid: 460e6319-88a3-4ca0-a5dc-deb134a7229e
+langcode: en
+status: true
+dependencies: {  }
+id: cap
+label: Cap
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

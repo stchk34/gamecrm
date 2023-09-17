@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_uninstall().
+ */
+function telegram_bot_uninstall() {
+  \Drupal::configFactory()->getEditable('telegram_bot.setting')->delete();
+}

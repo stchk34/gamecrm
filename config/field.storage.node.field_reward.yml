@@ -1,0 +1,27 @@
+uuid: 0ab3b11a-b15e-4e90-b0f2-f21315d9a855
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_reward
+field_name: field_reward
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Badge
+    -
+      value: '2'
+      label: Points
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

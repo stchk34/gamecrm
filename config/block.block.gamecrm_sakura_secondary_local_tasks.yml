@@ -1,0 +1,22 @@
+uuid: 1a546276-bc3e-45df-a90e-6a47f292a22f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gamecrm_sakura
+_core:
+  default_config_hash: ydSxdq7R66I8UMC460rOzlfzvlUL4VRbdwc6z9DWaUI
+id: gamecrm_sakura_secondary_local_tasks
+theme: gamecrm_sakura
+region: help
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

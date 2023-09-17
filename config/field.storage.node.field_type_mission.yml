@@ -1,0 +1,27 @@
+uuid: 8004f788-cd22-49c4-af57-d0c3c7f4ff26
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_type_mission
+field_name: field_type_mission
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: Long-term
+    -
+      value: '2'
+      label: Short-term
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

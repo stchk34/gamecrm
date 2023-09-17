@@ -1,0 +1,169 @@
+uuid: 7f8af42d-9745-4954-a3dd-d48366eec4b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.theme
+    - field.field.commerce_product.theme.field_description
+    - field.field.commerce_product.theme.field_media_product
+    - field.field.commerce_product.theme.field_restriction
+    - field.field.commerce_product.theme.field_theme
+  module:
+    - commerce
+    - commerce_product
+    - foundation_layouts
+    - layout_builder
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: foundation-4-8
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          wrappers:
+            sidebar_left: div
+            sidebar_right: div
+          wrapper_classes: ''
+          attributes: {  }
+          wrapper_id: product-page
+        components:
+          f480d9ec-c515-400c-b0c4-5ff89fa14b12:
+            uuid: f480d9ec-c515-400c-b0c4-5ff89fa14b12
+            region: sidebar_left
+            configuration:
+              id: 'field_block:commerce_product:theme:field_media_product'
+              label: 'Media product'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: media_thumbnail
+                label: hidden
+                settings:
+                  image_link: ''
+                  image_style: product_img
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: -1
+            additional: {  }
+          85503f65-fa8e-4841-a1c8-2bee54a84591:
+            uuid: 85503f65-fa8e-4841-a1c8-2bee54a84591
+            region: sidebar_right
+            configuration:
+              id: 'field_block:commerce_product:theme:variations'
+              label: Variations
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: commerce_add_to_cart
+                label: hidden
+                settings:
+                  combine: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          6f5e0b74-b3c6-4be4-9752-a7157a503885:
+            uuid: 6f5e0b74-b3c6-4be4-9752-a7157a503885
+            region: sidebar_right
+            configuration:
+              id: 'field_block:commerce_product_variation:theme:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: '@commerce_product.product_variation_route_context:commerce_product_variation'
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: -1
+            additional: {  }
+          e71ca7b6-3f8b-45d5-b082-11cb28142429:
+            uuid: e71ca7b6-3f8b-45d5-b082-11cb28142429
+            region: sidebar_right
+            configuration:
+              id: 'field_block:commerce_product:theme:field_description'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          8aa646dd-c2cd-49a3-90df-c261837eb8ff:
+            uuid: 8aa646dd-c2cd-49a3-90df-c261837eb8ff
+            region: sidebar_left
+            configuration:
+              id: 'field_block:commerce_product_variation:theme:price'
+              label: Price
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: '@commerce_product.product_variation_route_context:commerce_product_variation'
+                view_mode: view_mode
+              formatter:
+                type: commerce_price_default
+                label: inline
+                settings:
+                  strip_trailing_zeroes: false
+                  currency_display: none
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: commerce_product.theme.default
+targetEntityType: commerce_product
+bundle: theme
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: sidebar_left
+  field_restriction:
+    type: commerce_plugin_item_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: sidebar_left
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    label: above
+    settings:
+      combine: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  field_media_product: true
+  field_theme: true
+  stores: true
+  uid: true

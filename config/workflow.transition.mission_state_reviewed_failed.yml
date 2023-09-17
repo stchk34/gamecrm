@@ -1,0 +1,20 @@
+uuid: ed56f257-23d1-4281-866a-73a10fecdba5
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_failed
+    - workflow.state.mission_state_reviewed
+id: mission_state_reviewed_failed
+label: 'The mission is failed'
+module: workflow
+from_sid: mission_state_reviewed
+to_sid: mission_state_failed
+roles:
+  workflow_author: workflow_author
+  content_editor: content_editor
+  administrator: administrator
+  anonymous: '0'
+  authenticated: '0'
+  team_lead: '0'
+  user: '0'

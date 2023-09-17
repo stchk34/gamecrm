@@ -1,0 +1,12 @@
+uuid: 62c82ec7-4c4b-449a-8218-35ccb711b93b
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_confirmed
+id: order_status_confirmed_confirmed
+label: ''
+module: workflow
+from_sid: order_status_confirmed
+to_sid: order_status_confirmed
+roles: {  }

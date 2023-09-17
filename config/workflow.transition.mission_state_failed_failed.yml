@@ -1,0 +1,12 @@
+uuid: 15d0bb9b-47aa-4e08-aa5a-8acbebb68a80
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_failed
+id: mission_state_failed_failed
+label: ''
+module: workflow
+from_sid: mission_state_failed
+to_sid: mission_state_failed
+roles: {  }

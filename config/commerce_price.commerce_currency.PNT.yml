@@ -1,0 +1,9 @@
+uuid: 8daa2436-c60c-4b3a-8bd2-e19faf691c02
+langcode: en
+status: true
+dependencies: {  }
+currencyCode: PNT
+name: Points
+numericCode: '000'
+symbol: P
+fractionDigits: 0

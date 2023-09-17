@@ -1,0 +1,16 @@
+.gamecrm-view-customize{
+  &-rows {
+    text-align:center;
+    a{
+      color:$medium-gray;
+    }
+    table td {
+      text-align:center;
+    }
+    .view-customize{
+      text-align:center;
+      margin-bottom:10px;
+    }
+  }
+}
+

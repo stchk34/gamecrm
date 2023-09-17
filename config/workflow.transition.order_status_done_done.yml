@@ -1,0 +1,12 @@
+uuid: bf8c2d34-5451-4e1d-b45f-088c0e58d619
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_done
+id: order_status_done_done
+label: ''
+module: workflow
+from_sid: order_status_done
+to_sid: order_status_done
+roles: {  }

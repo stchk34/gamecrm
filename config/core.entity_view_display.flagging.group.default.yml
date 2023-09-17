@@ -1,0 +1,12 @@
+uuid: a2c95eaa-b0be-4143-a76b-0feb0dd4a3cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.group
+id: flagging.group.default
+targetEntityType: flagging
+bundle: group
+mode: default
+content: {  }
+hidden: {  }

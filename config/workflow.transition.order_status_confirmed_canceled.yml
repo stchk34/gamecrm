@@ -1,0 +1,18 @@
+uuid: 5c15e6f5-214e-4048-bea2-9c09f856f41c
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_canceled
+    - workflow.state.order_status_confirmed
+id: order_status_confirmed_canceled
+label: null
+module: workflow
+from_sid: order_status_confirmed
+to_sid: order_status_canceled
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

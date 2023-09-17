@@ -1,0 +1,12 @@
+uuid: 6de8247f-648b-4dd8-8b4c-04bebf01cc77
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_assigned
+id: mission_state_assigned_assigned
+label: ''
+module: workflow
+from_sid: mission_state_assigned
+to_sid: mission_state_assigned
+roles: {  }

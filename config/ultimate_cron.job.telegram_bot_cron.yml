@@ -1,0 +1,17 @@
+uuid: f65a1184-df1a-4538-8c26-8c38bbc596a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - telegram_bot
+title: 'Default cron handler'
+id: telegram_bot_cron
+weight: 0
+module: telegram_bot
+callback: telegram_bot_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

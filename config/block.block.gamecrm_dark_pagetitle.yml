@@ -1,0 +1,33 @@
+uuid: 4b103914-65fd-4e4a-aab8-b28298d78222
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - gamecrm_dark
+id: gamecrm_dark_pagetitle
+theme: gamecrm_dark
+region: content
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      balance: balance
+      transaction: transaction
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/comment/reply/node/*/field_comments_to_the_mission'

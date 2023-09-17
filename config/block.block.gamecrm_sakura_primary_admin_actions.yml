@@ -1,0 +1,20 @@
+uuid: 904fdc38-8d84-441b-b856-3c63a42cc97e
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gamecrm_sakura
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: gamecrm_sakura_primary_admin_actions
+theme: gamecrm_sakura
+region: help
+weight: -6
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,44 @@
+.field--name-field-transaction,
+.field--name-field-actual-balance,
+.field--name-field-user,
+.field--name-field-order-operation,
+.field--name-field-transaction-type,
+.field--name-field-balance {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  .field-label{
+      font-weight:600;
+    &:after{
+      content:':';
+    }
+  }
+  .field__item{
+    margin-left:5px;
+    a{
+      color:$medium-gray;
+    }
+  }
+}
+
+//Page all-transactions.
+#views-exposed-form-all-transactions-page-1{
+  .js-form-item{
+    margin-right:5px;
+    label{
+      text-align:center;
+      color:$medium-gray;
+    }
+  }
+}
+.my-transactions-view{
+  padding-top: 15px;
+  header{
+    .views-field-field-balance{
+      .field-content{
+        font-size: 25px;
+        font-weight: 600;
+      }
+    }
+  }
+}

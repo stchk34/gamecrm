@@ -1,0 +1,7 @@
+uuid: 19641c7f-35fe-4b37-9851-fd53633d70d2
+langcode: en
+status: true
+dependencies: {  }
+id: number_of_participants
+label: 'Number of participants'
+elementType: select

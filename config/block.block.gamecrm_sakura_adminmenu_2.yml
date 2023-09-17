@@ -1,0 +1,33 @@
+uuid: 5125bf03-4b25-480f-bd03-fc3b2972aeb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.admin-menu
+  module:
+    - system
+    - user
+  theme:
+    - gamecrm_sakura
+id: gamecrm_sakura_adminmenu_2
+theme: gamecrm_sakura
+region: header_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:admin-menu'
+settings:
+  id: 'system_menu_block:admin-menu'
+  label: 'Admin menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

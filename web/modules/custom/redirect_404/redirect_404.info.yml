@@ -1,0 +1,5 @@
+name: 'Redirect 404'
+type: module
+description: 'Redirect anonymous users from 404 to login.'
+core_version_requirement: ^9 || ^10
+package: Other

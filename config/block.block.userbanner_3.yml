@@ -1,0 +1,36 @@
+uuid: 92ce714c-c780-4adf-9c67-5f8f99d42218
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:user_display:6b4be42d-c214-450a-87b7-85a52f77b59d'
+  module:
+    - block_content
+  theme:
+    - gamecrm_sakura
+id: userbanner_3
+theme: gamecrm_sakura
+region: highlighted
+weight: -7
+provider: null
+plugin: 'block_content:6b4be42d-c214-450a-87b7-85a52f77b59d'
+settings:
+  id: 'block_content:6b4be42d-c214-450a-87b7-85a52f77b59d'
+  label: 'User banner'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/homepage\r\n/user/*"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

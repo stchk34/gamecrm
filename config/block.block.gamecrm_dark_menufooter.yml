@@ -1,0 +1,33 @@
+uuid: bfa1dff5-918d-42a2-a8f6-a35243f1e8a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-footer
+  module:
+    - system
+    - user
+  theme:
+    - gamecrm_dark
+id: gamecrm_dark_menufooter
+theme: gamecrm_dark
+region: footer_first
+weight: -9
+provider: null
+plugin: 'system_menu_block:menu-footer'
+settings:
+  id: 'system_menu_block:menu-footer'
+  label: 'Menu footer'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

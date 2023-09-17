@@ -1,0 +1,18 @@
+uuid: 1cd7fdcf-17ad-40c5-875a-46dd31156145
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_confirmed
+    - workflow.state.order_status_on_hold
+id: order_status_confirmed_on_hold
+label: null
+module: workflow
+from_sid: order_status_confirmed
+to_sid: order_status_on_hold
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

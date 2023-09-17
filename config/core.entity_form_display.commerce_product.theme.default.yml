@@ -1,0 +1,102 @@
+uuid: 84b87547-4c65-4f21-8c4b-2b9969c6fde2
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.theme
+    - field.field.commerce_product.theme.field_description
+    - field.field.commerce_product.theme.field_media_product
+    - field.field.commerce_product.theme.field_restriction
+    - field.field.commerce_product.theme.field_theme
+  module:
+    - commerce
+    - k1_theme_switcher
+    - maxlength
+    - media_library
+    - path
+    - text
+id: commerce_product.theme.default
+targetEntityType: commerce_product
+bundle: theme
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_description:
+    type: text_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_media_product:
+    type: media_library_widget
+    weight: 2
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_restriction:
+    type: commerce_plugin_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_theme:
+    type: select_theme_widget
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  stores:
+    type: commerce_entity_select
+    weight: 0
+    region: content
+    settings:
+      hide_single_entity: true
+      autocomplete_threshold: 7
+      autocomplete_size: 60
+      autocomplete_placeholder: ''
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 40
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+  uid:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  variations: true

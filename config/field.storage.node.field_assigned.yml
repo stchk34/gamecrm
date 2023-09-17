@@ -1,0 +1,27 @@
+uuid: 59005ff3-903b-4820-ab0b-f13e20577a73
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_assigned
+field_name: field_assigned
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '1'
+      label: 'Single person'
+    -
+      value: '2'
+      label: Group
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

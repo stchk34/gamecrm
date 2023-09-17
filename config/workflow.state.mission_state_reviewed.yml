@@ -1,0 +1,12 @@
+uuid: 117df641-6304-4ca1-af8c-55730635ec83
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.mission_state
+id: mission_state_reviewed
+label: Review
+module: workflow
+wid: mission_state
+weight: -4
+sysid: 0

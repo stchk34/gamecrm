@@ -1,0 +1,21 @@
+uuid: e33433b1-cd51-4dbd-a81b-9221dcdeb4b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_mision
+    - node.type.mission
+  module:
+    - text
+id: node.mission.field_description_mision
+field_name: field_description_mision
+entity_type: node
+bundle: mission
+label: 'Description mission'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

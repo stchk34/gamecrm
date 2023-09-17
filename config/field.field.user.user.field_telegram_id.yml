@@ -1,0 +1,23 @@
+uuid: 8995b907-730d-452e-bed2-f06c27a31af2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_telegram_id
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: v1HzrLGC6-hgoa1Nz8s-MPxUHvF0x7bzTW63ojauybA
+id: user.user.field_telegram_id
+field_name: field_telegram_id
+entity_type: user
+bundle: user
+label: 'Telegram ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text

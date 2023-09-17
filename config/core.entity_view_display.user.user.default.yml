@@ -1,0 +1,271 @@
+uuid: 4ffc7a46-6e9b-4544-b2d4-a06a2fdfca1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_badges
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_group
+    - field.field.user.user.field_role
+    - field.field.user.user.field_second_name
+    - field.field.user.user.field_telegram_id
+    - field.field.user.user.field_user_picture
+    - views.view.user_rewards
+  module:
+    - image
+    - k1_theme_switcher
+    - layout_builder
+    - layout_discovery
+    - telegram_bot
+    - user
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          e4aa3a13-a3fb-4f2d-8293-29a4694c5326:
+            uuid: e4aa3a13-a3fb-4f2d-8293-29a4694c5326
+            region: content
+            configuration:
+              id: 'views_block:user_rewards-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: -1
+            additional: {  }
+          36edb225-e630-47f1-9110-c892c0c0f697:
+            uuid: 36edb225-e630-47f1-9110-c892c0c0f697
+            region: content
+            configuration:
+              id: 'field_block:user:user:mail'
+              label: Email
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: email_mailto
+                label: inline
+                settings: {  }
+                third_party_settings: {  }
+            weight: -2
+            additional: {  }
+          ba738cdb-2a90-4d51-bf9e-4d4e5c9afb88:
+            uuid: ba738cdb-2a90-4d51-bf9e-4d4e5c9afb88
+            region: content
+            configuration:
+              id: 'extra_field_block:user:user:masquerade'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+            weight: 0
+            additional: {  }
+          2f407a5d-8b85-41bb-9e96-5365930d98ad:
+            uuid: 2f407a5d-8b85-41bb-9e96-5365930d98ad
+            region: content
+            configuration:
+              id: 'field_block:user:user:name'
+              label: Name
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: user_name
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: -5
+            additional: {  }
+          1620adfb-29fd-40c5-8c9c-ec2e6dda0765:
+            uuid: 1620adfb-29fd-40c5-8c9c-ec2e6dda0765
+            region: content
+            configuration:
+              id: 'field_block:user:user:field_first_name'
+              label: 'First name'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: -4
+            additional: {  }
+          012cf4e9-84cd-4e16-afcc-43056e9d5f33:
+            uuid: 012cf4e9-84cd-4e16-afcc-43056e9d5f33
+            region: content
+            configuration:
+              id: 'field_block:user:user:field_second_name'
+              label: 'Second name'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: -3
+            additional: {  }
+          87b17283-eb3d-4746-a7a7-858181655ed8:
+            uuid: 87b17283-eb3d-4746-a7a7-858181655ed8
+            region: content
+            configuration:
+              id: 'field_block:user:user:field_role'
+              label: Role
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          9b144b6f-3bd8-4ee3-a8f0-a91a7853c9a8:
+            uuid: 9b144b6f-3bd8-4ee3-a8f0-a91a7853c9a8
+            region: content
+            configuration:
+              id: 'field_block:user:user:field_group'
+              label: Group
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          e3fe1461-442c-40f0-9c68-4f4b143fcc57:
+            uuid: e3fe1461-442c-40f0-9c68-4f4b143fcc57
+            region: content
+            configuration:
+              id: 'field_block:user:user:field_user_picture'
+              label: 'User picture'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: ''
+                  image_style: gamecrm_img_user
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: -6
+            additional: {  }
+          4b775e21-7e80-4952-8c0d-730bc8c88b4a:
+            uuid: 4b775e21-7e80-4952-8c0d-730bc8c88b4a
+            region: content
+            configuration:
+              id: telegram_redirect_block
+              label: 'Telegram Redirect Block'
+              label_display: '0'
+              provider: telegram_bot
+              context_mapping: {  }
+            weight: 4
+            additional: {  }
+          03999cc8-a89b-4c84-82ab-3f684aa88450:
+            uuid: 03999cc8-a89b-4c84-82ab-3f684aa88450
+            region: content
+            configuration:
+              id: k1_select_theme_block
+              label: 'Theme Switcher'
+              label_display: visible
+              provider: k1_theme_switcher
+              context_mapping: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+_core:
+  default_config_hash: mZLyuWM9CQx2ZJVqFGSbzgFnHzudVbHBYmdU256A5Wk
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_badges:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 51
+    region: content
+  field_group:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 55
+    region: content
+  field_role:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 54
+    region: content
+  field_user_picture:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 52
+    region: content
+  masquerade:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 50
+    region: content
+  member_for:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  commerce_remote_id: true
+  customer_profiles: true
+  field_first_name: true
+  field_second_name: true
+  field_telegram_id: true

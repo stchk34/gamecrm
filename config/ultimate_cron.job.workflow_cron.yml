@@ -1,0 +1,17 @@
+uuid: 1f50b369-5735-42f4-b151-e56e5a39e3cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - workflow
+title: 'Default cron handler'
+id: workflow_cron
+weight: 0
+module: workflow
+callback: workflow_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

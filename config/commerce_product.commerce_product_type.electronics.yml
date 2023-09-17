@@ -1,0 +1,16 @@
+uuid: 4ada691a-6de5-4d5e-83b9-37ccf4d0c4a4
+langcode: en
+status: true
+dependencies: {  }
+id: electronics
+label: Electronics
+traits: {  }
+locked: false
+description: ''
+variationType: electronics
+variationTypes:
+  - computer_mouse
+  - keyboard
+  - mouse_pad
+multipleVariations: true
+injectVariationFields: true

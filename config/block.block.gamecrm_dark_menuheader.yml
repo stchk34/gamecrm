@@ -1,0 +1,25 @@
+uuid: 806e0679-9e84-42d6-ae9e-4178890e817b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-header
+  module:
+    - system
+  theme:
+    - gamecrm_dark
+id: gamecrm_dark_menuheader
+theme: gamecrm_dark
+region: header_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:menu-header'
+settings:
+  id: 'system_menu_block:menu-header'
+  label: 'Menu header'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

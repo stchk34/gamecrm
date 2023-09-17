@@ -1,0 +1,33 @@
+uuid: 8a99a9ee-9fca-4ea2-ba7f-a02672e5c5f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_comments_to_the_mission
+    - node.type.mission
+  module:
+    - comment
+id: node.mission.field_comments_to_the_mission
+field_name: field_comments_to_the_mission
+entity_type: node
+bundle: mission
+label: 'Comments to the mission'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 20
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

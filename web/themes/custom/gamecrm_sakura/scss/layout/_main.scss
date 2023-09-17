@@ -1,0 +1,318 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  font-family: $body-font-family;
+  max-width: 100vw !important;
+  background:$background-sakura-theme;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+
+  a {
+    color: $black;
+
+    &:hover, &:active, &:focus {
+      color: $black;
+      opacity: 0.5;
+    }
+  }
+
+  p, a, small, span, .popup-link, li, {
+    font-family: 'Chakra Petch', 'Roboto Slab', serif;
+  }
+}
+
+main {
+  flex-grow: 1;
+  padding-bottom: 20px;
+}
+
+.block-gamecrm-sakura-content,
+.maintenance-page {
+  display: flex;
+  padding-top: 15px;
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 0 auto;
+  font-size: 20px;
+  width: 100%;
+}
+
+//Title page.
+#block-pagetitle {
+  text-align: center;
+  max-width: 1500px;
+  margin-top: 20px;
+
+  span {
+    overflow-wrap: anywhere;
+  }
+}
+
+#edit-field-description-mision-wrapper {
+  .ck-editor__main {
+    font-size: 1rem;
+  }
+}
+
+.messages--error {
+  background-color: $red !important;
+  color: $white !important;
+
+  em {
+    color: $white;
+  }
+
+  .close-button {
+    color: $white;
+  }
+}
+
+//Message "PLease wait".
+.ajax-progress.ajax-progress-throbber {
+  .message {
+    font-size: 14px;
+  }
+}
+
+//Error message.
+.error {
+  color: $red;
+}
+
+//Button.
+#edit-actions,
+#edit-actions--2,
+#edit-actions--3,
+#edit-actions--4,
+.button--add-to-cart,
+.form-save-default-button,
+.media-library-view--form-actions,
+#edit-actions--5,
+.form-actions {
+  input,
+  .button,
+  .button.success {
+    @include button;
+  }
+}
+
+.button-group {
+  margin: 10px;
+}
+
+//Primary tabs.
+#block-gamecrm-sakura-primary-local-tasks,
+#block-gamecrm-sakura-primary-admin-actions {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+
+  li {
+    list-style: none;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.panel {
+  padding: 0;
+}
+
+//Pagination.
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  .current {
+    background: black;
+  }
+
+  a {
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+//Status message.
+.zurb-foundation-callout {
+  max-width: 1500px;
+  margin: 10px auto;
+  width: 100%;
+}
+
+.callout.success {
+  em {
+    color: $black;
+  }
+}
+
+//View table.
+table {
+  @include table-default-theme;
+}
+
+li {
+  list-style: disc;
+}
+
+.dropbutton-wrapper.dropbutton-multiple.open {
+  position: absolute;
+  background: $background-basic-dark-theme;
+}
+
+.js-form-type-vertical-tabs {
+  .field--name-revision-log-message {
+    textarea {
+      width: 96%;
+      margin: 5px auto;
+    }
+
+    .help-text, label {
+      margin: 0 10px;
+    }
+  }
+}
+
+@include breakpoint(small only) {
+  //Adaptive button.
+  #edit-actions,
+  #edit-actions--2,
+  #edit-actions--3,
+  #edit-actions--4,
+  .button--add-to-cart,
+  .form-save-default-button,
+  .media-library-view--form-actions,
+  #edit-actions--5,
+  .form-actions {
+    input,
+    .button,
+    .button.success {
+      font-size: 16px;
+    }
+  }
+
+  //Table.
+  table {
+    border: 0;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      border: none;
+
+      tr {
+        border-bottom: 1px solid $dark-gray-default-theme;
+        display: block;
+        margin-bottom: .7em;
+
+        &:nth-child(even) {
+          background-color: $white;
+          border-bottom: 1px solid $dark-gray-default-theme;
+        }
+      }
+
+      td {
+        border-bottom: 1px solid $medium-gray;
+        display: block;
+        font-size: 18px;
+        text-align: left;
+
+        a {
+          overflow-wrap: anywhere;
+        }
+
+        &::before {
+          content: attr(data-label);
+          float: left;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        &:last-child {
+          border-bottom: 0;
+        }
+
+        .dropbutton-multiple {
+          left: 0!important;
+
+          &.open {
+            left: 0!important;
+          }
+
+          .dropbutton-widget {
+            padding-right: 2em !important;
+          }
+
+          .dropbutton {
+            a {
+              font-size: 18px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  //Revision info.
+  .js-form-type-vertical-tabs {
+    .vertical-tabs {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vertical-tabs__menu {
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+//1024-640px.
+@include breakpoint(xlarge down) {
+  .block-gamecrm-sakura-content,
+  #block-pagetitle {
+    padding: 15px;
+  }
+  table {
+    td {
+      .dropbutton-multiple {
+        left: 8% !important;
+
+        .dropbutton-widget {
+          padding-right: 1.1em !important;
+        }
+      }
+    }
+  }
+}

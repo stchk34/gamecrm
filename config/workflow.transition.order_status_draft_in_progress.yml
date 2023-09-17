@@ -1,0 +1,18 @@
+uuid: fa506a6c-cabf-43e6-8048-b0c9b154a983
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_draft
+    - workflow.state.order_status_in_progress
+id: order_status_draft_in_progress
+label: null
+module: workflow
+from_sid: order_status_draft
+to_sid: order_status_in_progress
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

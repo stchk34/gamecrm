@@ -1,0 +1,170 @@
+uuid: fad2116a-ba1b-43d3-9cd7-a78c6a25df95
+langcode: en
+status: true
+dependencies:
+  config:
+    - eca.eca.process_xqdyszs
+id: process_xqdyszs
+label: 'Close comments after done'
+tags:
+  - untagged
+documentation: ''
+filename: ''
+modeldata: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="Process_xqDyszs" name="Close comments after done" isExecutable="true">
+      <bpmn2:task id="Activity_0jsyj07" name="Switch" camunda:modelerTemplate="org.drupal.action.eca_switch_account">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_switch_account" />
+          </camunda:properties>
+          <camunda:field name="user_id">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0dwfx4q</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0abh1ik</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0dwfx4q" sourceRef="Event_0u8sk4f" targetRef="Activity_0jsyj07" />
+      <bpmn2:task id="Activity_1v4okso" name="Disable comment form" camunda:modelerTemplate="org.drupal.action.eca_set_field_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_set_field_value" />
+          </camunda:properties>
+          <camunda:field name="method">
+            <camunda:string>set:clear</camunda:string>
+          </camunda:field>
+          <camunda:field name="strip_tags">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="trim">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="field_name">
+            <camunda:string>field_comments_to_the_mission:status</camunda:string>
+          </camunda:field>
+          <camunda:field name="save_entity">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="field_value">
+            <camunda:string>1</camunda:string>
+          </camunda:field>
+          <camunda:field name="object">
+            <camunda:string>mission</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1cfifbq</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0abh1ik" sourceRef="Activity_0jsyj07" targetRef="Activity_0rvpcnz" />
+      <bpmn2:task id="Activity_0rvpcnz" name="Load mission" camunda:modelerTemplate="org.drupal.action.eca_token_load_entity">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_load_entity" />
+          </camunda:properties>
+          <camunda:field name="token_name">
+            <camunda:string>mission</camunda:string>
+          </camunda:field>
+          <camunda:field name="from">
+            <camunda:string>current</camunda:string>
+          </camunda:field>
+          <camunda:field name="entity_type">
+            <camunda:string>_none</camunda:string>
+          </camunda:field>
+          <camunda:field name="entity_id">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="revision_id">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="langcode">
+            <camunda:string>_interface</camunda:string>
+          </camunda:field>
+          <camunda:field name="latest_revision">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="unchanged">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="properties">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="object">
+            <camunda:string></camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0abh1ik</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1cfifbq</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1cfifbq" camunda:modelerTemplate="org.drupal.condition.eca_scalar" sourceRef="Activity_0rvpcnz" targetRef="Activity_1v4okso">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_scalar" />
+          </camunda:properties>
+          <camunda:field name="left">
+            <camunda:string>[mission:field_state:value]</camunda:string>
+          </camunda:field>
+          <camunda:field name="operator">
+            <camunda:string>equal</camunda:string>
+          </camunda:field>
+          <camunda:field name="right">
+            <camunda:string>mission_state_done</camunda:string>
+          </camunda:field>
+          <camunda:field name="type">
+            <camunda:string>value</camunda:string>
+          </camunda:field>
+          <camunda:field name="case">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>no</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+      <bpmn2:startEvent id="Event_0u8sk4f" name="Update mission" camunda:modelerTemplate="org.drupal.event.content_entity:presave">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="content_entity:presave" />
+          </camunda:properties>
+          <camunda:field name="type">
+            <camunda:string>node mission</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_0dwfx4q</bpmn2:outgoing>
+      </bpmn2:startEvent>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="sid-82411092-89cc-4ec4-aa56-22199b94ba2a">
+      <bpmndi:BPMNPlane id="sid-fd78e383-df83-47bb-b45d-8b62404783e0" bpmnElement="Process_xqDyszs">
+        <bpmndi:BPMNShape id="Activity_0jsyj07_di" bpmnElement="Activity_0jsyj07">
+          <dc:Bounds x="210" y="230" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_1v4okso_di" bpmnElement="Activity_1v4okso">
+          <dc:Bounds x="500" y="230" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_0rvpcnz_di" bpmnElement="Activity_0rvpcnz">
+          <dc:Bounds x="340" y="230" width="100" height="80" />
+          <bpmndi:BPMNLabel />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Event_1whtgc4_di" bpmnElement="Event_0u8sk4f">
+          <dc:Bounds x="112" y="252" width="36" height="36" />
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="93" y="295" width="76" height="14" />
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_0dwfx4q_di" bpmnElement="Flow_0dwfx4q">
+          <di:waypoint x="148" y="270" />
+          <di:waypoint x="210" y="270" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0abh1ik_di" bpmnElement="Flow_0abh1ik">
+          <di:waypoint x="310" y="270" />
+          <di:waypoint x="340" y="270" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1cfifbq_di" bpmnElement="Flow_1cfifbq">
+          <di:waypoint x="440" y="270" />
+          <di:waypoint x="500" y="270" />
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>

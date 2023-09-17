@@ -1,0 +1,15 @@
+uuid: c17696bf-957d-4e63-9835-e0fe08223927
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+    - user.role.authenticated
+id: teams-member
+label: Member
+weight: -100
+admin: false
+scope: insider
+global_role: authenticated
+group_type: teams
+permissions: {  }

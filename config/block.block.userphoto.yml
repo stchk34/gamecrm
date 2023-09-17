@@ -1,0 +1,38 @@
+uuid: c17aa930-fc3f-42d4-84a9-9c3e81f30e6e
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:user_display:7fd46f7b-d4e3-47d8-a4ed-53edc210cae8'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - gamecrm
+id: userphoto
+theme: gamecrm
+region: highlighted
+weight: -7
+provider: null
+plugin: 'block_content:7fd46f7b-d4e3-47d8-a4ed-53edc210cae8'
+settings:
+  id: 'block_content:7fd46f7b-d4e3-47d8-a4ed-53edc210cae8'
+  label: 'User photo'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/homepage\r\n/user/*\r\n"

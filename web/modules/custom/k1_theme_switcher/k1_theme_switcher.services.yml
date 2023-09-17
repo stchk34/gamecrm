@@ -1,0 +1,6 @@
+services:
+  k1_theme_switcher.theme_negotiator:
+    class: Drupal\k1_theme_switcher\Theme\ThemeSwitcher
+    arguments: ['@current_user', '@entity_type.manager']
+    tags:
+      - { name: theme_negotiator, priority: -50 }

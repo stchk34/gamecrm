@@ -1,0 +1,12 @@
+uuid: 14ef3988-efe1-44a4-8891-4cc543700693
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_draft
+id: order_status_draft_draft
+label: null
+module: workflow
+from_sid: order_status_draft
+to_sid: order_status_draft
+roles: {  }

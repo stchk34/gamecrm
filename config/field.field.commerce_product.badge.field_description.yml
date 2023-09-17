@@ -1,0 +1,21 @@
+uuid: c9352431-7f86-4e32-b0d6-82c1384af85b
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.badge
+    - field.storage.commerce_product.field_description
+  module:
+    - text
+id: commerce_product.badge.field_description
+field_name: field_description
+entity_type: commerce_product
+bundle: badge
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

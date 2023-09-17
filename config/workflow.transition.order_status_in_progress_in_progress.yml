@@ -1,0 +1,12 @@
+uuid: e31adae5-c6eb-4722-814c-4cadd629f554
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_in_progress
+id: order_status_in_progress_in_progress
+label: ''
+module: workflow
+from_sid: order_status_in_progress
+to_sid: order_status_in_progress
+roles: {  }

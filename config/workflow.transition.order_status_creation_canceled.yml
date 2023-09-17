@@ -1,0 +1,18 @@
+uuid: eb60a7c9-1495-430e-8052-a04d6db39ff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_canceled
+    - workflow.state.order_status_creation
+id: order_status_creation_canceled
+label: null
+module: workflow
+from_sid: order_status_creation
+to_sid: order_status_canceled
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

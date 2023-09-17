@@ -1,0 +1,16 @@
+k1_theme_switcher.admin_structure:
+  title: 'Theme Switcher'
+  route_name: k1_theme_switcher.admin_structure
+  parent: system.admin_structure
+
+entity.available_theme.collection:
+  title: 'Available themes'
+  description: 'List of available themes.'
+  route_name: entity.available_theme.collection
+  parent: k1_theme_switcher.admin_structure
+
+entity.select_theme.collection:
+  title: 'Select Themes'
+  description: 'List of select themes.'
+  route_name: entity.select_theme.collection
+  parent: k1_theme_switcher.admin_structure

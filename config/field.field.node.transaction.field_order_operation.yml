@@ -1,0 +1,29 @@
+uuid: 7740b204-5cfc-4c6c-9a65-5419c660a1a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - field.storage.node.field_order_operation
+    - node.type.transaction
+id: node.transaction.field_order_operation
+field_name: field_order_operation
+entity_type: node
+bundle: transaction
+label: 'Order operation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_order'
+  handler_settings:
+    target_bundles:
+      default: default
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

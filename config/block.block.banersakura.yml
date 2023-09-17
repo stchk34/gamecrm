@@ -1,0 +1,38 @@
+uuid: f8ae018f-76e5-4482-ab4b-69579d75412d
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner:740c4010-032d-472a-8b7d-d571ba91f6f8'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - gamecrm_sakura
+id: banersakura
+theme: gamecrm_sakura
+region: highlighted
+weight: -8
+provider: null
+plugin: 'block_content:740c4010-032d-472a-8b7d-d571ba91f6f8'
+settings:
+  id: 'block_content:740c4010-032d-472a-8b7d-d571ba91f6f8'
+  label: 'Baner sakura'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/homepage\r\n/user/*"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

@@ -1,0 +1,4 @@
+name: Theme Switcher
+type: module
+description: Select a theme per User.
+core_version_requirement: ^9 || ^10

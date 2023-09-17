@@ -1,0 +1,29 @@
+uuid: 95cb7796-b0e8-4418-91bb-4b3dc7cc8c1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: group
+label: Group
+bundles:
+  - badge
+entity_type: taxonomy_term
+global: false
+flag_short: Visible
+flag_long: ''
+flag_message: ''
+unflag_short: Hide
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+weight: 0
+flag_type: 'entity:taxonomy_term'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: true
+  extra_permissions: {  }
+linkTypeConfig: {  }

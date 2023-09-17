@@ -1,0 +1,195 @@
+uuid: 2b1a8cd7-402a-4c43-97b0-209ead65817b
+langcode: en
+status: true
+dependencies:
+  config:
+    - eca.eca.process_vfkjyku
+id: process_vfkjyku
+label: noname
+tags:
+  - untagged
+documentation: ''
+filename: ''
+modeldata: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="Process_vFKJYku" isExecutable="false">
+      <bpmn2:startEvent id="Event_0cqbu2c" camunda:modelerTemplate="org.drupal.event.form:form_validate">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="form:form_validate" />
+          </camunda:properties>
+          <camunda:field name="form_id">
+            <camunda:string>node-mission-edit-form</camunda:string>
+          </camunda:field>
+          <camunda:field name="entity_type_id">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="bundle">
+            <camunda:string></camunda:string>
+          </camunda:field>
+          <camunda:field name="operation">
+            <camunda:string></camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_1dme2gn</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:task id="Activity_14xen48" camunda:modelerTemplate="org.drupal.action.eca_form_field_get_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_form_field_get_value" />
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>field_reward</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>reward</camunda:string>
+          </camunda:field>
+          <camunda:field name="strip_tags">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="trim">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="xss_filter">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1dme2gn</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_1dt4vll</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1dme2gn" sourceRef="Event_0cqbu2c" targetRef="Activity_14xen48" />
+      <bpmn2:task id="Activity_1b9avb7" camunda:modelerTemplate="org.drupal.action.eca_form_field_get_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_form_field_get_value" />
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>field_badge</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>badge</camunda:string>
+          </camunda:field>
+          <camunda:field name="strip_tags">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="trim">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="xss_filter">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1dt4vll</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_0uyizhq</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_1dt4vll" sourceRef="Activity_14xen48" targetRef="Activity_1b9avb7" />
+      <bpmn2:task id="Activity_0ktp4wb" camunda:modelerTemplate="org.drupal.action.eca_form_field_get_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_form_field_get_value" />
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>field_doer</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>doer</camunda:string>
+          </camunda:field>
+          <camunda:field name="strip_tags">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="trim">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="xss_filter">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_0uyizhq</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_18qzebf</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_0uyizhq" sourceRef="Activity_1b9avb7" targetRef="Activity_0ktp4wb" />
+      <bpmn2:task id="Activity_07ps68k" camunda:modelerTemplate="org.drupal.action.eca_form_field_get_value">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_form_field_get_value" />
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>field_group</camunda:string>
+          </camunda:field>
+          <camunda:field name="token_name">
+            <camunda:string>group</camunda:string>
+          </camunda:field>
+          <camunda:field name="strip_tags">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="trim">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+          <camunda:field name="xss_filter">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_18qzebf</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_14aqvqr</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="Activity_0yjlphv" camunda:modelerTemplate="org.drupal.action.eca_form_field_set_error">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_form_field_set_error" />
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>op</camunda:string>
+          </camunda:field>
+          <camunda:field name="message">
+            <camunda:string>reward [reward] , badge [badge] , doer [doer] , group [group]</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_14aqvqr</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_14aqvqr" sourceRef="Activity_07ps68k" targetRef="Activity_0yjlphv" />
+      <bpmn2:sequenceFlow id="Flow_18qzebf" sourceRef="Activity_0ktp4wb" targetRef="Activity_07ps68k" />
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="sid-bd9d01da-5643-476f-926f-c8db315e531e">
+      <bpmndi:BPMNPlane id="sid-7513e0d1-95a3-40a9-a747-ae18cb28fbca" bpmnElement="Process_vFKJYku">
+        <bpmndi:BPMNShape id="Event_0cqbu2c_di" bpmnElement="Event_0cqbu2c">
+          <dc:Bounds x="342" y="572" width="36" height="36" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_14xen48_di" bpmnElement="Activity_14xen48">
+          <dc:Bounds x="440" y="550" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_1b9avb7_di" bpmnElement="Activity_1b9avb7">
+          <dc:Bounds x="610" y="550" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_0ktp4wb_di" bpmnElement="Activity_0ktp4wb">
+          <dc:Bounds x="780" y="550" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_07ps68k_di" bpmnElement="Activity_07ps68k">
+          <dc:Bounds x="950" y="550" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_0yjlphv_di" bpmnElement="Activity_0yjlphv">
+          <dc:Bounds x="1120" y="550" width="100" height="80" />
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_1dme2gn_di" bpmnElement="Flow_1dme2gn">
+          <di:waypoint x="378" y="590" />
+          <di:waypoint x="440" y="590" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_1dt4vll_di" bpmnElement="Flow_1dt4vll">
+          <di:waypoint x="540" y="590" />
+          <di:waypoint x="610" y="590" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_0uyizhq_di" bpmnElement="Flow_0uyizhq">
+          <di:waypoint x="710" y="590" />
+          <di:waypoint x="780" y="590" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_14aqvqr_di" bpmnElement="Flow_14aqvqr">
+          <di:waypoint x="1050" y="590" />
+          <di:waypoint x="1120" y="590" />
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_18qzebf_di" bpmnElement="Flow_18qzebf">
+          <di:waypoint x="880" y="590" />
+          <di:waypoint x="950" y="590" />
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>

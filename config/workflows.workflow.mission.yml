@@ -1,0 +1,104 @@
+uuid: 2cf83188-5923-43e7-aef4-10c733071340
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+id: mission
+label: Mission
+type: content_moderation
+type_settings:
+  states:
+    assigned:
+      label: Assigned
+      weight: 2
+      published: true
+      default_revision: false
+    completed:
+      label: Completed
+      weight: 4
+      published: false
+      default_revision: false
+    done:
+      label: Done
+      weight: 6
+      published: false
+      default_revision: false
+    draft:
+      label: Draft
+      weight: 0
+      published: false
+      default_revision: false
+    expired:
+      label: Expired
+      weight: 3
+      published: false
+      default_revision: false
+    failed:
+      label: Failed
+      weight: 7
+      published: false
+      default_revision: false
+    published:
+      label: Published
+      weight: 1
+      published: true
+      default_revision: true
+    reviewed:
+      label: Reviewed
+      weight: 5
+      published: false
+      default_revision: false
+  transitions:
+    assigned_to_user:
+      label: 'Assigned to user'
+      from:
+        - published
+      to: assigned
+      weight: 2
+    create_new_draft:
+      label: 'Create New Draft'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    publish:
+      label: Publish
+      from:
+        - draft
+        - published
+      to: published
+      weight: 1
+    the_mission_is_being_reviewed:
+      label: 'The mission is being reviewed'
+      from:
+        - completed
+      to: reviewed
+      weight: 5
+    the_mission_is_complete:
+      label: 'The mission is complete'
+      from:
+        - assigned
+      to: completed
+      weight: 4
+    the_mission_is_done:
+      label: 'The mission is done'
+      from:
+        - reviewed
+      to: done
+      weight: 6
+    the_mission_is_failed:
+      label: 'The mission is failed'
+      from:
+        - reviewed
+      to: failed
+      weight: 7
+    time_is_over:
+      label: 'Time is over'
+      from:
+        - assigned
+      to: expired
+      weight: 3
+  entity_types: {  }
+  default_moderation_state: published

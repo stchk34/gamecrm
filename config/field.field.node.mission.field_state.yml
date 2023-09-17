@@ -1,0 +1,23 @@
+uuid: 675e6b67-2b21-4545-ad22-42ae38f5f652
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_state
+    - node.type.mission
+  module:
+    - workflow
+id: node.mission.field_state
+field_name: field_state
+entity_type: node
+bundle: mission
+label: State
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: mission_state_assigned
+default_value_callback: ''
+settings: {  }
+field_type: workflow

@@ -1,0 +1,407 @@
+// Non-modular or client styles for .l-header region.
+.header {
+  position: relative;
+  height: auto;
+  margin: 0;
+  background: $dark-gray-default-theme;
+  color: $white;
+}
+
+.gamecrm-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.gamecrm-header-info-menu {
+  width: 50px;
+}
+
+.gamecrm-header-info-user {
+  div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.gamecrm-header-info-menu {
+  width: 50px;
+}
+
+//Menu.
+.gamecrm-header-menu {
+  display: flex;
+  align-items: center;
+
+  ul {
+    li {
+      list-style: none;
+
+      .is-active {
+        color: $medium-gray;
+      }
+
+      a {
+        font-size: 21px;
+        color: $white;
+        padding: 0 10px;
+        text-transform: uppercase;
+
+        &:hover {
+          text-decoration: none;
+          color: $medium-gray;
+        }
+
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.gamecrm-header-info {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+//Information block about user.
+.gamecrm-header-info-user {
+  //Icon group.
+  #block-gamecrm-sakura-views-block-group-settings-block-1 {
+    padding: 0 10px;
+
+    .field_group_settings{
+      a {
+        font-size: 0;
+
+        &:before {
+          font-family: FontAwesome, serif;
+          font-size: 25px;
+          display: inline-block;
+          content: '\f0c0';
+          color: $medium-gray;
+        }
+      }
+    }
+  }
+
+  //Photo user.
+  #block-gamecrm-sakura-photouser {
+    padding: 0 10px;
+
+    .field--user-field-user-picture {
+      img {
+        max-width: 64px;
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+
+  //Balance user.
+  .block-views-blockmy-balance-block-1 {
+    padding: 0 10px;
+
+    .views-field-field-balance {
+      font-size: 25px;
+      font-weight: 400;
+      color: $white;
+      line-height: 0.5;
+      padding: 0;
+      a{
+        font-size: 25px;
+        font-weight: 400;
+        color: $white;
+        line-height: 0.5;
+        padding: 0;
+
+        &:after {
+          content: "\A POINTS";
+          white-space: pre;
+          font-weight: 200;
+          font-size: 12px;
+          color: $medium-gray;
+        }
+      }
+    }
+  }
+}
+
+//Kebab menu.
+.gamecrm-header-info-menu {
+  padding: 0 10px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  font-size: 36px;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .cross {
+    display: none;
+  }
+
+  .cross.hidden {
+    display: flex;
+    border-radius: 5px;
+    padding: 0;
+  }
+
+  figure.active {
+    display: none;
+  }
+
+  .middle {
+    display: flex;
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    background: $medium-gray;
+    margin: 3px 0;
+    position: relative;
+
+    &::after {
+      display: flex;
+      width: 6px;
+      height: 6px;
+      border-radius: 1px;
+      background: $medium-gray;
+      margin: 3px 0;
+      top: 10px;
+      content: ' ';
+      position: absolute;
+    }
+
+    &::before {
+      display: flex;
+      width: 6px;
+      height: 6px;
+      position: absolute;
+      border-radius: 1px;
+      background: $medium-gray;
+      margin: 3px 0;
+      bottom: 10px;
+      content: ' ';
+    }
+  }
+
+  .middle {
+    transition: all 0.25s cubic-bezier(0.72, 1.2, 0.71, 0.72);
+    transform: scale(1);
+    position: relative;
+    box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16), 0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
+    -webkit-filter: blur(0.1px);
+    filter: blur(0.1px);
+  }
+
+  .active .middle {
+    transform: scale(4.5);
+    transition: all 0.25s cubic-bezier(0.32, 2.04, 0.85, 0.54);
+    box-shadow: 0 0.1px 0.1px 0 rgba(0, 0, 0, 0.16), 0 0.1px 0.3px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  h1,
+  a,
+  li {
+    font-family: Roboto, sans-serif;
+  }
+
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 3em;
+    z-index: 5;
+    transition: all 0.25s ease-out;
+    transform: scale(0);
+    transform-origin: 100% 0;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  }
+
+  .dropdown li {
+    display: block;
+    width: 100%;
+  }
+
+  .dropdown li a {
+    width: 100%;
+    padding: 1em 18px;
+    display: inline-block;
+    white-space: pre;
+    box-sizing: border-box;
+  }
+
+  .dropdown li a:hover {
+    background: #ebebeb;
+  }
+
+  .dropdown:hover ul {
+    transform: scale(1);
+  }
+
+  .active .dropdown {
+    transform: scale(1);
+    transition: all 0.25s cubic-bezier(0.5, 1.8, 0.9, 0.8);
+  }
+
+}
+
+.block-gamecrm-sakura-adminmenu-2.active {
+  background: $dark-gray-default-theme;
+  display: flex;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+  position: absolute;
+  z-index: 7;
+  max-width: 200px;
+  width: 100%;
+  right: 0;
+  top: 100%;
+
+  .menu {
+    justify-content: center;
+
+    li {
+      padding: 10px;
+
+      a {
+        color: $white;
+        font-size: 16px;
+        padding: 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.block-gamecrm-sakura-adminmenu-2 {
+  display: none;
+}
+
+@include breakpoint(small only) {
+  .gamecrm-header-wrapper {
+    padding: 10px 8px;
+  }
+  //Menu.
+  .gamecrm-header-menu {
+    ul {
+      li {
+        a {
+          font-size: 16px;
+          padding: 0 5px 0 0;
+        }
+      }
+    }
+  }
+
+  .block-gamecrm-sakura-adminmenu-2 {
+    display: none;
+  }
+
+  .gamecrm-header-info-menu {
+    width: 20px;
+  }
+
+  //Icon "X".
+  .cross.hidden {
+    display: flex;
+    height: 35px;
+    align-items: center;
+    width: 5px;
+    padding: 0;
+    font-size: 25px;
+    justify-content: center;
+
+    .gamecrm-header-menu {
+      ul {
+        li {
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+
+  .gamecrm-header-info-menu {
+    padding: 0 5px;
+    width: 20px;
+
+  }
+  //Icon user.
+  .gamecrm-header-info-user {
+    //Icon.
+    #block-gamecrm-sakura-photouser {
+      padding: 0 5px;
+
+      .field--name-field-user-picture {
+        img {
+          max-width: 40px;
+        }
+      }
+    }
+
+    //Icon group.
+    #block-gamecrm-sakura-views-block-group-settings-block-1 {
+      padding: 0;
+
+      .field_group_settings {
+        a {
+          &:before {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    //Balance user.
+    .block-views-blockmy-balance-block-1 {
+      padding: 0 5px;
+
+      .views-field-field-balance {
+        font-size: 20px;
+
+        &:after {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+
+  //Kebab menu.
+  .block-gamecrm-sakura-adminmenu-2.active {
+    display: flex;
+    position: absolute;
+    z-index: 7;
+    max-width: 150px;
+    width: 100%;
+    right: 0;
+    top: 100%;
+
+    .menu {
+      display: flex;
+      justify-content: center;
+
+      li {
+        padding: 10px;
+
+        a {
+          text-align: center;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

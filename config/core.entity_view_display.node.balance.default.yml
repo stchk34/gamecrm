@@ -1,0 +1,47 @@
+uuid: 2c5b372e-b573-4221-b366-1214e26d2ad2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.balance.field_balance
+    - field.field.node.balance.field_group
+    - field.field.node.balance.field_user
+    - node.type.balance
+  module:
+    - user
+id: node.balance.default
+targetEntityType: node
+bundle: balance
+mode: default
+content:
+  field_balance:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_group:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_user:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

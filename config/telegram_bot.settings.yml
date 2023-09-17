@@ -1,0 +1,10 @@
+_core:
+  default_config_hash: U03mWaZ9kJZLuYftGMcmfVM8VLWqTDjhm0wpHu8SZMU
+name: staff_wishdesk_bot
+token: '5971085372:AAEGR7ZbG9pDc39jOXSlyD07yPn1ChJA6TM'
+database_host: localhost
+database_name: db
+database_user: developer
+database_pass: Game404Sys
+login: admin
+password: Game404sys

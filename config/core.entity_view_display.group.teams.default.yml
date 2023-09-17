@@ -1,0 +1,143 @@
+uuid: c084e5a3-7969-40a9-9366-68fbeb9090a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.base_field_override.group.teams.label
+    - field.field.group.teams.field_author
+    - field.field.group.teams.field_badges
+    - group.type.teams
+    - views.view.group_balance
+    - views.view.list_mission_for_user
+    - views.view.test4_group_
+  module:
+    - layout_builder
+    - layout_discovery
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          80eafdcd-e033-4d1c-828a-7ee88198cd98:
+            uuid: 80eafdcd-e033-4d1c-828a-7ee88198cd98
+            region: content
+            configuration:
+              id: 'views_block:test4_group_-block_1'
+              label: 'Group rewards'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'Group rewards'
+              items_per_page: none
+            weight: 4
+            additional: {  }
+          73201aac-e28e-4ec4-9aa5-4a6ceb59a9be:
+            uuid: 73201aac-e28e-4ec4-9aa5-4a6ceb59a9be
+            region: content
+            configuration:
+              id: 'field_block:group:teams:uid'
+              label: 'Group creator'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          eb9e44f3-c644-438d-b141-f540dcfbd7d8:
+            uuid: eb9e44f3-c644-438d-b141-f540dcfbd7d8
+            region: content
+            configuration:
+              id: 'views_block:list_mission_for_user-block_3'
+              label: 'Short-term Mission'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'Short-term Mission'
+              items_per_page: none
+            weight: 5
+            additional: {  }
+          311fa706-10c7-4af0-8ae6-c3f2da458e39:
+            uuid: 311fa706-10c7-4af0-8ae6-c3f2da458e39
+            region: content
+            configuration:
+              id: 'views_block:list_mission_for_user-block_4'
+              label: 'Long-term Mission'
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: 'Long-term Mission'
+              items_per_page: none
+            weight: 6
+            additional: {  }
+          ecfab79a-e8fe-4cf1-ac72-1c1994043304:
+            uuid: ecfab79a-e8fe-4cf1-ac72-1c1994043304
+            region: content
+            configuration:
+              id: 'views_block:group_balance-block_1'
+              label: ''
+              label_display: visible
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 3
+            additional: {  }
+          ea9d4246-5725-4386-83f9-66a50bcfae8e:
+            uuid: ea9d4246-5725-4386-83f9-66a50bcfae8e
+            region: content
+            configuration:
+              id: 'field_block:group:teams:label'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: group.teams.default
+targetEntityType: group
+bundle: teams
+mode: default
+content:
+  field_badges:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  label:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -5
+    region: content
+hidden:
+  changed: true
+  created: true
+  field_author: true
+  uid: true

@@ -1,0 +1,11 @@
+available_theme.add_form:
+  title: 'Add available theme'
+  route_name: entity.available_theme.add_form
+  appears_on:
+    - entity.available_theme.collection
+
+select_theme.add_form:
+  title: 'Add select theme'
+  route_name: entity.select_theme.add_form
+  appears_on:
+    - entity.select_theme.collection

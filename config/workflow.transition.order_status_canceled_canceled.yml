@@ -1,0 +1,12 @@
+uuid: 90e94bbc-7211-46ba-9603-3f72fb992cec
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_canceled
+id: order_status_canceled_canceled
+label: ''
+module: workflow
+from_sid: order_status_canceled
+to_sid: order_status_canceled
+roles: {  }

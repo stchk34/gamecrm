@@ -1,0 +1,29 @@
+uuid: 9206af6e-54f5-49aa-a687-9421a8b41767
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mission_operation
+    - node.type.mission
+    - node.type.transaction
+id: node.transaction.field_mission_operation
+field_name: field_mission_operation
+entity_type: node
+bundle: transaction
+label: 'Mission operation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      mission: mission
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

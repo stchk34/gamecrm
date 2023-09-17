@@ -1,0 +1,26 @@
+uuid: 3ca6fcfb-1357-4950-9c38-75bb5f89153f
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+id: product_alias
+label: 'Product alias'
+type: 'canonical_entities:commerce_product'
+pattern: '/product/[commerce_product:type]/[commerce_product:title]'
+selection_criteria:
+  f2244931-2b40-4490-b796-3db54b770a6d:
+    id: 'entity_bundle:commerce_product'
+    negate: false
+    uuid: f2244931-2b40-4490-b796-3db54b770a6d
+    context_mapping:
+      commerce_product: commerce_product
+    bundles:
+      badge: badge
+      electronics: electronics
+      merch: merch
+      services: services
+      theme: theme
+selection_logic: and
+weight: 0
+relationships: {  }

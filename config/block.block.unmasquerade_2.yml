@@ -1,0 +1,25 @@
+uuid: 244eb4be-9bff-441a-9c5c-e69ebac159d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.unmasquerade
+  module:
+    - system
+  theme:
+    - gamecrm_dark
+id: unmasquerade_2
+theme: gamecrm_dark
+region: footer_first
+weight: -8
+provider: null
+plugin: 'system_menu_block:unmasquerade'
+settings:
+  id: 'system_menu_block:unmasquerade'
+  label: Unmasquerade
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

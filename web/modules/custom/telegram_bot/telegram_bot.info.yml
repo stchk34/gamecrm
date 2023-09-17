@@ -1,0 +1,9 @@
+name: Telegram Bot
+type: module
+description: 'Provides basic authorization of Telegram accounts to Drupal.'
+core_version_requirement: ^8 || ^9 || ^10
+package: Custom
+configure: telegram_bot.admin_settings_form
+dependencies:
+  - drupal:block
+  - drupal:config

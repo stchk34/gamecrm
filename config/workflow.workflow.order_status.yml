@@ -1,0 +1,16 @@
+uuid: 08bf4319-c291-4459-acb3-a5f94b293f8e
+langcode: en
+status: true
+dependencies: {  }
+id: order_status
+label: 'Order status'
+module: workflow
+options:
+  name_as_title: 1
+  fieldset: 0
+  options: buttons
+  schedule_enable: false
+  schedule_timezone: 1
+  always_update_entity: 0
+  comment_log_node: 0
+  watchdog_log: 1

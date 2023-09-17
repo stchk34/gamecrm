@@ -1,0 +1,229 @@
+//Exposed filter in view.
+.views-exposed-form{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  .js-form-item{
+    margin-right:5px;
+    label{
+      font-weight:600;
+      color:$white;
+    }
+  }
+  //Button.
+  .form-actions.js-form-wrapper.form-wrapper{
+    select{
+      margin-right:5px;
+    }
+    input{
+      padding:10px 20px;
+      font-size:14px;
+    }
+  }
+}
+
+
+//List product.
+.gamecrm-view-shop-rows {
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr;
+
+  .view-shop.views-row{
+    text-align: left;
+    margin: 10px;
+    padding: 10px!important;
+    position: relative;
+    //Field title.
+    .views-field-title {
+      font-weight: 600;
+      font-size: 20px;
+      display:flex;
+      align-items:center;
+      span{
+        overflow-wrap: anywhere;
+      }
+    }
+
+    //Field view product
+    .views-field-view-commerce-product{
+      a{
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    //Field view product 1
+    .views-field-view-commerce-product-1{
+      a{
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    //Field category.
+    .views-field-type {
+      font-size: 18px;
+      color: $medium-gray;
+    }
+
+    //Field description.
+    .views-field-field-description {
+      height:100px;
+      p {
+        margin: 0;
+        font-weight:400;
+        font-size:16px;
+        overflow-wrap: anywhere;
+      }
+      strong{
+        font-weight:400;
+      }
+    }
+
+    //Field image.
+    .views-field-field-media-product {
+      height:255px;
+    }
+    //Field badge icon
+    .views-field-badge-icon{
+      height: 255px;
+      display: flex;
+      justify-content: center;
+      align-items: end;
+    }
+
+    //Field price.
+    .views-field-price__number {
+      font-size: 20px;
+      color: $medium-gray;
+      font-weight: 600;
+    }
+
+    //Field button.
+    .views-field-view-commerce-product {
+      margin: 15px 0;
+      a {
+        background:$white;
+        color: $black;
+        padding: 10px 20px;
+        font-weight:600;
+        &:hover {
+          border:1px solid $white;
+          color: $black;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(xxlarge) {
+  .gamecrm-view-shop-rows {
+    .view-shop.views-row{
+      .views-field-title {
+        height:50px;
+      }
+      .views-field-field-description {
+        height:100px;
+      }
+    }
+  }
+}
+
+@include breakpoint(xxlarge only) {
+  .gamecrm-view-shop-rows {
+    .view-shop.views-row {
+      .views-field-field-description {
+        height: 80px;
+      }
+    }
+  }
+}
+
+@include breakpoint(xlarge only) {
+  .gamecrm-view-shop-rows {
+    .view-shop.views-row{
+      .views-field-field-description {
+        height:100px;
+      }
+    }
+  }
+}
+@include breakpoint(large only) {
+  .gamecrm-view-shop-rows {
+    .view-shop.views-row{
+      .views-field-title {
+        height:80px;
+      }
+      .views-field-field-description{
+        height:130px;
+      }
+    }
+  }
+}
+
+@include breakpoint(medium down) {
+  .gamecrm-view-shop-rows {
+    .view-shop.views-row{
+      box-shadow: rgba(0, 0, 0, 0.85) 0 5px 15px;
+      text-align:center!important;
+      .views-field-title {
+        height:50px;
+        justify-content:center;
+      }
+      .views-field-field-description {
+        height:130px;
+      }
+    }
+  }
+}
+
+//1024-640px.
+@include breakpoint(medium only) {
+  .gamecrm-view-shop-rows{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    .view-shop.views-row{
+      border-radius:5px;
+      margin:10px 15px;
+    }
+  }
+}
+
+//320-0px.
+@include breakpoint(small only) {
+  .gamecrm-view-shop-rows{
+    display:grid;
+    grid-template-columns:1fr;
+    .view-shop.views-row{
+      border-radius:5px;
+      margin:10px auto;
+      padding:10px 5px;
+      width:100%;
+      max-width:400px;
+      .views-field-field-media-product {
+        img{
+          object-fit:none;
+        }
+      }
+      .views-field-field-description{
+        height:auto;
+      }
+      form{
+        .form-actions.js-form-wrapper.form-wrapper{
+          input{
+            padding:9px;
+          }
+        }
+      }
+    }
+  }
+  .views-exposed-form {
+    padding-left:15px;
+  }
+}

@@ -1,0 +1,12 @@
+uuid: 4ef35739-6eb0-4def-aa31-7c49bed43802
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.mission_state
+id: mission_state_failed
+label: Failed
+module: workflow
+wid: mission_state
+weight: -8
+sysid: 0

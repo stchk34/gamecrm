@@ -1,0 +1,9 @@
+status: 0
+pattern: 'Transaction ID:[node:nid] | [node:field_mission_operation:entity:title] ID: %mission_id%'
+escape: false
+preserve_titles: false
+save: true
+chunk: 50
+dependencies:
+  config:
+    - node.type.transaction

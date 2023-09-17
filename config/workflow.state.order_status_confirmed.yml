@@ -1,0 +1,12 @@
+uuid: e7b91a5f-6c61-4b49-94d8-ca4cd715304e
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.order_status
+id: order_status_confirmed
+label: Confirmed
+module: workflow
+wid: order_status
+weight: -8
+sysid: 0

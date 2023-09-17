@@ -1,0 +1,33 @@
+uuid: a22d1114-f6b6-43c7-a135-806c06ba645f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group.teams.field_author
+    - field.field.group.teams.field_badges
+    - group.type.teams
+id: group.teams.default
+targetEntityType: group
+bundle: teams
+mode: default
+content:
+  label:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 1
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  field_author: true
+  field_badges: true
+  path: true
+  uid: true

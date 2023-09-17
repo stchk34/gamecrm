@@ -1,0 +1,18 @@
+uuid: 1a5a5dd0-8031-4129-8a64-65b293b7df4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_done
+    - workflow.state.order_status_in_progress
+id: order_status_done_in_progress
+label: null
+module: workflow
+from_sid: order_status_done
+to_sid: order_status_in_progress
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

@@ -1,0 +1,29 @@
+uuid: 961c9d61-ddbd-494f-9296-0dd7e26796af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_user
+    - node.type.transaction
+id: node.transaction.field_user
+field_name: field_user
+entity_type: node
+bundle: transaction
+label: User
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

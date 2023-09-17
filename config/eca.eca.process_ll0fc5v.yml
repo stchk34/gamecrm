@@ -1,0 +1,672 @@
+uuid: d3348419-48ee-49df-a192-c213c71c7ec7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.balance.field_group
+    - field.field.node.balance.field_user
+    - field.field.node.mission.field_doer
+    - field.field.node.mission.field_group
+    - field.field.node.mission.field_number_of_points
+    - field.field.node.transaction.field_group
+    - field.field.node.transaction.field_mission_operation
+    - field.field.node.transaction.field_order_operation
+    - field.field.node.transaction.field_transaction
+    - field.field.node.transaction.field_transaction_type
+    - field.field.node.transaction.field_user
+    - field.storage.node.field_doer
+    - field.storage.node.field_group
+    - field.storage.node.field_mission_operation
+    - field.storage.node.field_number_of_points
+    - field.storage.node.field_order_operation
+    - field.storage.node.field_transaction
+    - field.storage.node.field_transaction_type
+    - field.storage.node.field_user
+    - node.type.mission
+    - node.type.transaction
+    - views.view.commerce_cart_form
+    - views.view.commerce_user_orders
+    - views.view.my_balance
+  module:
+    - eca_base
+    - eca_content
+    - eca_form
+    - eca_tamper
+    - eca_user
+    - eca_views
+id: process_ll0fc5v
+modeller: bpmn_io
+label: noname
+version: ''
+weight: -10
+events:
+  Event_09fj1hw:
+    plugin: 'content_entity:update'
+    label: 'Update mission'
+    configuration:
+      type: 'node mission'
+    successors:
+      -
+        id: Activity_042urw1
+        condition: ''
+  Event_10my4ye:
+    plugin: 'form:form_validate'
+    label: 'Form checkout'
+    configuration:
+      form_id: commerce-checkout-flow-multistep-default
+      entity_type_id: ''
+      bundle: ''
+      operation: ''
+    successors:
+      -
+        id: Activity_0iqmlou
+        condition: ''
+  Event_0vqve36:
+    plugin: 'content_entity:update'
+    label: 'Update order'
+    configuration:
+      type: 'commerce_order _all'
+    successors:
+      -
+        id: Activity_1b9ln2h
+        condition: ''
+conditions:
+  Flow_07ijc1p:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[mission:field_state:value]'
+      right: mission_state_done
+      operator: equal
+      type: value
+  Flow_11ugmfk:
+    plugin: eca_entity_field_value
+    configuration:
+      negate: false
+      case: false
+      expected_value: '1'
+      field_name: field_assigned
+      operator: equal
+      type: value
+      entity: mission
+  Flow_05bkdzq:
+    plugin: eca_entity_field_value
+    configuration:
+      negate: false
+      case: false
+      expected_value: '2'
+      field_name: field_assigned
+      operator: equal
+      type: value
+      entity: mission
+  Flow_02htp4s:
+    plugin: eca_entity_field_value
+    configuration:
+      negate: false
+      case: false
+      expected_value: '2'
+      field_name: field_reward
+      operator: equal
+      type: value
+      entity: mission
+  Flow_1d56v8j:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[cart:0:total_price:number]'
+      right: '[balance:field_balance]'
+      operator: greaterthan
+      type: value
+  Flow_0giu9kw:
+    plugin: eca_scalar
+    configuration:
+      case: false
+      left: '[order:field_order_status]'
+      right: '[unch_order:field_order_status]'
+      operator: equal
+      type: value
+      negate: true
+  Flow_1h9byu5:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[order:field_order_status]'
+      right: Done
+      operator: equal
+      type: value
+  Flow_1bg8ira:
+    plugin: eca_scalar
+    configuration:
+      case: false
+      left: '[cart:0:total_price:number]'
+      right: '[balance:field_balance]'
+      operator: greaterthan
+      type: value
+      negate: true
+  Flow_0yl6to3:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[order_created]'
+      right: '[current-date:raw]'
+      operator: greaterthan
+      type: value
+  Flow_1gmbmoz:
+    plugin: eca_scalar
+    configuration:
+      case: false
+      left: '[mission_unch:field_state:value]'
+      right: '[mission:field_state:value]'
+      operator: equal
+      type: value
+      negate: true
+gateways:
+  Gateway_0vnvxbf:
+    type: 0
+    successors:
+      -
+        id: Activity_13wikkt
+        condition: Flow_11ugmfk
+      -
+        id: Activity_1dpmfo4
+        condition: Flow_05bkdzq
+  Gateway_1gp0utj:
+    type: 0
+    successors:
+      -
+        id: Gateway_0zhxcv6
+        condition: Flow_02htp4s
+  Gateway_0aii23s:
+    type: 0
+    successors:
+      -
+        id: Activity_0ben0kd
+        condition: Flow_0giu9kw
+  Gateway_0zhxcv6:
+    type: 0
+    successors:
+      -
+        id: Gateway_0vnvxbf
+        condition: Flow_1gmbmoz
+actions:
+  Activity_0f8x8nk:
+    plugin: eca_token_load_entity
+    label: 'Load entity node mission'
+    configuration:
+      token_name: mission
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_0p6dryu
+        condition: ''
+  Activity_13wikkt:
+    plugin: eca_new_entity
+    label: 'Create transaction'
+    configuration:
+      token_name: transaction
+      type: 'node transaction'
+      langcode: ''
+      label: 'Transaction ID:[node:nid] | [mission:title] ID: [mission:nid]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_0ite0r6
+        condition: ''
+  Activity_0ite0r6:
+    plugin: eca_set_field_value
+    label: 'Set number transaction'
+    configuration:
+      field_name: field_transaction
+      field_value: '[mission:field_number_of_points:value]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_0vtfwi1
+        condition: ''
+  Activity_0vtfwi1:
+    plugin: eca_set_field_value
+    label: 'Set mission operation'
+    configuration:
+      field_name: field_mission_operation
+      field_value: '[mission]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_0vhtq5w
+        condition: ''
+  Activity_0vhtq5w:
+    plugin: eca_set_field_value
+    label: 'Set user'
+    configuration:
+      field_name: field_user
+      field_value: '[mission:field_doer]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_186sjkh
+        condition: ''
+  Activity_1dpmfo4:
+    plugin: eca_new_entity
+    label: 'Create transaction'
+    configuration:
+      token_name: transaction
+      type: 'node transaction'
+      langcode: ''
+      label: 'Transaction ID:[node:nid] | [mission:title] ID: [mission:nid]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_0c01wmt
+        condition: ''
+  Activity_0c01wmt:
+    plugin: eca_set_field_value
+    label: 'Set number transaction'
+    configuration:
+      field_name: field_transaction
+      field_value: '[mission:field_number_of_points:value]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_0h3hxf9
+        condition: ''
+  Activity_0h3hxf9:
+    plugin: eca_set_field_value
+    label: 'Set mission operation'
+    configuration:
+      field_name: field_mission_operation
+      field_value: '[mission]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_0dber9y
+        condition: ''
+  Activity_0dber9y:
+    plugin: eca_set_field_value
+    label: 'Set group'
+    configuration:
+      field_name: field_group
+      field_value: '[mission:field_group]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_1m36t2z
+        condition: ''
+  Activity_186sjkh:
+    plugin: eca_set_field_value
+    label: 'Set transaction type'
+    configuration:
+      field_name: field_transaction_type
+      field_value: Earned
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors:
+      -
+        id: Activity_08njd9s
+        condition: ''
+  Activity_1m36t2z:
+    plugin: eca_set_field_value
+    label: 'Set transaction type'
+    configuration:
+      field_name: field_transaction_type
+      field_value: Earned
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors:
+      -
+        id: Activity_0h1fudj
+        condition: ''
+  Activity_1ypmsw0:
+    plugin: eca_token_load_entity
+    label: 'Load entity order'
+    configuration:
+      token_name: order
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_043fbq1
+        condition: ''
+  Activity_0ben0kd:
+    plugin: eca_new_entity
+    label: 'Create transaction'
+    configuration:
+      token_name: transaction
+      type: 'node transaction'
+      langcode: ''
+      label: 'Transaction ID:[node:nid] | Order ID: [order:order_id]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_02gikx5
+        condition: ''
+  Activity_15t110m:
+    plugin: eca_set_field_value
+    label: 'Set number transaction'
+    configuration:
+      field_name: field_transaction
+      field_value: '[order_price]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_1jhxh2a
+        condition: ''
+  Activity_02gikx5:
+    plugin: 'eca_tamper:math'
+    label: order_price
+    configuration:
+      operation: multiplication
+      flip: false
+      value: '-1'
+      eca_data: '[order:total_price:number]'
+      eca_token_name: order_price
+    successors:
+      -
+        id: Activity_15t110m
+        condition: ''
+  Activity_1jhxh2a:
+    plugin: eca_set_field_value
+    label: 'Set order operation'
+    configuration:
+      field_name: field_order_operation
+      field_value: '[order]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_0itg449
+        condition: ''
+  Activity_0itg449:
+    plugin: eca_set_field_value
+    label: 'Set user'
+    configuration:
+      field_name: field_user
+      field_value: '[order:uid:entity]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_00cfs6t
+        condition: ''
+  Activity_00cfs6t:
+    plugin: eca_set_field_value
+    label: 'Set transaction type'
+    configuration:
+      field_name: field_transaction_type
+      field_value: Spent
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors: {  }
+  Activity_1b9ln2h:
+    plugin: eca_switch_account
+    label: 'Swich order'
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_1ypmsw0
+        condition: ''
+  Activity_042urw1:
+    plugin: eca_switch_account
+    label: 'Swich order'
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_0f8x8nk
+        condition: ''
+  Activity_1byh2gv:
+    plugin: eca_form_field_set_error
+    label: Error
+    configuration:
+      message: 'Not enough points on the balance to make a purchase'
+      field_name: op
+    successors: {  }
+  Activity_18as954:
+    plugin: eca_views_query
+    label: 'Load cart'
+    configuration:
+      token_name: cart
+      view_id: commerce_cart_form
+      display_id: default
+      arguments: '[current-page:url:args:value:1]'
+    successors:
+      -
+        id: Activity_0r9vfes
+        condition: ''
+  Activity_0iqmlou:
+    plugin: eca_token_load_user_current
+    label: 'Load user'
+    configuration:
+      token_name: user
+    successors:
+      -
+        id: Activity_1ol2bk1
+        condition: ''
+  Activity_1ol2bk1:
+    plugin: eca_switch_account
+    label: 'Switch user to admin'
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_18as954
+        condition: ''
+  Activity_0ntqdfn:
+    plugin: eca_token_load_entity
+    label: 'Load balance'
+    configuration:
+      token_name: balance
+      from: id
+      entity_type: node
+      entity_id: '[view_balance:0:nid]'
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_1byh2gv
+        condition: Flow_1d56v8j
+      -
+        id: Activity_1beh4ih
+        condition: Flow_1bg8ira
+  Activity_043fbq1:
+    plugin: eca_token_load_entity
+    label: 'load unch_order'
+    configuration:
+      token_name: unch_order
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: true
+      object: ''
+    successors:
+      -
+        id: Gateway_0aii23s
+        condition: Flow_1h9byu5
+  Activity_0r9vfes:
+    plugin: eca_views_query
+    label: view_balance
+    configuration:
+      token_name: view_balance
+      view_id: my_balance
+      display_id: block_1
+      arguments: '[user:uid]'
+    successors:
+      -
+        id: Activity_0ntqdfn
+        condition: ''
+  Activity_1beh4ih:
+    plugin: eca_views_query
+    label: view_order
+    configuration:
+      token_name: view_order
+      view_id: commerce_user_orders
+      display_id: order_page
+      arguments: '[user:uid]'
+    successors:
+      -
+        id: Activity_0y4a9qc
+        condition: ''
+  Activity_0y4a9qc:
+    plugin: eca_token_load_entity
+    label: order
+    configuration:
+      token_name: order
+      from: id
+      entity_type: commerce_order
+      entity_id: '[view_order:0:order_id]'
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_0decpsz
+        condition: ''
+  Activity_0decpsz:
+    plugin: 'eca_tamper:math'
+    label: order_created
+    configuration:
+      operation: addition
+      flip: false
+      value: '172800'
+      eca_data: '[order:created:value]'
+      eca_token_name: order_created
+    successors:
+      -
+        id: Activity_0hl8po8
+        condition: Flow_0yl6to3
+  Activity_1cdxnvu:
+    plugin: eca_form_field_set_error
+    label: Error
+    configuration:
+      message: 'You will be able to place an order after [date]'
+      field_name: op
+    successors: {  }
+  Activity_0hl8po8:
+    plugin: 'eca_tamper:timetodate'
+    label: date
+    configuration:
+      date_format: 'm-d-Y H:i'
+      eca_data: '[order_created]'
+      eca_token_name: date
+    successors:
+      -
+        id: Activity_1cdxnvu
+        condition: ''
+  Activity_08njd9s:
+    plugin: eca_set_field_value
+    label: 'Set title value'
+    configuration:
+      field_name: title
+      field_value: 'Transaction ID:[transaction:nid] | [mission:title] ID:[mission:nid]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors: {  }
+  Activity_0p6dryu:
+    plugin: eca_token_load_entity
+    label: load_unch
+    configuration:
+      token_name: mission_unch
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: true
+      object: ''
+    successors:
+      -
+        id: Gateway_1gp0utj
+        condition: Flow_07ijc1p
+  Activity_0h1fudj:
+    plugin: eca_set_field_value
+    label: 'Set title value'
+    configuration:
+      field_name: title
+      field_value: 'Transaction ID:[transaction:nid] | [mission:title] ID:[mission:nid]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors: {  }

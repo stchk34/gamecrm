@@ -1,0 +1,22 @@
+uuid: ee1bd28b-e35f-4084-ba2a-af1d4b8ccc74
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gamecrm_sakura
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: gamecrm_sakura_content
+theme: gamecrm_sakura
+region: content
+weight: -6
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

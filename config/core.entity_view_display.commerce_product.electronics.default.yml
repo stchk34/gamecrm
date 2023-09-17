@@ -1,0 +1,172 @@
+uuid: fd3ae4aa-ae77-4998-b1c2-dd084b3e5c07
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.electronics
+    - field.field.commerce_product.electronics.field_description
+    - field.field.commerce_product.electronics.field_media_product
+  module:
+    - commerce_product
+    - foundation_layouts
+    - layout_builder
+    - media
+    - text
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: foundation-4-8
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          wrappers:
+            sidebar_left: div
+            sidebar_right: div
+          wrapper_classes: ''
+          attributes: {  }
+          wrapper_id: product-page
+        components:
+          764a4f29-10b6-4113-b419-ba3df38f78be:
+            uuid: 764a4f29-10b6-4113-b419-ba3df38f78be
+            region: sidebar_left
+            configuration:
+              id: 'field_block:commerce_product:electronics:field_media_product'
+              label: 'Media product'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: media_thumbnail
+                label: hidden
+                settings:
+                  image_link: ''
+                  image_style: product_img
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          68f2c9e1-399a-411b-b061-f101d847d5c7:
+            uuid: 68f2c9e1-399a-411b-b061-f101d847d5c7
+            region: sidebar_right
+            configuration:
+              id: 'field_block:commerce_product:electronics:field_description'
+              label: Description
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          02911de0-12e5-402b-8385-45f2c9b2f34e:
+            uuid: 02911de0-12e5-402b-8385-45f2c9b2f34e
+            region: sidebar_right
+            configuration:
+              id: 'field_block:commerce_product_variation:computer_mouse:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: '@commerce_product.product_variation_route_context:commerce_product_variation'
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: -1
+            additional: {  }
+          1422b85b-7ebf-46c5-8dba-34e3bc9b1eae:
+            uuid: 1422b85b-7ebf-46c5-8dba-34e3bc9b1eae
+            region: sidebar_right
+            configuration:
+              id: 'field_block:commerce_product:electronics:variations'
+              label: Variations
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: commerce_add_to_cart
+                label: hidden
+                settings:
+                  combine: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          33a30a58-34bf-4d31-ac1f-02bde5a61cc5:
+            uuid: 33a30a58-34bf-4d31-ac1f-02bde5a61cc5
+            region: sidebar_left
+            configuration:
+              id: 'field_block:commerce_product_variation:computer_mouse:price'
+              label: Price
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: '@commerce_product.product_variation_route_context:commerce_product_variation'
+                view_mode: view_mode
+              formatter:
+                type: commerce_price_default
+                label: inline
+                settings:
+                  strip_trailing_zeroes: false
+                  currency_display: none
+                third_party_settings: {  }
+            weight: 3
+            additional: {  }
+        third_party_settings: {  }
+id: commerce_product.electronics.default
+targetEntityType: commerce_product
+bundle: electronics
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_media_product:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    label: hidden
+    settings:
+      combine: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  created: true
+  stores: true
+  uid: true

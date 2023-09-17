@@ -1,0 +1,25 @@
+uuid: 554e4bb7-e2b9-44cd-9c68-54dbf73bb830
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.group_settings
+  module:
+    - views
+  theme:
+    - gamecrm
+id: views_block__group_settings_block_3
+theme: gamecrm
+region: header
+weight: 0
+provider: null
+plugin: 'views_block:group_settings-block_3'
+settings:
+  id: 'views_block:group_settings-block_3'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility: {  }

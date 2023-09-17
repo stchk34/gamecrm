@@ -1,0 +1,14 @@
+uuid: 525f12ef-37b2-4cea-85ad-1f3200cdf4dc
+langcode: en
+status: true
+dependencies: {  }
+id: theme
+label: Theme
+traits: {  }
+locked: false
+description: ''
+variationType: theme
+variationTypes:
+  - theme
+multipleVariations: true
+injectVariationFields: true

@@ -1,0 +1,20 @@
+uuid: ce689fa0-7d39-4e6a-9b84-a22500899a84
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_done
+    - workflow.state.mission_state_reviewed
+id: mission_state_reviewed_done
+label: 'The mission is done'
+module: workflow
+from_sid: mission_state_reviewed
+to_sid: mission_state_done
+roles:
+  workflow_author: workflow_author
+  content_editor: content_editor
+  administrator: administrator
+  anonymous: '0'
+  authenticated: '0'
+  team_lead: '0'
+  user: '0'

@@ -1,0 +1,10 @@
+uuid: 44465214-67d8-459a-bff0-0dd59d9631d5
+langcode: en
+status: true
+dependencies: {  }
+id: theme
+label: Theme
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: null

@@ -1,0 +1,18 @@
+uuid: b91fa1d1-3794-4dc8-ba99-c2dd6b5b2d79
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_creation
+    - workflow.state.order_status_draft
+id: order_status_creation_draft
+label: null
+module: workflow
+from_sid: order_status_creation
+to_sid: order_status_draft
+roles:
+  workflow_author: workflow_author
+  administrator: administrator
+  team_lead: team_lead
+  user: user
+  content_editor: '0'

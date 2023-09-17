@@ -1,0 +1,5 @@
+services:
+  redirect_404.event_subscriber:
+    class: Drupal\redirect_404\EventSubscriber\Redirect404EventSubscriber
+    tags:
+      - { name: event_subscriber }

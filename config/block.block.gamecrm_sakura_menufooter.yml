@@ -1,0 +1,36 @@
+uuid: f287ba47-e256-4dc2-81e8-abe8f147efe9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-footer
+  module:
+    - system
+    - user
+  theme:
+    - gamecrm_sakura
+id: gamecrm_sakura_menufooter
+theme: gamecrm_sakura
+region: footer_first
+weight: -8
+provider: null
+plugin: 'system_menu_block:menu-footer'
+settings:
+  id: 'system_menu_block:menu-footer'
+  label: 'Menu footer'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      administrator: administrator
+      team_lead: team_lead
+      user: user

@@ -1,0 +1,193 @@
+@mixin dark-theme-button{
+  background:$white;
+  color:$black;
+  font-size:16px;
+  font-weight:600;
+  cursor: pointer;
+  &:focus, &:hover{
+    background:transparent;
+    color:$white;
+    border: 1px solid $white;
+    font-weight:600;
+  }
+}
+
+
+@mixin comming-soon{
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  //Text comming soon.
+  .field--node-body{
+    font-size:24px;
+    font-weight:600;
+    color:$white;
+    p{
+      margin:0;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      line-height:1;
+    }
+  }
+  //Link to homepage.
+  .field--node-field-link-basic-page{
+    a{
+      font-size:15px;
+      color:$medium-gray;
+      position: relative;
+      display:block;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        transition: .5s;
+        transform: scale(.9);
+        z-index: -1;
+      }
+      &:hover{
+        color: $red;
+        text-shadow: 0 0 5px $red;
+        text-decoration:none;
+      }
+    }
+  }
+}
+
+@mixin field-label-dark-node{
+  .field-label{
+    font-weight:600;
+    margin-right:5px;
+    &:after{
+      content:':';
+    }
+  }
+}
+
+@mixin label-form{
+  label {
+    font-weight: 600;
+  }
+  .counter{
+    font-size:14px;
+    text-align: left;
+  }
+  input{
+    margin:10px 0;
+  }
+}
+
+@mixin table-dark-theme{
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 8px;
+    border: 1px solid $white;
+    text-align: center;
+    color: $white;
+    a {
+      color: $white;
+      overflow-wrap:anywhere;
+    }
+    ul{
+      margin:0;
+      li{
+        list-style:none;
+      }
+    }
+  }
+  td{
+    .form-actions.js-form-wrapper.form-wrapper{
+      .form-submit{
+        margin:0;
+      }
+    }
+    .dropbutton-wrapper {
+      background-color: transparent;
+      display: inline-block;
+      margin: 0!important;
+    }
+    .dropbutton-multiple{
+      margin-right:0!important;
+      padding-right:0!important;
+      max-width:165px!important;
+      display:flex;
+      justify-content: center;
+      left:20%!important;
+      .dropbutton-arrow{
+        color:$white;
+      }
+      &.open{
+        height:auto;
+        padding:0;
+        position:relative!important;
+        background:transparent;
+        .dropbutton-widget{
+          padding:10px 20px;
+          height:auto;
+          position:relative!important;
+          ul.dropbutton {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: inline-block;
+            position: absolute;
+            top:0;
+            left: 0;
+            background-color:$background-basic-dark-theme;
+            border: 1px solid $black;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            min-width: 150px;
+            z-index: 1;
+            .dropbutton-arrow{
+              color:$white;
+            }
+            li {
+              a {
+                display: block;
+                padding: 10px 15px;
+                text-decoration: none;
+                color: $white;
+                transition: background-color 0.2s;
+
+                &:hover {
+                  opacity:0.5;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  thead th {
+    background: transparent;
+    font-weight: bold;
+    color: $white;
+  }
+
+  tbody, thead {
+    background: transparent;
+  }
+  tbody tr:nth-child(even) {
+    background: transparent;
+  }
+}
+
+@mixin title-bolder-default{
+  font-weight:bold;
+  text-transform:uppercase;
+  text-align:center;
+  font-size:18px;
+  overflow-wrap: anywhere;
+  font-family: 'Chakra Petch', 'Roboto Slab', serif;
+}
+

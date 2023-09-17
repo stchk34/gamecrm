@@ -1,0 +1,57 @@
+footer{
+  flex-shrink: 0;
+  position: relative;
+  height: auto;
+  .footer-wrapper-menu > div{
+    display: flex;
+    background:$background-header-dark-theme;
+    justify-content: space-between;
+    align-items:center;
+    padding:10px;
+    .menu{
+      li{
+        list-style:none;
+        a{
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 300;
+          color:$medium-gray;
+          padding:0 10px;
+          text-transform: capitalize;
+        }
+      }
+    }
+    #block-gamecrm-sakura-copyright{
+      color:$medium-gray;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 32px;
+      text-transform: capitalize;
+      p{
+        margin:0;
+        text-align:center;
+      }
+    }
+  }
+}
+//Adaptive.
+//320-0px.
+@include breakpoint(small down) {
+  .footer-wrapper-menu > div{
+    display:flex;
+    flex-direction: column;
+    .menu{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom:10px;
+      .menu{
+        li{
+          a{
+            line-height: 26px;
+          }
+        }
+      }
+    }
+  }
+}

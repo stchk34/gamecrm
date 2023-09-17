@@ -1,0 +1,15 @@
+uuid: 9d5b86f4-6acd-4f34-9d4b-4a902698a763
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+    - user.role.administrator
+id: teams-admin_in
+label: Administrator
+weight: 102
+admin: true
+scope: insider
+global_role: administrator
+group_type: teams
+permissions: {  }

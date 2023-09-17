@@ -1,0 +1,99 @@
+uuid: 19749ed5-4c95-4ded-8350-21411f8a1aa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.group_relationship.teams-group_membership.group_roles
+    - field.field.user.user.field_user_picture
+    - group.relationship_type.teams-group_membership
+  module:
+    - layout_builder
+    - layout_discovery
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          3449100d-36bf-4241-9c2e-a210786c7161:
+            uuid: 3449100d-36bf-4241-9c2e-a210786c7161
+            region: content
+            configuration:
+              id: 'field_block:group_relationship:teams-group_membership:entity_id'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          d471731a-d382-42cf-9475-65d2e944dad4:
+            uuid: d471731a-d382-42cf-9475-65d2e944dad4
+            region: content
+            configuration:
+              id: 'field_block:group_relationship:teams-group_membership:group_roles'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: false
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          8ce9327b-b45f-466b-8ccb-3d16293ff7ff:
+            uuid: 8ce9327b-b45f-466b-8ccb-3d16293ff7ff
+            region: content
+            configuration:
+              id: 'field_block:user:user:field_user_picture'
+              label: 'User picture'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: '@user.current_user_context:current_user'
+                view_mode: view_mode
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: ''
+                  image_style: thumbnail
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: group_relationship.teams-group_membership.default
+targetEntityType: group_relationship
+bundle: teams-group_membership
+mode: default
+content:
+  entity_id:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  group_roles:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  uid: true

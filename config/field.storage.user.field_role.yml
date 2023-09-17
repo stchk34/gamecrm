@@ -1,0 +1,23 @@
+uuid: c56b5b24-04c1-4819-a30d-d6465e12caaf
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_role
+field_name: field_role
+entity_type: user
+type: entity_reference
+settings:
+  target_type: user_role
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

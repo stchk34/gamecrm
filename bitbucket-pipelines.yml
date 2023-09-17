@@ -1,0 +1,11 @@
+pipelines:
+  branches:
+    dev:
+      - step:
+          name: Deploy to Dev
+          script:
+            - pipe: atlassian/ssh-run:0.4.1
+              variables:
+                SSH_USER: 'developer'
+                SERVER: '168.119.111.155'
+                COMMAND: 'cd ../../var/www/gamecrm.dev.drudesk.com && git checkout dev && git pull origin dev && echo -e "Done" '

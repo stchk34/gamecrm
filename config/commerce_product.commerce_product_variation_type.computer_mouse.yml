@@ -1,0 +1,10 @@
+uuid: e364c849-951a-4db4-aeb5-fc0c3b6e4fd4
+langcode: en
+status: true
+dependencies: {  }
+id: computer_mouse
+label: 'Computer Mouse'
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

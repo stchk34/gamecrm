@@ -1,0 +1,12 @@
+uuid: 3bc7b414-8b72-424b-a3af-a5765c9f6e39
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_on_hold
+id: order_status_on_hold_on_hold
+label: On-Hold
+module: workflow
+from_sid: order_status_on_hold
+to_sid: order_status_on_hold
+roles: {  }

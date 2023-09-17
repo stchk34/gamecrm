@@ -1,0 +1,429 @@
+uuid: 4032c4a5-91f7-444b-a237-4d1613549568
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mission.field_assigned
+    - field.field.node.mission.field_badge
+    - field.field.node.mission.field_comments_to_the_mission
+    - field.field.node.mission.field_description_mision
+    - field.field.node.mission.field_doer
+    - field.field.node.mission.field_end_date
+    - field.field.node.mission.field_group
+    - field.field.node.mission.field_number_of_points
+    - field.field.node.mission.field_reward
+    - field.field.node.mission.field_state
+    - field.field.node.mission.field_type_mission
+    - node.type.mission
+  module:
+    - comment
+    - conditional_fields
+    - datetime
+    - field_group
+    - maxlength
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_choose_doer:
+      children:
+        - field_assigned
+        - field_doer
+        - field_group
+      label: 'Choose doer'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_reward:
+      children:
+        - field_reward
+        - field_number_of_points
+        - field_badge
+      label: Reward
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: node.mission.default
+targetEntityType: node
+bundle: mission
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_assigned:
+    type: options_buttons
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_badge:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        17b89352-7663-4f05-aaf8-401b5afe589f:
+          entity_type: node
+          bundle: mission
+          dependee: field_reward
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: show
+            effect_options: {  }
+            selector: ''
+            regex: '1'
+        0e75ac28-340e-487b-bb94-da43f698ec08:
+          entity_type: node
+          bundle: mission
+          dependee: field_reward
+          settings:
+            state: empty
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '2'
+            effect: empty
+            effect_options:
+              empty:
+                value: ''
+                reset: 1
+            selector: ''
+        2a9564f3-a08d-4ff3-ab1f-2c70723442ea:
+          entity_type: node
+          bundle: mission
+          dependee: field_reward
+          settings:
+            state: required
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_comments_to_the_mission:
+    type: comment_default
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_description_mision:
+    type: text_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_doer:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        b2ad8edb-4294-4c03-9fac-37fe4914af69:
+          entity_type: node
+          bundle: mission
+          dependee: field_assigned
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: show
+            effect_options: {  }
+            selector: ''
+            regex: '1'
+        756fc32b-7f7c-44c4-8203-fa54888d0408:
+          entity_type: node
+          bundle: mission
+          dependee: field_assigned
+          settings:
+            state: required
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: show
+            effect_options: {  }
+            selector: ''
+        cfe08425-0f3f-4946-9813-476cd9bd7008:
+          entity_type: node
+          bundle: mission
+          dependee: field_assigned
+          settings:
+            state: empty
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '2'
+            effect: empty
+            effect_options:
+              empty:
+                value: ''
+                reset: 1
+            selector: ''
+  field_end_date:
+    type: datetime_default
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_group:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        d74d3598-cd74-4e1c-8966-52f2a77ee754:
+          entity_type: node
+          bundle: mission
+          dependee: field_assigned
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '2'
+            effect: slide
+            effect_options:
+              fade:
+                speed: '400'
+              slide:
+                speed: '400'
+            selector: ''
+        314f8ddc-4af7-4970-9752-0d39651793f0:
+          entity_type: node
+          bundle: mission
+          dependee: field_assigned
+          settings:
+            state: empty
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: empty
+            effect_options:
+              empty:
+                value: ''
+                reset: 1
+            selector: ''
+        3d5df0fb-986d-424f-8d2b-60ed461fadd7:
+          entity_type: node
+          bundle: mission
+          dependee: field_assigned
+          settings:
+            state: required
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '2'
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_number_of_points:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        9aa6c0b1-7afa-47ae-bec5-e53e41cdb5bb:
+          entity_type: node
+          bundle: mission
+          dependee: field_reward
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '2'
+            effect: show
+            effect_options: {  }
+            selector: ''
+            regex: '2'
+        87a2eeb2-5176-49c5-ac1d-3863876b15e5:
+          entity_type: node
+          bundle: mission
+          dependee: field_reward
+          settings:
+            state: empty
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '1'
+            effect: empty
+            effect_options:
+              empty:
+                value: ''
+                reset: 1
+            selector: ''
+        1a1c645d-f17b-406a-a768-d3827f8d9297:
+          entity_type: node
+          bundle: mission
+          dependee: field_reward
+          settings:
+            state: required
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: '2'
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_reward:
+    type: options_buttons
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_state:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_type_mission:
+    type: options_buttons
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 70
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  moderation_state: true

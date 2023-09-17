@@ -1,0 +1,15 @@
+uuid: 663ba468-28af-473a-ac15-7db98a836f15
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.visibility
+  module:
+    - flag
+id: flag_action.visibility_flag
+label: Visible
+type: taxonomy_term
+plugin: 'flag_action:visibility_flag'
+configuration:
+  flag_id: visibility
+  flag_action: flag

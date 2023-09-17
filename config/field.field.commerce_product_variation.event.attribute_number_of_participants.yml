@@ -1,0 +1,24 @@
+uuid: 40c82a61-fb17-4ee3-bc6f-f8a66bb0dcfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_attribute.number_of_participants
+    - commerce_product.commerce_product_variation_type.event
+    - field.storage.commerce_product_variation.attribute_number_of_participants
+id: commerce_product_variation.event.attribute_number_of_participants
+field_name: attribute_number_of_participants
+entity_type: commerce_product_variation
+bundle: event
+label: 'Number of participants'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_product_attribute_value'
+  handler_settings:
+    target_bundles:
+      - number_of_participants
+field_type: entity_reference

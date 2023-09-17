@@ -1,0 +1,18 @@
+uuid: 4460098a-9e6a-4518-8732-44010b984eb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_draft
+    - workflow.state.order_status_on_hold
+id: order_status_draft_on_hold
+label: null
+module: workflow
+from_sid: order_status_draft
+to_sid: order_status_on_hold
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

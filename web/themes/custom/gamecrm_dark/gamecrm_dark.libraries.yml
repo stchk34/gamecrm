@@ -1,0 +1,27 @@
+global:
+  version: VERSION
+  css:
+    base:
+      css/style.css: {}
+  js:
+    js/kebab.js: { }
+    js/scripts.js: { }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+
+slick:
+  remote: https://cdn.jsdelivr.net/jquery.slick/1.6.0/
+  version: 1.6.0
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  js:
+    https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js: {type: external, minified: true}
+  css:
+    theme:
+      https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css: {}
+      https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css: {}
+
+

@@ -1,0 +1,12 @@
+uuid: 92011383-bc1f-41de-b090-61b649a26f1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_done
+id: mission_state_done_done
+label: ''
+module: workflow
+from_sid: mission_state_done
+to_sid: mission_state_done
+roles: {  }

@@ -1,0 +1,29 @@
+uuid: 20d69356-bb8a-450c-a735-34dfe67300a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner
+    - field.field.block_content.banner.body
+    - field.field.block_content.banner.field_image_banner
+    - image.style.banner
+  module:
+    - image
+id: block_content.banner.default
+targetEntityType: block_content
+bundle: banner
+mode: default
+content:
+  field_image_banner:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: banner
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true

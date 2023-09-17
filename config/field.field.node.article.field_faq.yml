@@ -1,0 +1,22 @@
+uuid: adf59414-1b2e-4e40-9c33-c305eb977428
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_faq
+    - node.type.article
+  module:
+    - faqfield
+id: node.article.field_faq
+field_name: field_faq
+entity_type: node
+bundle: article
+label: Faq
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  default_format: plain_text
+field_type: faqfield

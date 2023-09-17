@@ -1,0 +1,10 @@
+uuid: cfbb890f-6b4f-496f-8361-5a0a8e3c08c2
+langcode: en
+status: true
+dependencies: {  }
+id: keyboard
+label: Keyboard
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

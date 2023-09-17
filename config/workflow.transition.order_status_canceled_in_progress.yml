@@ -1,0 +1,18 @@
+uuid: 9964ac70-0a67-4e27-8374-81ccbe384d5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_canceled
+    - workflow.state.order_status_in_progress
+id: order_status_canceled_in_progress
+label: null
+module: workflow
+from_sid: order_status_canceled
+to_sid: order_status_in_progress
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

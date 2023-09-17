@@ -1,0 +1,18 @@
+uuid: a944a5f8-f560-4077-820b-c3c0eb6a14dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_confirmed
+    - workflow.state.order_status_done
+id: order_status_confirmed_done
+label: null
+module: workflow
+from_sid: order_status_confirmed
+to_sid: order_status_done
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

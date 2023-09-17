@@ -1,0 +1,20 @@
+uuid: a0bb53ee-14cc-42bd-b9ac-ad50d68ddb36
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_assigned
+    - workflow.state.mission_state_completed
+id: mission_state_assigned_completed
+label: null
+module: workflow
+from_sid: mission_state_assigned
+to_sid: mission_state_completed
+roles:
+  authenticated: authenticated
+  administrator: administrator
+  workflow_author: '0'
+  anonymous: '0'
+  content_editor: '0'
+  team_lead: '0'
+  user: '0'

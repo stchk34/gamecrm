@@ -1,0 +1,57 @@
+uuid: acca5b8a-ffd0-48da-b5a7-a3675ad34388
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.mission
+    - node.type.page
+  module:
+    - block_content
+    - commerce_order
+    - content_moderation
+    - disable_messages
+    - field_ui
+    - flag
+    - group
+    - node
+    - nodeaccess
+    - profile
+    - workflow
+id: team_lead
+label: 'Team lead'
+weight: 4
+is_admin: null
+permissions:
+  - 'access group overview'
+  - 'access mission_state workflow_transition form'
+  - 'access order_status workflow_transition form'
+  - 'access own mission_state workflow_transion overview'
+  - 'access user profiles'
+  - 'administer block_content display'
+  - 'administer user form display'
+  - 'administer workflow_transition fields'
+  - 'administer workflow_transition form display'
+  - 'create mission content'
+  - 'create mission_state workflow_transition'
+  - 'create order_status workflow_transition'
+  - 'create teams group'
+  - 'delete own article content'
+  - 'delete own mission content'
+  - 'delete own page content'
+  - 'edit own mission content'
+  - 'edit own mission_state workflow_transition'
+  - 'flag group'
+  - 'nodeaccess grant mission permissions'
+  - 'unflag group'
+  - 'update default commerce_order'
+  - 'view any profile'
+  - 'view error messages'
+  - 'view latest version'
+  - 'view own customer profile'
+  - 'view own profile'
+  - 'view own unpublished content'
+  - 'view own unpublished profile'
+  - 'view status messages'
+  - 'view user email addresses'
+  - 'view warning messages'

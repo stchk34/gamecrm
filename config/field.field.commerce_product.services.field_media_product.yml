@@ -1,0 +1,29 @@
+uuid: aeb2c2d8-c013-4e53-a411-a222da698853
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.services
+    - field.storage.commerce_product.field_media_product
+    - media.type.image
+id: commerce_product.services.field_media_product
+field_name: field_media_product
+entity_type: commerce_product
+bundle: services
+label: 'Media product'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

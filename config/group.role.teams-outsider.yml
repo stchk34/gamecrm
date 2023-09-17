@@ -1,0 +1,15 @@
+uuid: 9ec49978-e82c-4b3e-ac07-24a0cbbbf37a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+    - user.role.authenticated
+id: teams-outsider
+label: Outsider
+weight: -101
+admin: false
+scope: outsider
+global_role: authenticated
+group_type: teams
+permissions: {  }

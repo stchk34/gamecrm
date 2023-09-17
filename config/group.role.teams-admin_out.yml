@@ -1,0 +1,15 @@
+uuid: 2fab5cab-e799-47c1-b500-1a8d1a924e2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+    - user.role.administrator
+id: teams-admin_out
+label: Administrator
+weight: 101
+admin: true
+scope: outsider
+global_role: administrator
+group_type: teams
+permissions: {  }

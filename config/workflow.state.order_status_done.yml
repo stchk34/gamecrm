@@ -1,0 +1,12 @@
+uuid: 63dd5b85-fdc2-4a84-be0e-bfc67d9063ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.order_status
+id: order_status_done
+label: Done
+module: workflow
+wid: order_status
+weight: -4
+sysid: 0

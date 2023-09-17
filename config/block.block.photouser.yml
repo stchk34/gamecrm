@@ -1,0 +1,25 @@
+uuid: a9c916b8-1e51-410c-b2f3-0ddc15dce8de
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:user_display:b7c90c87-0d97-4ec2-a186-3c06e996e20d'
+  module:
+    - block_content
+  theme:
+    - gamecrm
+id: photouser
+theme: gamecrm
+region: header
+weight: -7
+provider: null
+plugin: 'block_content:b7c90c87-0d97-4ec2-a186-3c06e996e20d'
+settings:
+  id: 'block_content:b7c90c87-0d97-4ec2-a186-3c06e996e20d'
+  label: 'Photo user'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

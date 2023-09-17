@@ -1,0 +1,119 @@
+_core:
+  default_config_hash: G9q6Tqm-w6C28Pa8v04_ehrh0RVMvveNIMPscJ0hUzQ
+langcode: en
+tabs:
+  -
+    id: entity.user.canonical
+    title: View
+    weight: '-10'
+    hidden: 0
+  -
+    id: commerce_order.address_book.overview
+    title: 'Address book'
+    weight: '-9'
+    hidden: 1
+  -
+    id: entity.commerce_payment_method.collection
+    title: 'Payment methods'
+    weight: '-8'
+    hidden: 1
+  -
+    id: shortcut.set_switch
+    title: Shortcuts
+    weight: '-7'
+    hidden: 0
+  -
+    id: entity.user.edit_form
+    title: Edit
+    weight: '-6'
+    hidden: 0
+  -
+    id: 'views_view:view.commerce_user_orders.order_page'
+    title: Orders
+    weight: '0'
+    hidden: 0
+  -
+    id: entity.user.contact_form
+    title: Contact
+    weight: '-2'
+    hidden: 0
+  -
+    id: group.view
+    title: View
+    weight: '-10'
+    hidden: 0
+  -
+    id: group.edit_form
+    title: Edit
+    weight: '-9'
+    hidden: 0
+  -
+    id: group.delete_form
+    title: Delete
+    weight: '-8'
+    hidden: 0
+  -
+    id: group.content
+    title: 'All entities'
+    weight: '-7'
+    hidden: 1
+  -
+    id: 'views_view:view.group_members.page_1'
+    title: Members
+    weight: '-6'
+    hidden: 0
+  -
+    id: group.version_history
+    title: Revisions
+    weight: '-5'
+    hidden: 1
+  -
+    id: 'views_view:view.group_nodes.page_1'
+    title: Nodes
+    weight: '-4'
+    hidden: 1
+  -
+    id: 'views_view:view.customize_group.page_2'
+    title: 'Badge Settings'
+    weight: '0'
+    hidden: 0
+  -
+    id: entity.node.canonical
+    title: View
+    weight: '-10'
+    hidden: 0
+  -
+    id: entity.node.edit_form
+    title: Edit
+    weight: '0'
+    hidden: 0
+  -
+    id: entity.node.delete_form
+    title: Delete
+    weight: '10'
+    hidden: 0
+  -
+    id: entity.node.version_history
+    title: Revisions
+    weight: '20'
+    hidden: 1
+  -
+    id: 'workflow.entities:entity.node.workflow_history'
+    title: Workflow
+    weight: '100'
+    hidden: 0
+  -
+    id: 'views_view:view.my_orders.page_1'
+    title: 'Newly created orders'
+    weight: '-5'
+    hidden: 0
+  -
+    id: 'views_view:view.my_orders.page_2'
+    title: 'Orders under review'
+    weight: '-4'
+    hidden: 0
+  -
+    id: 'views_view:view.customize_profile.page_1'
+    title: 'Badge Settings'
+    weight: '-3'
+    hidden: 0

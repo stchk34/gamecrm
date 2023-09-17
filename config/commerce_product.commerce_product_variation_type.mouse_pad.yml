@@ -1,0 +1,10 @@
+uuid: 8a1dda05-15c2-4cae-a3b4-5d7dac45d37e
+langcode: en
+status: true
+dependencies: {  }
+id: mouse_pad
+label: 'Mouse Pad'
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

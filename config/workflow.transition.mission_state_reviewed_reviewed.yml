@@ -1,0 +1,12 @@
+uuid: 9f369f2b-5022-4cd9-b2be-c8c0ad7846cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_reviewed
+id: mission_state_reviewed_reviewed
+label: ''
+module: workflow
+from_sid: mission_state_reviewed
+to_sid: mission_state_reviewed
+roles: {  }

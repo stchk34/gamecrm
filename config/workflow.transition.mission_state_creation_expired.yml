@@ -1,0 +1,20 @@
+uuid: 3ea9858a-1214-46bd-a7a5-b6a010f641ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_creation
+    - workflow.state.mission_state_expired
+id: mission_state_creation_expired
+label: null
+module: workflow
+from_sid: mission_state_creation
+to_sid: mission_state_expired
+roles:
+  workflow_author: '0'
+  anonymous: '0'
+  authenticated: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

@@ -1,0 +1,663 @@
+uuid: e2cae9b4-7d60-4289-ba6c-c6fd094c014c
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.default
+    - field.field.group.teams.field_author
+    - field.field.group.teams.field_badges
+    - field.field.node.balance.field_group
+    - field.field.node.balance.field_user
+    - field.field.node.mission.field_badge
+    - field.field.node.mission.field_doer
+    - field.field.node.mission.field_group
+    - field.field.node.transaction.field_group
+    - field.field.node.transaction.field_mission_operation
+    - field.field.node.transaction.field_transaction
+    - field.field.node.transaction.field_transaction_type
+    - field.field.node.transaction.field_user
+    - field.field.user.user.field_badges
+    - field.field.user.user.field_group
+    - field.storage.group.field_author
+    - field.storage.group.field_badges
+    - field.storage.node.field_badge
+    - field.storage.node.field_doer
+    - field.storage.node.field_group
+    - field.storage.node.field_mission_operation
+    - field.storage.node.field_transaction
+    - field.storage.node.field_transaction_type
+    - field.storage.node.field_user
+    - field.storage.user.field_badges
+    - field.storage.user.field_group
+    - group.type.teams
+    - node.type.mission
+    - node.type.transaction
+  module:
+    - eca_base
+    - eca_content
+    - eca_user
+id: process_jksdrgm
+modeller: bpmn_io
+label: 'add badge to user'
+version: ''
+weight: -10
+events:
+  Event_0tczmhs:
+    plugin: 'content_entity:update'
+    label: 'Mission Update'
+    configuration:
+      type: 'node mission'
+    successors:
+      -
+        id: Activity_1kp213c
+        condition: ''
+  Event_1t4pfob:
+    plugin: 'content_entity:update'
+    label: 'Order update'
+    configuration:
+      type: 'commerce_order default'
+    successors:
+      -
+        id: Activity_06izvfr
+        condition: ''
+  Event_0ihfmqv:
+    plugin: 'content_entity:update'
+    label: 'update Group'
+    configuration:
+      type: 'group teams'
+    successors:
+      -
+        id: Activity_0418k39
+        condition: ''
+  Event_070iybd:
+    plugin: 'content_entity:insert'
+    label: Event_070iybd
+    configuration:
+      type: 'group teams'
+    successors:
+      -
+        id: Activity_0418k39
+        condition: ''
+conditions:
+  Flow_0qi5vmo:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[commerce_order:field_order_status:value]'
+      right: order_status_done
+      operator: equal
+      type: value
+  Flow_0odao4v:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      field_name: field_badge
+      negate: true
+      entity: product
+  Flow_02a4g1a:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[node:field_state:value]'
+      right: mission_state_done
+      operator: equal
+      type: value
+  Flow_089av51:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      field_name: field_doer
+      negate: true
+      entity: mission
+  Flow_0syw3oc:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      field_name: field_group
+      negate: true
+      entity: mission
+  Flow_03nh0lh:
+    plugin: eca_scalar
+    configuration:
+      case: false
+      left: '[group:field_badges]'
+      right: '[mission:field_badge:entity]'
+      operator: contains
+      type: value
+      negate: true
+  Flow_1qneryy:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[user:field_badges]'
+      right: '[mission:field_badge:entity]'
+      operator: contains
+      type: value
+  Flow_1nkvcwy:
+    plugin: eca_scalar
+    configuration:
+      case: false
+      left: '[user:field_badges]'
+      right: '[mission:field_badge:entity]'
+      operator: contains
+      type: value
+      negate: true
+  Flow_07pj0fv:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[group:field_badges]'
+      right: '[mission:field_badge:entity]'
+      operator: contains
+      type: value
+  Flow_0z7yj60:
+    plugin: eca_scalar
+    configuration:
+      case: false
+      left: '[user:field_badges]'
+      right: '[product:field_badge:entity]'
+      operator: contains
+      type: value
+      negate: true
+  Flow_07oivv6:
+    plugin: eca_scalar
+    configuration:
+      case: false
+      left: '[mission:field_state:value]'
+      right: '[mission_unch:field_state:value]'
+      operator: equal
+      type: value
+      negate: true
+gateways:
+  Gateway_08ap05f:
+    type: 0
+    successors:
+      -
+        id: Activity_03i70qm
+        condition: Flow_089av51
+      -
+        id: Activity_1mhy18m
+        condition: Flow_0syw3oc
+  Gateway_1bgdjit:
+    type: 0
+    successors:
+      -
+        id: Activity_0zpq8s8
+        condition: Flow_0z7yj60
+  Gateway_0lqr672:
+    type: 0
+    successors:
+      -
+        id: Gateway_08ap05f
+        condition: Flow_07oivv6
+actions:
+  Activity_0o8vk4s:
+    plugin: eca_token_load_entity
+    label: 'load mission'
+    configuration:
+      token_name: mission
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_1gdzsdz
+        condition: ''
+  Activity_06izvfr:
+    plugin: eca_token_load_entity
+    label: 'load order'
+    configuration:
+      token_name: order
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_1td2tyx
+        condition: Flow_0qi5vmo
+  Activity_1vn62z0:
+    plugin: eca_token_load_entity_ref
+    label: 'load customer'
+    configuration:
+      field_name_entity_ref: uid.entity
+      token_name: user
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: order
+    successors:
+      -
+        id: Gateway_1bgdjit
+        condition: ''
+  Activity_0zpq8s8:
+    plugin: eca_set_field_value
+    label: 'transferred badge to user'
+    configuration:
+      field_name: field_badges
+      field_value: '[product:field_badge:entity]'
+      method: 'prepend:not_full'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: user
+    successors: {  }
+  Activity_1td2tyx:
+    plugin: eca_token_load_entity_ref
+    label: 'load order item'
+    configuration:
+      field_name_entity_ref: order_items.0.entity
+      token_name: order_item
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: order
+    successors:
+      -
+        id: Activity_1r9zz0p
+        condition: ''
+  Activity_1r9zz0p:
+    plugin: eca_token_load_entity_ref
+    label: 'load purchased entity'
+    configuration:
+      field_name_entity_ref: purchased_entity.entity
+      token_name: purchased
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: order_item
+    successors:
+      -
+        id: Activity_0cu935t
+        condition: ''
+  Activity_0cu935t:
+    plugin: eca_token_load_entity_ref
+    label: 'load product'
+    configuration:
+      field_name_entity_ref: product_id.entity
+      token_name: product
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: purchased
+    successors:
+      -
+        id: Activity_1vn62z0
+        condition: Flow_0odao4v
+  Activity_03i70qm:
+    plugin: eca_token_load_entity_ref
+    label: 'load user'
+    configuration:
+      field_name_entity_ref: field_doer
+      token_name: user
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: mission
+    successors:
+      -
+        id: Activity_11j6wal
+        condition: Flow_1qneryy
+      -
+        id: Activity_1rqqogw
+        condition: Flow_1nkvcwy
+  Activity_1mhy18m:
+    plugin: eca_token_load_entity_ref
+    label: 'load group'
+    configuration:
+      field_name_entity_ref: field_group
+      token_name: group
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: mission
+    successors:
+      -
+        id: Activity_0ukewqs
+        condition: Flow_03nh0lh
+      -
+        id: Activity_0x1mlmt
+        condition: Flow_07pj0fv
+  Activity_1rqqogw:
+    plugin: eca_set_field_value
+    label: 'transfer badge to user'
+    configuration:
+      field_name: field_badges
+      field_value: '[mission:field_badge:entity]'
+      method: 'prepend:not_full'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: user
+    successors: {  }
+  Activity_0ukewqs:
+    plugin: eca_set_field_value
+    label: 'transfer badge to group'
+    configuration:
+      field_name: field_badges
+      field_value: '[mission:field_badge:entity]'
+      method: 'prepend:not_full'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: group
+    successors: {  }
+  Activity_0418k39:
+    plugin: eca_token_load_entity
+    label: 'load group'
+    configuration:
+      token_name: group
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_0faj9th
+        condition: ''
+  Activity_167kc0g:
+    plugin: eca_set_field_value
+    label: 'set field_author'
+    configuration:
+      field_name: field_author
+      field_value: '[user]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: group
+    successors: {  }
+  Activity_0faj9th:
+    plugin: eca_token_load_entity
+    label: 'load author via Group'
+    configuration:
+      token_name: user
+      from: id
+      entity_type: user
+      entity_id: '[group:author:uid]'
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_167kc0g
+        condition: ''
+  Activity_11j6wal:
+    plugin: action_message_action
+    label: Activity_11j6wal
+    configuration:
+      replace_tokens: false
+      message: |-
+        class
+        [mission:field_badge]
+    successors:
+      -
+        id: Activity_0bndzil
+        condition: ''
+  Activity_0bndzil:
+    plugin: eca_new_entity
+    label: Activity_0bndzil
+    configuration:
+      token_name: transaction
+      type: 'node transaction'
+      langcode: ''
+      label: 'Transaction ID:[node:nid] | [mission:title] ID: [misson:nid]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_1m82hvx
+        condition: ''
+  Activity_1m82hvx:
+    plugin: eca_set_field_value
+    label: Activity_1m82hvx
+    configuration:
+      field_name: field_transaction
+      field_value: '500'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_1qw001d
+        condition: ''
+  Activity_1qw001d:
+    plugin: eca_set_field_value
+    label: Activity_1qw001d
+    configuration:
+      field_name: field_mission_operation
+      field_value: '[mission]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_14du9qs
+        condition: ''
+  Activity_14du9qs:
+    plugin: eca_set_field_value
+    label: Activity_14du9qs
+    configuration:
+      field_name: field_user
+      field_value: '[mission:field_doer]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_1p5tzzg
+        condition: ''
+  Activity_1p5tzzg:
+    plugin: eca_set_field_value
+    label: Activity_1p5tzzg
+    configuration:
+      field_name: field_transaction_type
+      field_value: Earned
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors:
+      -
+        id: Activity_127n5on
+        condition: ''
+  Activity_0x1mlmt:
+    plugin: action_message_action
+    label: Activity_0x1mlmt
+    configuration:
+      replace_tokens: false
+      message: 'cool group'
+    successors:
+      -
+        id: Activity_122c6t9
+        condition: ''
+  Activity_122c6t9:
+    plugin: eca_new_entity
+    label: Activity_122c6t9
+    configuration:
+      token_name: transaction
+      type: 'node transaction'
+      langcode: ''
+      label: 'Transaction ID:[node:nid] | [mission:title] ID: [misson:nid]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_0orktzz
+        condition: ''
+  Activity_0orktzz:
+    plugin: eca_set_field_value
+    label: Activity_0orktzz
+    configuration:
+      field_name: field_transaction
+      field_value: '500'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_0o64ab8
+        condition: ''
+  Activity_0o64ab8:
+    plugin: eca_set_field_value
+    label: Activity_0o64ab8
+    configuration:
+      field_name: field_mission_operation
+      field_value: '[mission]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_0j3iwfa
+        condition: ''
+  Activity_0j3iwfa:
+    plugin: eca_set_field_value
+    label: Activity_0j3iwfa
+    configuration:
+      field_name: field_group
+      field_value: '[mission:field_group]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: false
+      object: transaction
+    successors:
+      -
+        id: Activity_1v4bm22
+        condition: ''
+  Activity_1v4bm22:
+    plugin: eca_set_field_value
+    label: Activity_1v4bm22
+    configuration:
+      field_name: field_transaction_type
+      field_value: Earned
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors:
+      -
+        id: Activity_1bevk58
+        condition: ''
+  Activity_1xp7pwl:
+    plugin: eca_void_and_condition
+    label: 'mission load msg'
+    configuration: {  }
+    successors:
+      -
+        id: Gateway_0lqr672
+        condition: Flow_02a4g1a
+  Activity_1kp213c:
+    plugin: eca_switch_account
+    label: 'switch user'
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_0o8vk4s
+        condition: ''
+  Activity_127n5on:
+    plugin: eca_set_field_value
+    label: Activity_127n5on
+    configuration:
+      field_name: title
+      field_value: 'Transaction ID:[node:nid] | [mission:title] ID: [mission:nid]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors: {  }
+  Activity_1bevk58:
+    plugin: eca_set_field_value
+    label: Activity_1bevk58
+    configuration:
+      field_name: title
+      field_value: 'Transaction ID:[node:nid] | [mission:title] ID: [mission:nid]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors: {  }
+  Activity_1gdzsdz:
+    plugin: eca_token_load_entity
+    label: 'Load mission unchange'
+    configuration:
+      token_name: mission_unch
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: true
+      object: ''
+    successors:
+      -
+        id: Activity_1xp7pwl
+        condition: ''

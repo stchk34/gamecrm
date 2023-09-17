@@ -1,0 +1,476 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body, .maintenance-page {
+  width: 100%;
+  margin: 0;
+  font-family: $body-font-family;
+  max-width: 100vw !important;
+  background: $background-dark-theme;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100vw;
+
+  a {
+    &:hover, &:focus {
+      opacity: 0.5;
+      color: $medium-gray;
+    }
+  }
+
+  p, a, small, span, .popup-link, li,label{
+    font-family: 'Chakra Petch', 'Roboto Slab', serif;
+  }
+}
+
+
+
+main {
+  flex-grow: 1;
+  padding-bottom: 20px;
+}
+
+//Message "PLease wait".
+.ajax-progress.ajax-progress-throbber {
+  .message {
+    font-size: 14px;
+  }
+}
+
+//Stylization error.
+.callout {
+  em {
+    color: $black;
+    background: transparent;
+    a{
+      color:$black;
+      &:hover{
+        color:$black;
+        opacity:0.5;
+      }
+    }
+  }
+  a{
+    color:$black;
+  }
+  &.alert {
+    background: $white;
+    color: $background-dark-theme;
+  }
+}
+
+//Field.
+.field__item {
+  a {
+    color: $white;
+  }
+}
+
+label, p, small, a, .help-text {
+  color: $white;
+}
+
+
+//This field changed for dark theme.
+#block-gamecrm-dark-content {
+  display: flex;
+  padding-top: 15px;
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 0 auto;
+  font-size: 20px;
+  width: 100%;
+  color: $white;
+}
+
+//Title page.
+#block-gamecrm-dark-pagetitle,
+.node-title {
+  max-width: 1500px;
+  color: $white;
+  margin:20px auto 0;
+  a {
+    color: $white;
+  }
+  @include title-bolder-default;
+  span {
+    overflow-wrap: anywhere;
+    @include title-bolder-default;
+  }
+}
+
+#edit-field-description-mision-wrapper {
+  .ck-editor__main {
+    font-size: 1rem;
+  }
+}
+
+.messages--error {
+  background-color: $red !important;
+  color: $white !important;
+
+  em {
+    color: $white;
+  }
+
+  .close-button {
+    color: $white;
+  }
+}
+
+.panel {
+  padding: 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  .pagination-previous{
+    a:before{
+      content: none;
+    }
+  }
+  .pagination-next{
+    a:after{
+      content: none;
+    }
+  }
+  .current {
+    background-color: white;
+    color: black;
+  }
+
+  a {
+    color: $white;
+
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+//Error message.
+.error {
+  color: $red;
+}
+
+//Button.
+#edit-actions,
+#edit-actions--2,
+#edit-actions--3,
+#edit-actions--4,
+.button--add-to-cart,
+#edit-actions--5,
+.form-actions,
+.field-suffix {
+  input,
+  .button,
+  .button.success {
+    @include dark-theme-button;
+  }
+}
+
+.button-action {
+  @include dark-theme-button;
+}
+
+.form-submit {
+  background: $white;
+  color: $black;
+  font-size: 18px;
+  font-weight: 600;
+
+  &:focus, &:hover {
+    background: transparent;
+    color: $white;
+    border: 1px solid $white;
+  }
+}
+
+.button-group{
+  margin: 15px 0;
+}
+
+//Select img widget.
+#views-exposed-form-media-library-widget {
+  label {
+    color: $black;
+  }
+}
+
+//Primary tabs.
+#block-gamecrm-dark-primary-local-tasks,
+#block-gamecrm-dark-primary-admin-actions {
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 100%;
+
+  li {
+    list-style: none;
+  }
+
+  .button.active {
+    background: transparent;
+    color: $white;
+    border: none;
+    border-bottom: 2px solid $white;
+  }
+
+  .button {
+    background: transparent;
+    color: $white;
+    border: none;
+  }
+}
+
+//Contextual-links.
+.contextual-region {
+  color: $medium-gray;
+
+  .contextual.contextual-links a {
+    a {
+      text-transform: none;
+    }
+  }
+}
+
+//Status message.
+.zurb-foundation-callout {
+  max-width: 1500px;
+  margin: 10px auto;
+  width: 100%;
+  color: $black;
+  .show-for-sr{
+    font-size:20px;
+  }
+}
+
+//View table.
+table {
+  @include table-dark-theme;
+}
+
+.js-form-type-vertical-tabs {
+  .vertical-tabs__menu-item {
+    a {
+      background-color: $white;
+      color: black;
+    }
+  }
+
+  .vertical-tabs__panes {
+    padding: 1.5rem;
+
+    .js-form-item-revision {
+      display: flex;
+      align-items: center;
+
+      #edit-revision {
+        width: 40px;
+        height: 22px;
+        margin-bottom: 0;
+      }
+
+      label {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .field--name-revision-log-message {
+    textarea {
+      width: 96%;
+      margin: 5px auto;
+    }
+
+    .help-text, label,
+    .js-form-item-revision {
+      margin: 0 10px;
+    }
+  }
+}
+
+.form-actions.js-form-wrapper.form-wrapper {
+  input {
+    white-space: normal;
+  }
+}
+
+//1024-320px.
+@include breakpoint(small only) {
+  //Adaptive button.
+  #edit-actions,
+  #edit-actions--2,
+  #edit-actions--3,
+  #edit-actions--4,
+  .button--add-to-cart,
+  .form-save-default-button,
+  .media-library-view--form-actions,
+  #edit-actions--5,
+  .form-actions {
+    input,
+    .button,
+    .button.success {
+      font-size: 16px;
+    }
+  }
+
+  //Table.
+  table {
+    border: 0;
+
+    thead {
+      display: none;
+    }
+
+    tr {
+      border-bottom: 1px solid $medium-gray;
+      display: block;
+      margin-bottom: .7em;
+    }
+
+    tbody {
+      border: none;
+
+      tr:nth-child(even) {
+        background-color: transparent;
+        border-bottom: 1px solid $medium-gray;
+      }
+    }
+
+    td {
+      border-bottom: 1px solid $medium-gray;
+      display: block;
+      font-size: 18px;
+      text-align: left;
+
+      &::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      .dropbutton-multiple {
+        left: 0!important;
+
+        &.open {
+          left: 0!important;
+        }
+
+        .dropbutton-widget {
+          padding-right: 2em !important;
+        }
+
+        .dropbutton {
+          a {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  //Revision info.
+  .js-form-type-vertical-tabs {
+    .vertical-tabs {
+      margin: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vertical-tabs__menu-item {
+      background: transparent;
+
+      strong, a {
+        color: $white;
+      }
+    }
+
+    .vertical-tabs__menu {
+      width: 100%;
+      margin: 0;
+
+      span {
+        color: black;
+      }
+    }
+  }
+
+  #block-gamecrm-dark-primary-local-tasks{
+    .button-group{
+      display:flex;
+      button{
+        font-size:12px;
+        padding:10px;
+      }
+    }
+  }
+}
+
+//1024-640px.
+@include breakpoint(100em down) {
+  .button-group{
+    margin: 15px;
+  }
+  .block-gamecrm-dark-primary-admin-actions{
+    padding: 0 15px;
+  }
+  .block-gamecrm-dark-content,
+  #block-gamecrm-dark-pagetitle,
+  .node-title {
+    padding: 15px;
+  }
+}
+
+@include breakpoint(large down) {
+  table {
+    td {
+      .dropbutton-multiple{
+        left:0%!important;
+        a{
+          font-size:17px;
+        }
+      }
+    }
+  }
+}
+
+#layout-builder {
+  a, p, small, label {
+    color: $black;
+  }
+}
+
+.layout-builder__message {
+  a, em {
+    color: black;
+  }
+}
+
+

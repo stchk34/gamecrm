@@ -1,0 +1,22 @@
+uuid: d2f22b80-a3f5-41eb-b893-0081db222074
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gamecrm
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: gamecrm_primary_local_tasks
+theme: gamecrm
+region: help
+weight: -3
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

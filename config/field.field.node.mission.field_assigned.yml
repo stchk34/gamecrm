@@ -1,0 +1,21 @@
+uuid: c9832f10-5c31-40d8-9777-46751543fdb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_assigned
+    - node.type.mission
+  module:
+    - options
+id: node.mission.field_assigned
+field_name: field_assigned
+entity_type: node
+bundle: mission
+label: 'Selection of a performer'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

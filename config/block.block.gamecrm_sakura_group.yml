@@ -1,0 +1,25 @@
+uuid: 71314b81-2cf1-4a44-8979-f4684119973b
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:custom_link:d8db05d2-b626-473b-a1b6-7319909ab011'
+  module:
+    - block_content
+  theme:
+    - gamecrm_sakura
+id: gamecrm_sakura_group
+theme: gamecrm_sakura
+region: header
+weight: -5
+provider: null
+plugin: 'block_content:d8db05d2-b626-473b-a1b6-7319909ab011'
+settings:
+  id: 'block_content:d8db05d2-b626-473b-a1b6-7319909ab011'
+  label: Group
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,38 @@
+uuid: 612a6206-2dd0-455e-94a1-6832f183bfcb
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner:1adfedea-808b-4f09-bc42-bea51d756065'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - gamecrm_dark
+id: userstatisticdarktheme
+theme: gamecrm_dark
+region: highlighted
+weight: -8
+provider: null
+plugin: 'block_content:1adfedea-808b-4f09-bc42-bea51d756065'
+settings:
+  id: 'block_content:1adfedea-808b-4f09-bc42-bea51d756065'
+  label: 'User statistic dark theme'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/homepage\r\n/user/*\r\n"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

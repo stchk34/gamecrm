@@ -1,0 +1,25 @@
+uuid: d9c5eb60-c5d1-442e-9518-5f2711aede11
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ca4826fa-6153-408c-b061-10d5e5e86ab2'
+  module:
+    - block_content
+  theme:
+    - gamecrm
+id: copyright
+theme: gamecrm
+region: footer_first
+weight: -6
+provider: null
+plugin: 'block_content:ca4826fa-6153-408c-b061-10d5e5e86ab2'
+settings:
+  id: 'block_content:ca4826fa-6153-408c-b061-10d5e5e86ab2'
+  label: Copyright
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,15 @@
+uuid: d7603e2e-7d3e-4d19-ad92-52b15b747424
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.visibility
+  module:
+    - flag
+id: flag_action.visibility_unflag
+label: Hide
+type: taxonomy_term
+plugin: 'flag_action:visibility_unflag'
+configuration:
+  flag_id: visibility
+  flag_action: unflag

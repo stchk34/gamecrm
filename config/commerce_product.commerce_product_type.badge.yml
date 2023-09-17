@@ -1,0 +1,14 @@
+uuid: d9906b16-3b20-4c28-a783-221d8b9a6fdc
+langcode: en
+status: true
+dependencies: {  }
+id: badge
+label: Badge
+traits: {  }
+locked: false
+description: ''
+variationType: badge
+variationTypes:
+  - badge
+multipleVariations: true
+injectVariationFields: true

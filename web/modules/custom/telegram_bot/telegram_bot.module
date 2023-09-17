@@ -1,0 +1,270 @@
+<?php
+
+/**
+ * @file
+ * Contains telegram_bot.module.
+ */
+
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+use Drupal\workflow\Entity\WorkflowState;
+
+/**
+ * Implements hook_entity_insert().
+ *
+ */
+function telegram_bot_entity_insert(EntityInterface $entity)
+{
+  // Check if the inserted entity is a node of type 'mission'.
+  if ($entity->getEntityTypeId() === 'node' && $entity->bundle() === 'mission') {
+    //Get absolute link to node.
+    $options = ['absolute' => TRUE];
+    $urlObject = Url::fromRoute('entity.node.canonical', ['node' => $entity->id()], $options)
+      ->toString();
+
+    //Get entity label.
+    $entityLabel = $entity->label();
+
+    // Get user entity.
+    $fieldDoer = $entity->get('field_doer')->entity;
+
+    // Get group entity.
+    $fieldGroup = $entity->get('field_group')->entity;
+    if (!empty($fieldDoer) && !$fieldDoer->get('field_telegram_id')
+        ->isEmpty()) {
+      // Getting telegram UID value.
+      $telegram_id = $fieldDoer->get('field_telegram_id')->value;
+      $message = 'New mission for you: ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+      Drupal::service('telegram_bot.manager')
+        ->sendMessage($message, $telegram_id);
+    }
+
+    if (!empty($fieldGroup)) {
+      $telegramUserIds = getTelegramUserIdsInGroup($fieldGroup);
+      foreach ($telegramUserIds as $telegram_id) {
+        $message = 'For your group created new mission: ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+        Drupal::service('telegram_bot.manager')
+          ->sendMessage($message, $telegram_id);
+      }
+    }
+  }
+
+  // Check if the inserted entity is a commerce order.
+  if ($entity->getEntityTypeId() === 'commerce_order') {
+    $customer = $entity->get('uid')->entity;
+    // Getting telegram UID value.
+    $telegram_id = $customer->get('field_telegram_id')->value;
+    //Get entity label.
+    $entityLabel = $entity->label();
+    if (!empty($customer) && !$customer->get('field_telegram_id')->isEmpty()) {
+      $options = ['absolute' => TRUE];
+      $urlObject = Url::fromRoute('entity.commerce_order.canonical', ['commerce_order' => $entity->id()], $options)
+        ->toString();
+      // Forming up a message.
+      $message = 'New order: ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+      return Drupal::service('telegram_bot.manager')
+        ->sendMessage($message, $telegram_id);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function telegram_bot_entity_update(EntityInterface $entity)
+{
+  // Check if the updated entity is a node of type 'mission'.
+  if ($entity->getEntityTypeId() === 'node' && $entity->bundle() === 'mission') {
+    // Original version for new entity insertions.
+    if ($entity->isNew()) {
+      return;
+    }
+
+    //Get entity label.
+    $entityLabel = $entity->label();
+
+    //Get absolute link to node.
+    $options = ['absolute' => TRUE];
+    $urlObject = Url::fromRoute('entity.node.canonical', ['node' => $entity->id()], $options)
+      ->toString();
+
+    // Check if the 'state' field has changed.
+    $originalStateId = $entity->original->get('field_state')->value;
+    $currentStateId = $entity->get('field_state')->value;
+
+    if ($originalStateId !== NULL && $currentStateId !== NULL) {
+      $originalState = WorkflowState::load($originalStateId)->label();
+      $currentState = WorkflowState::load($currentStateId)->label();
+
+      //Get doer mission.
+      $fieldDoer = $entity->get('field_doer')->entity;
+      if (!empty($fieldDoer) && !$fieldDoer->get('field_telegram_id')
+          ->isEmpty()) {
+        $telegram_id = $fieldDoer->get('field_telegram_id')->value;
+        // For the mission entity.
+        if ($originalState !== $currentState) {
+          $message = 'Updates on your mission ' . ' : ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>' . PHP_EOL . 'Status changes to <b>' . $currentState . '</b>';
+          Drupal::service('telegram_bot.manager')
+            ->sendMessage($message, $telegram_id);
+        } else {
+          $message = 'Updates on your mission ' . ' : ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+          Drupal::service('telegram_bot.manager')
+            ->sendMessage($message, $telegram_id);
+        }
+      }
+      //Get author mission.
+      $author = $entity->getOwner();
+      if ($author->hasField('field_telegram_id') && !empty($author->get('field_telegram_id')->value)) {
+        // Getting telegram UID value.
+        $telegram_id = $author->get('field_telegram_id')->value;
+        if ($originalState !== $currentState) {
+          $message = 'Updates to the mission you created : ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>' . PHP_EOL . 'Status changes to <b>' . $currentState . '</b>';
+          Drupal::service('telegram_bot.manager')
+            ->sendMessage($message, $telegram_id);
+        } else {
+          $message = 'Updates to the mission you created : ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+          Drupal::service('telegram_bot.manager')
+            ->sendMessage($message, $telegram_id);
+        }
+      }
+
+      // Get group entity.
+      $fieldGroup = $entity->get('field_group')->entity;
+      if (!empty($fieldGroup)) {
+        $telegramUserIds = getTelegramUserIdsInGroup($fieldGroup);
+        foreach ($telegramUserIds as $telegram_id) {
+          if ($originalState !== $currentState) {
+            $message = 'Updates mission for your team :' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>' . PHP_EOL . 'Status changes to <b>' . $currentState . '</b>';
+            Drupal::service('telegram_bot.manager')
+              ->sendMessage($message, $telegram_id);
+          } else {
+            $message = 'Updates mission for your team :' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+            Drupal::service('telegram_bot.manager')
+              ->sendMessage($message, $telegram_id);
+          }
+        }
+      }
+    }
+  }
+
+  // Check if the updated entity is a commerce order.
+  if ($entity->getEntityTypeId() === 'commerce_order') {
+    // Original version for new entity insertions.
+    if ($entity->isNew()) {
+      return;
+    }
+
+    // Get current state orders.
+    $originalStateId = $entity->original->get('field_order_status')->value;
+    $currentStateId = $entity->get('field_order_status')->value;
+
+    $customer = $entity->get('uid')->entity;
+    $telegram_id = $customer->get('field_telegram_id')->value;
+
+    if ($originalStateId !== NULL && $currentStateId !== NULL && !$customer->get('field_telegram_id')
+        ->isEmpty()) {
+      $originalState = WorkflowState::load($originalStateId)->label();
+      $currentState = WorkflowState::load($currentStateId)->label();
+      //Get absolute url.
+      $options = ['absolute' => TRUE];
+      $urlObject = Url::fromRoute('entity.commerce_order.canonical', ['commerce_order' => $entity->id()], $options)
+        ->toString();
+      // Check if the 'state' field has changed.
+      if ($originalState !== $currentState) {
+        // Retrieve the label of the field.
+        $message = 'New updates in order ' . '<a href="' . $urlObject . '">' . $entity->label() . '</a>' . PHP_EOL . 'Status changes to <b>' . $currentState . '</b>';
+        Drupal::service('telegram_bot.manager')
+          ->sendMessage($message, $telegram_id);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function telegram_bot_cron()
+{
+  // Get the current date and time.
+  $current_datetime = new DrupalDateTime();
+  $current_date = new DrupalDateTime($current_datetime->format('Y-m-d'));
+
+  // Get the list of mission entities where the end date is today.
+  $query = Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
+    ->condition('type', 'mission');
+  $entity_ids = $query->execute();
+
+  // Send messages to Telegram for each mission entity found.
+  foreach ($entity_ids as $entity_id) {
+    $entity = Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->load($entity_id);
+
+    // Get end date field value.
+    $end_date_field = $entity->get('field_end_date');
+    if (!$end_date_field->isEmpty()) {
+      $end_date = new DrupalDateTime($end_date_field->value);
+      $end_date_no_time = new DrupalDateTime($end_date->format('Y-m-d'));
+
+      if ($current_date == $end_date_no_time && $current_datetime->format('H') < $end_date->format('H')) {
+        // Entity label.
+        $entityLabel = $entity->label();
+
+        // Get absolute link to node.
+        $options = ['absolute' => TRUE];
+        $urlObject = Url::fromRoute('entity.node.canonical', ['node' => $entity->id()], $options)
+          ->toString();
+
+        // User entity referenced in the 'field_doer' field.
+        $user_reference = $entity->get('field_doer')->entity;
+        if (!empty($user_reference) && !$user_reference->get('field_telegram_id')
+            ->isEmpty()) {
+          // Get the user's Telegram chat ID.
+          $telegram_id = $user_reference->get('field_telegram_id')->value;
+          if (!empty($telegram_id)) {
+            // Send the message to the user's Telegram chat.
+            $message = 'Today is the deadline for this mission. Check it out: ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+            Drupal::service('telegram_bot.manager')
+              ->sendMessage($message, $telegram_id);
+          }
+        }
+
+        // Group entity.
+        $fieldGroup = $entity->get('field_group')->entity;
+        if (!empty($fieldGroup)) {
+          $telegramUserIds = getTelegramUserIdsInGroup($fieldGroup);
+          foreach ($telegramUserIds as $telegram_id) {
+            $message = 'Today is the deadline for this mission. Check it out: ' . '<a href="' . $urlObject . '">' . $entityLabel . '</a>';
+            Drupal::service('telegram_bot.manager')
+              ->sendMessage($message, $telegram_id);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Get Telegram user IDs of all members in the specified group.
+ *
+ * @param mixed $group
+ *   The group entity.
+ *
+ * @return array
+ *   An array of Telegram user IDs.
+ */
+function getTelegramUserIdsInGroup($group)
+{
+  $telegramUserIds = [];
+  $members = $group->getMembers();
+  foreach ($members as $member) {
+    $user = $member->getUser();
+    if (!$user->get('field_telegram_id')->isEmpty()) {
+      $telegramUserId = $user->get('field_telegram_id')->value;
+      $telegramUserIds[] = $telegramUserId;
+    }
+  }
+  return $telegramUserIds;
+}

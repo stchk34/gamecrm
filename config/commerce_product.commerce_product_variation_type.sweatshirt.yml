@@ -1,0 +1,10 @@
+uuid: 9adc9a4d-3529-4083-9ffe-62b88794001a
+langcode: en
+status: true
+dependencies: {  }
+id: sweatshirt
+label: Sweatshirt
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

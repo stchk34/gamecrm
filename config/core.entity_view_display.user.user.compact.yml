@@ -1,0 +1,39 @@
+uuid: 19793d2d-8533-4780-8d5d-c16735cb3b0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.commerce_remote_id
+    - field.field.user.user.field_badges
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_group
+    - field.field.user.user.field_role
+    - field.field.user.user.field_second_name
+    - field.field.user.user.field_telegram_id
+    - field.field.user.user.field_user_picture
+  module:
+    - user
+_core:
+  default_config_hash: 00zr_RBdTjPjBGITD3h4c1ESQZimjdVCcHGt1trLqIY
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  masquerade:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 50
+    region: content
+hidden:
+  commerce_remote_id: true
+  customer_profiles: true
+  field_badges: true
+  field_first_name: true
+  field_group: true
+  field_role: true
+  field_second_name: true
+  field_telegram_id: true
+  field_user_picture: true
+  member_for: true

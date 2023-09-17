@@ -1,0 +1,8 @@
+uuid: 40f52d65-3735-4302-be8c-f9b2eaefded5
+langcode: en
+status: true
+dependencies: {  }
+id: custom_link
+label: 'Custom link'
+revision: 0
+description: ''

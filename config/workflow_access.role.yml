@@ -1,0 +1,329 @@
+mission_state_assigned:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  authenticated:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+mission_state_expired:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  authenticated:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+mission_state_completed:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  authenticated:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+mission_state_reviewed:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  authenticated:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+mission_state_done:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  authenticated:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+mission_state_failed:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  authenticated:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+order_status_confirmed:
+  workflow_author:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+order_status_in_progress:
+  workflow_author:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+order_status_on_hold:
+  workflow_author:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+order_status_canceled:
+  workflow_author:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+order_status_done:
+  workflow_author:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+order_status_draft:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: 0
+  content_editor:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  administrator:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+mission_state_finished:
+  workflow_author:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  authenticated:
+    grant_view: true
+    grant_update: 0
+    grant_delete: 0
+  content_editor:
+    grant_view: true
+    grant_update: true
+    grant_delete: 0
+  administrator:
+    grant_view: true
+    grant_update: true
+    grant_delete: true
+  anonymous:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  team_lead:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0
+  user:
+    grant_view: 0
+    grant_update: 0
+    grant_delete: 0

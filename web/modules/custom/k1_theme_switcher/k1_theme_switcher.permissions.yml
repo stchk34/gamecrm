@@ -1,0 +1,29 @@
+administer available theme:
+  title: 'Administer available theme settings'
+  restrict access: true
+delete available theme:
+  title: Delete available theme
+create available theme:
+  title: Create available theme
+view available theme:
+  title: View available theme
+view own available themes:
+  title: View available themes
+edit available theme:
+  title: Edit available theme
+
+administer select theme:
+  title: 'Administer select theme settings'
+  restrict access: true
+delete select theme:
+  title: Delete select theme
+create select theme:
+  title: Create select theme
+view select theme:
+  title: View select theme
+view own select theme:
+  title: View own select theme
+edit select theme:
+  title: Edit select theme
+edit own select theme:
+  title: Edit own select theme

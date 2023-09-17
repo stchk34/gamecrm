@@ -1,0 +1,15 @@
+uuid: 9395aca4-d79b-44f0-949c-de6d5ea84e17
+langcode: en
+status: true
+dependencies: {  }
+id: services
+label: Services
+traits: {  }
+locked: false
+description: ''
+variationType: services
+variationTypes:
+  - event
+  - service
+multipleVariations: true
+injectVariationFields: true

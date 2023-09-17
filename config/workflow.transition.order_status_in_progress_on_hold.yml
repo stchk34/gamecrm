@@ -1,0 +1,18 @@
+uuid: 3de81b0a-7c2c-4c95-9141-a424f142a280
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_in_progress
+    - workflow.state.order_status_on_hold
+id: order_status_in_progress_on_hold
+label: On-Hold
+module: workflow
+from_sid: order_status_in_progress
+to_sid: order_status_on_hold
+roles:
+  administrator: administrator
+  workflow_author: '0'
+  content_editor: '0'
+  team_lead: '0'
+  user: '0'

@@ -1,0 +1,15 @@
+uuid: b7a9771b-9967-4713-9237-1bd306dbcf39
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.group
+  module:
+    - flag
+id: flag_action.group_flag
+label: 'Flag this item'
+type: taxonomy_term
+plugin: 'flag_action:group_flag'
+configuration:
+  flag_id: group
+  flag_action: flag

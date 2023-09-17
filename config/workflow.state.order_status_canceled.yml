@@ -1,0 +1,12 @@
+uuid: ddfb2d35-4a51-4ae6-9710-c70a976c9777
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.order_status
+id: order_status_canceled
+label: Canceled
+module: workflow
+wid: order_status
+weight: -5
+sysid: 0

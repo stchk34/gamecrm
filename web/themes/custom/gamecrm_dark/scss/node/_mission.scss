@@ -1,0 +1,621 @@
+.node-mission-form {
+  #edit-preview {
+    display: none;
+  }
+
+  .js-form-type-vertical-tabs {
+    .vertical-tabs__panes {
+      padding: 0;
+    }
+  }
+
+  #edit-group-choose-doer {
+    #edit-field-assigned--wrapper {
+      margin: 0;
+      padding: 0;
+      border: none;
+
+      legend {
+        display: none;
+      }
+    }
+  }
+
+  .field-group-fieldset {
+    #edit-field-reward--wrapper {
+      padding: 0;
+      margin: 0;
+      border: none;
+
+      legend {
+        display: none;
+      }
+    }
+  }
+
+  .field--name-field-state {
+    #edit-field-state {
+      width: 200px;
+    }
+  }
+}
+
+.block-field-blocknodemissionfield-state {
+  .field--name-field-state {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    @include field-label-dark-node;
+    .field__item, .field-label {
+      font-size: 18px;
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    //Change state mission form.
+    form {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-bottom: 3px;
+      cursor: pointer;
+
+      .js-form-item {
+        margin-right: 5px;
+
+        label {
+          display: none;
+        }
+
+        select {
+          max-width: 200px;
+          width: 100%;
+          margin: 0;
+        }
+      }
+
+      .form-actions.js-form-wrapper.form-wrapper {
+        input {
+          font-size: 14px !important;
+          margin: 0;
+          padding: 11px;
+        }
+      }
+    }
+  }
+}
+
+.counter {
+  font-size: 14px;
+}
+
+///Title mission.
+.block-field-blocknodemissiontitle {
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $white;
+  max-width: 1500px;
+  margin: 20px 0;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+//Field mission.
+.field--node-field-end-date,
+.field--node-field-group,
+.field--node-field-doer,
+.field--node-field-type-mission,
+.field--node-field-number-of-points {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  @include field-label-dark-node;
+
+  .field__item {
+    margin-left: 5px;
+    font-size: 18px;
+
+    a {
+      color: $white;
+    }
+  }
+}
+
+#edit-field-description-mision-0-format {
+  display: none;
+}
+
+.field--node-field-description-mision {
+  margin: 30px 0;
+
+  .field-label {
+    @include field-label-dark-node;
+    font-size: 14px;
+  }
+
+  li {
+    list-style: circle;
+  }
+
+  p a {
+    text-decoration: underline;
+  }
+
+  p,
+  li,
+  a,
+  span {
+    font-size: 16px;
+    line-height: 31px;
+    margin: 0;
+    color: $white;
+    overflow-wrap: anywhere;
+  }
+}
+
+//Comment in mission.
+.block-field-blocknodemissionfield-comments-to-the-mission {
+  margin-top: 30px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .comment-comment-form {
+    .ck-editor__main {
+      .ck-content {
+        a {
+          color: $black;
+        }
+      }
+    }
+
+    .js-filter-wrapper {
+      display: none;
+
+      .filter-help {
+        a, label {
+          font-size: 16px;
+          color: $medium-gray;
+        }
+      }
+    }
+
+    .js-form-item {
+      label {
+        font-size: 16px;
+        color: $medium-gray;
+      }
+
+      p {
+        color: $medium-gray;
+      }
+    }
+  }
+}
+
+//Top block with basic info about mission.
+.basic-info-mission {
+  label, small, .help-text {
+    color: $white;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .columns {
+    border-top: 1px solid $medium-gray;
+    border-bottom: 1px solid $medium-gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+  }
+
+  //Badge.
+  .views-field-field-icon {
+    img {
+      max-width: 50px;
+      width: 100%;
+    }
+  }
+}
+
+//Comment.
+.gamecrm-comment {
+  .gamecrm-comment-wrapper {
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    background: $background-basic-dark-theme;
+    border-radius: 5px;
+    padding: 10px 20px;
+    max-width: 1500px;
+    width: 100%;
+    margin: 15px 0;
+    display: grid;
+    grid-template-columns: 10% 85% 5%;
+    align-items: start;
+    //User info comment.
+    .gamecrm-comment-user {
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      //Img.
+      &-img {
+        max-width: 90px;
+        border-radius: 50%;
+        height: 90px;
+      }
+
+      .contextual-region {
+        display: none;
+      }
+
+      //Name.
+      a {
+        font-size: 18px;
+        text-decoration: underline;
+        color: $white;
+        overflow-wrap: anywhere;
+      }
+    }
+
+    //Comment body.
+    .gamecrm-comment-body {
+      padding: 0 20px;
+
+      &-content {
+        font-size: 25px;
+        //Text.
+        .block-field-blockcommentcommentcomment-body {
+          margin-bottom: 10px;
+          font-size: 16px;
+          font-family: 'Chakra Petch', 'Roboto Slab', serif;
+
+          code {
+            background: transparent !important;
+            color: $medium-gray;
+          }
+
+          p,
+          li,
+          a {
+            font-size: 16px;
+            line-height: 30px;
+            margin: 0;
+            overflow-wrap: anywhere;
+          }
+        }
+
+        .field--comment-field__commit-url {
+          color: $medium-gray;
+          margin: 0;
+          @include field-label-dark-node;
+
+          .field-label {
+            font-size: 16px;
+          }
+
+          .field__item {
+            text-decoration: underline;
+            line-height: 0.8;
+
+            a {
+              font-size: 15px;
+              font-weight: 400;
+              color: $medium-gray;
+              overflow-wrap: anywhere;
+            }
+          }
+
+
+        }
+      }
+
+      &-info {
+        a {
+          font-size: 12px;
+          font-weight: 400;
+          color: $medium-gray;
+          position: absolute;
+          right: 15px;
+          bottom: 15px;
+        }
+      }
+    }
+  }
+}
+
+//Page "Workflow state".
+.workflow-transition-mission_state-container.workflow-transition-container {
+  //Select State.
+  .js-form-item.form-item-to-sid {
+    select {
+      width: fit-content;
+    }
+  }
+
+  .field--node-field-state {
+    display: flex;
+    @include field-label-dark-node;
+  }
+
+  //Table.
+  table {
+    td {
+      .dropbutton-widget {
+        padding: 5px 15px !important;
+        left: 35%;
+        @include button;
+
+        &:after {
+          color: $black !important;
+        }
+
+        a {
+          color: $white;
+
+          &:hover {
+            color: $black !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Comment link form.
+.field--name-field__commit-url {
+  margin: 5px 0 15px 0;
+
+  table {
+    margin-bottom: 0;
+  }
+
+  //Button "Add another item".
+  .field-add-more-submit {
+    font-size: 14px;
+    font-weight: 400;
+    overflow-wrap: anywhere;
+    padding: 10px;
+  }
+
+  .js-form-item {
+    .tabledrag-toggle-weight-wrapper {
+      //Show row weight hidden.
+      button {
+        display: none;
+      }
+    }
+
+    //Table for input link.
+    .field-multiple-table.responsive-enabled {
+      //Header table.
+      thead {
+        border: none;
+        display: none;
+      }
+
+      td {
+        padding: 0;
+        border: none;
+        text-align: left;
+      }
+
+      //Body table.
+      tbody {
+        tr:not(:first-child) {
+          label {
+            display: none;
+          }
+        }
+
+        td {
+          padding: 0;
+        }
+
+        border: none;
+
+        .draggable {
+          .field-multiple-drag {
+            display: none;
+          }
+
+          //Title "URL".
+          label {
+            font-size: 20px;
+            font-weight: 600;
+          }
+
+          .js-form-type-url {
+            .help-text {
+              display: none;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.ck.ck-editor__main {
+  ul {
+    li {
+      span {
+        color: $white;
+      }
+    }
+  }
+}
+
+.ck.ck-reset.ck-editor.ck-rounded-corners {
+  p {
+    color: $black;
+    font-size: 14px;
+  }
+
+  ul {
+    li {
+      span {
+        color: $white;
+      }
+    }
+  }
+
+  .ck-editor__editable_inline {
+    font-family: 'Roboto Slab', serif;
+  }
+}
+
+#edit-field-end-date-0-value {
+  display: flex;
+  gap: 15px;
+  flex-direction: row;
+  @media (max-width: 400px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+//Preview comment.
+.comment-comment-form {
+  label, small, .help-text {
+    color: $white;
+  }
+
+  .js-filter-wrapper {
+    display: none;
+  }
+}
+
+//Page "Workflow state".
+.workflow-transition-mission_state-container.workflow-transition-container {
+  //Select State.
+  .js-form-item.form-item-to-sid {
+    select {
+      width: fit-content;
+    }
+  }
+
+  .field--node-field-state {
+    display: flex;
+
+    .field-label {
+      &:after {
+        content: ':';
+      }
+    }
+  }
+
+  //Table.
+  table {
+    td {
+      .dropbutton-widget {
+        padding: 5px 15px;
+        left: 35%;
+        @include dark-theme-button;
+
+        a {
+          color: $black;
+
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+//Block Revision info.
+.vertical-tabs {
+  li {
+    list-style: none;
+  }
+}
+
+@include breakpoint(xlarge down) {
+  .field--node-field-end-date,
+  .field--node-field-group,
+  .field--node-field-doer,
+  .field--node-field-type-mission,
+  .field--node-field-number-of-points,
+  .views-field-field-icon,
+  .block-field-blocknodemissionfield-state {
+    margin: 5px;
+  }
+}
+
+//1024-640px.
+@include breakpoint(large down) {
+
+  .basic-info-mission {
+    .columns {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+  }
+
+  .field--node-field-end-date,
+  .field--node-field-type-mission {
+    margin-top: 5px;
+  }
+
+  .gamecrm-comment-wrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 100% !important;
+    justify-items: end;
+  }
+
+  //Comment.
+  .gamecrm-comment-body {
+    width: 100%;
+  }
+}
+
+@include breakpoint(medium down) {
+  .gamecrm-comment-wrapper {
+    .gamecrm-comment-body {
+      padding: 0 !important;;
+
+      &-content {
+        .field--comment-field__commit-url {
+          a {
+            font-size: 13px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+}
+
+//320p-0px.
+@include breakpoint(small only) {
+  //Top block with basic info about mission.
+  .basic-info-mission {
+    .columns {
+      align-items: flex-start;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  .gamecrm-comment-body {
+    margin: 20px 0;
+  }
+}

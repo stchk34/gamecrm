@@ -1,0 +1,12 @@
+uuid: f695ade7-b911-4027-bb92-3273a9c248d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.mission_state
+id: mission_state_completed
+label: Completed
+module: workflow
+wid: mission_state
+weight: -5
+sysid: 0

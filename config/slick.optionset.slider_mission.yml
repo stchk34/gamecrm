@@ -1,0 +1,46 @@
+uuid: 51b5ced2-d634-4ed5-bbeb-59c4f7b39b10
+langcode: en
+status: true
+dependencies: {  }
+id: slider_mission
+name: slider_mission
+weight: 0
+label: 'Slider mission'
+group: ''
+skin: default
+breakpoints: 2
+optimized: true
+options:
+  options__active_tab: edit-options-responsives
+  settings:
+    autoplay: true
+    arrows: false
+    lazyLoad: ondemand
+    slidesToShow: 3
+    swipeToSlide: true
+  responsives:
+    responsive:
+      -
+        breakpoint: 1350
+        unslick: false
+        settings:
+          autoplay: true
+          pauseOnHover: false
+          pauseOnFocus: false
+          arrows: false
+          dots: true
+          draggable: false
+          initialSlide: 1
+          slidesToShow: 2
+          touchMove: false
+          waitForAnimate: false
+      -
+        breakpoint: 640
+        unslick: false
+        settings:
+          autoplay: true
+          pauseOnFocus: false
+          arrows: false
+          dots: true
+          touchMove: false
+          waitForAnimate: false

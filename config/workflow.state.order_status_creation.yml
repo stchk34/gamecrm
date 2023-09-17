@@ -1,0 +1,12 @@
+uuid: 9afec247-81a1-4cb3-9ab5-65ebca9cbc0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.order_status
+id: order_status_creation
+label: Draft
+module: workflow
+wid: order_status
+weight: -11
+sysid: 1

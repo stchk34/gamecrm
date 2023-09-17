@@ -1,0 +1,12 @@
+uuid: cf87b44f-9cda-438e-aed9-9e4a210f7a79
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.mission_state
+id: mission_state_assigned
+label: Assigned
+module: workflow
+wid: mission_state
+weight: -6
+sysid: 0

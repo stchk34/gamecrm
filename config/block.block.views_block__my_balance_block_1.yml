@@ -1,0 +1,26 @@
+uuid: e700bc75-14f7-461d-ab59-7df2dd14ce5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_balance
+  module:
+    - views
+  theme:
+    - olivero
+id: views_block__my_balance_block_1
+theme: olivero
+region: primary_menu
+weight: 0
+provider: null
+plugin: 'views_block:my_balance-block_1'
+settings:
+  id: 'views_block:my_balance-block_1'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping:
+    uid: '@user.current_user_context:current_user'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

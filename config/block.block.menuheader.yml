@@ -1,0 +1,25 @@
+uuid: c1a925ab-bd4d-4c73-9c24-c12c2a88a811
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-header
+  module:
+    - system
+  theme:
+    - gamecrm
+id: menuheader
+theme: gamecrm
+region: header_menu
+weight: -7
+provider: null
+plugin: 'system_menu_block:menu-header'
+settings:
+  id: 'system_menu_block:menu-header'
+  label: 'Menu header'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

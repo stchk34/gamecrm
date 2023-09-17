@@ -1,0 +1,20 @@
+uuid: 228a13c7-3dc1-4d9f-90f9-04ec083baf74
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_done
+    - workflow.state.mission_state_failed
+id: mission_state_failed_done
+label: null
+module: workflow
+from_sid: mission_state_failed
+to_sid: mission_state_done
+roles:
+  workflow_author: '0'
+  anonymous: '0'
+  authenticated: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

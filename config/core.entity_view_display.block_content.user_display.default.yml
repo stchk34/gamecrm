@@ -1,0 +1,54 @@
+uuid: 44505139-1f0e-48f5-9198-c5d0094d201e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.user_display
+    - field.field.block_content.user_display.body
+    - field.field.block_content.user_display.layout_builder__layout
+    - views.view.my_balance
+  module:
+    - layout_builder
+    - layout_discovery
+    - text
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: 'user photo'
+          context_mapping: {  }
+        components:
+          94889278-b7d1-4e23-8ebd-b25fd81e2c49:
+            uuid: 94889278-b7d1-4e23-8ebd-b25fd81e2c49
+            region: content
+            configuration:
+              id: 'views_block:my_balance-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping:
+                uid: '@user.current_user_context:current_user'
+              views_label: ''
+              items_per_page: none
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+id: block_content.user_display.default
+targetEntityType: block_content
+bundle: user_display
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  layout_builder__layout: true

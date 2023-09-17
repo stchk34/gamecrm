@@ -1,0 +1,229 @@
+//Statistic block on banner.
+.region-highlighted{
+  position: relative;
+  height: auto;
+}
+//Img banner.
+#block-userstatistic{
+  .field--name-field-image-banner{
+    img{
+      object-fit: cover;
+    }
+  }
+}
+
+#block-userbanner{
+  position: absolute;
+  max-width: 1500px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  padding: 0 15px;
+  transform: translateX(-50%) translateY(-50%);
+  & > .layout--onecol > .layout__region{
+    display: flex;
+    max-width: 730px;
+    justify-content: space-between;
+  }
+  .block-block-content:nth-child(1){
+    opacity:1;
+    z-index: 50;
+    .field--name-field-user-picture{
+      img{
+        border:2px solid $dark-gray-default-theme;
+        border-radius:50%;
+        height:auto;
+      }
+    }
+  }
+  .block-block-content:nth-child(2){
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 11px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 0;
+    opacity:1;
+    padding:20px;
+    max-width:620px;
+    width:100%;
+    height:auto;
+
+    //Img user.
+    .block-field-blockuseruserfield-user-picture{
+      img{
+        border-radius:50%;
+      }
+    }
+
+    //Nickname user.
+    .block-field-blockuserusername{
+      .field--user-name{
+        font-weight: 700;
+        text-transform:uppercase;
+        font-size: 50px;
+        line-height:45px;
+        color:$black;
+        text-decoration:none;
+        & a:hover,  & a:active, & a:focus{
+          color: $black;
+          opacity: 0.5;
+        }
+        &:before{
+          content:'@';
+          font-size:50px;
+          color: $black;
+        }
+      }
+    }
+    //Full name.
+    .block-field-blockuseruserfield-first-name,
+    .block-field-blockuseruserfield-second-name{
+      div{
+        color:$medium-gray;
+        font-weight: 275;
+        font-size: 20px;
+        line-height: 32px;
+      }
+    }
+
+    //Rewards.
+    .block-views-blockuser-rewards-block-2{
+      margin-top:5px;
+      .gamecrm-view-rewards-rows{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+      .gamecrm-view-rewards{
+        header{
+          display:none;
+        }
+      }
+    }
+  }
+}
+
+@include breakpoint(xlarge only) {
+  #block-userphoto{
+    top: 15%;
+    left:10%;
+  }
+  #block-userstatisticinfo{
+    top: 15%;
+    left:25%;
+  }
+}
+
+@include breakpoint(large only) {
+  #block-userstatisticinfo{
+    left:21%;
+    top:20%;
+  }
+  #block-userphoto{
+    top: 23%;
+    left:4%;
+  }
+}
+
+@include breakpoint(medium only) {
+  #block-userstatistic {
+    .field--name-field-image-banner{
+      img{
+        height:300px;
+      }
+    }
+  }
+  #block-userbanner{
+    max-width: 600px;
+    margin: 0;
+    left: 2%;
+    transform: none;
+    .block-block-content:nth-child(2) {
+      max-width: 400px;
+      width: 100%;
+      height: auto;
+      padding: 5px 15px;
+      //Nickname.
+      .block-field-blockuserusername {
+        .field--user-name {
+          font-size: 30px;
+
+          &:before {
+            font-size: 30px;
+          }
+        }
+      }
+
+      //Rewards.
+      .block-views-blockuser-rewards-block-2 {
+        img {
+          max-width: 50px;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  #block-userphoto{
+    top: 5%;
+    left: 15%;
+    img{
+      height: auto;
+      max-width: 130px;
+    }
+  }
+  #block-userbanner{
+    top: 30%;
+  }
+}
+
+//640-320px.
+@include breakpoint(small only) {
+  #block-userstatistic {
+    .field--name-field-image-banner{
+      img{
+        height:300px;
+      }
+    }
+  }
+  #block-userphoto{
+    top: 2%;
+    left: 3%;
+    img{
+      height: auto;
+      max-width: 110px;
+    }
+  }
+  #block-userbanner{
+    padding: 0 7px;
+    top: 60%;
+    .block-block-content:nth-child(2){
+      width:95%;
+      height:auto;
+      margin: 0 auto;
+      .block-field-blockuserusername{
+        .field--user-name{
+          font-size:30px;
+          &:before{
+            font-size:30px;
+          }
+        }
+      }
+      //Rewards.
+      .block-views-blockuser-rewards-block-2{
+        img{
+          max-width:50px;
+          width:100%;
+          height:auto;
+        }
+      }
+    }
+  }
+  #block-userbanner .block-block-content:nth-child(1){
+    position: absolute;
+    right: 35px;
+    top: -75px;
+    img{
+      height: auto;
+      max-width: 110px;
+    }
+  }
+}

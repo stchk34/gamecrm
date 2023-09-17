@@ -1,0 +1,28 @@
+name: Gamecrm Dark Theme
+description: "Custom sub-theme"
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+type: theme
+base theme: zurb_foundation
+
+libraries:
+ - gamecrm_dark/global
+ - gamecrm_dark/slick
+
+# Regions are output in the page.html.twig
+regions:
+  header_menu: 'Header menu'
+  header: Header
+  header_kebab: 'Header kebab menu'
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  footer_first: 'Footer first column'
+  footer_last: 'Footer last column'
+
+
+features:
+  - slogan
+  - favicon
+  - comment_user_picture
+  - node_user_picture

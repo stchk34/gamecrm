@@ -1,0 +1,14 @@
+uuid: 3e99f31f-30e7-4404-8467-59a833bb4a19
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+id: teams-admin
+label: Admin
+weight: 100
+admin: true
+scope: individual
+global_role: null
+group_type: teams
+permissions: {  }

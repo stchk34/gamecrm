@@ -1,0 +1,188 @@
+//Masquarade block.
+.masquerade-block-form {
+  max-width: 300px;
+  width: 100%;
+
+  .js-form-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    #edit-actions {
+      margin-left: 5px;
+    }
+  }
+}
+
+//Field name user.
+.field--user-name {
+  font-weight: 600;
+  font-size: 25px;
+  text-decoration: underline;
+}
+
+.block-field-blockuseruserfield-first-name,
+.block-field-blockuseruserfield-second-name{
+  display: inline-block;
+}
+.field--user-field-role,
+.field--user-field-group{
+  display:flex;
+  .field-label{
+    &:after{
+      content:':';
+      padding-right:5px;
+    }
+  }
+}
+
+//Img.
+.field--user-field-user-picture {
+  img {
+    border-radius: 50%;
+    height: auto;
+  }
+}
+
+.field--name-mail{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+
+  .field-label {
+    font-weight: 600;
+  }
+
+  .field__item {
+    margin-left: 5px;
+    a {
+      color: $black;
+      overflow-wrap: anywhere;
+      &:hover {
+        opacity:0.5;
+      }
+    }
+  }
+}
+
+//Page create account.
+.user-register-form.user-form, .user-pass {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  #field_user_picture-media-library-wrapper {
+    #field_user_picture-media-library-wrapper--description, p {
+      font-size: 16px;
+    }
+  }
+}
+
+//Field Member for.
+.block-extra-field-blockuserusermember-for {
+  h4 {
+    background: transparent;
+    font-weight: 600;
+    font-size: 20px;
+    color: $dark-gray-default-theme;
+  }
+}
+
+//Field Rewards.
+.block-views-blockuser-rewards-block-1 {
+  h2 {
+    font-size: 20px;
+  }
+
+  .gamecrm-view-rewards-rows {
+    display: flex;
+    align-items: center;
+
+    .views-field-field-icon {
+      img {
+        margin-right: 5px;
+        max-width: 70px;
+      }
+    }
+  }
+}
+
+//Button Telegram.
+.block-telegram-redirect-block {
+  margin-top: 10px;
+
+  input {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 11px 33px;
+
+    &:hover {
+      font-weight: 600;
+    }
+  }
+}
+
+//Theme Switcher.
+.block-k1-theme-switcher {
+  h2 {
+    font-size: 20px;
+  }
+
+  form {
+    max-width: 200px;
+  }
+}
+
+//Edit Account.
+.user-form{
+  .js-form-item{
+    @include label-form;
+  }
+}
+
+#edit-account,
+#edit-timezone,
+#edit-contact{
+  margin:10px 0;
+}
+
+@include breakpoint(small only) {
+  //Field Rewards.
+  .block-views-blockuser-rewards-block-1 {
+    .gamecrm-view-rewards-rows {
+      .views-field-field-icon {
+        img {
+          max-width: 60px;
+        }
+      }
+    }
+  }
+  .field--user-mail {
+    .field__item {
+      margin: 0;
+      font-size: 16px;
+    }
+  }
+}
+
+//Edit user profile.
+#field_user_picture-media-library-wrapper--description,
+.media-library-widget-empty-text{
+  font-size:14px;
+}
+
+.password-suggestions{
+  font-size:14px;
+  li{
+    list-style:circle;
+  }
+}
+
+
+
+
+
+
+
+
+
+

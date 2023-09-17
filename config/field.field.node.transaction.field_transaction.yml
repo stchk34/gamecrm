@@ -1,0 +1,23 @@
+uuid: 6fae5b28-c940-48a2-b8fb-e9bd8c06faed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_transaction
+    - node.type.transaction
+id: node.transaction.field_transaction
+field_name: field_transaction
+entity_type: node
+bundle: transaction
+label: Transaction
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

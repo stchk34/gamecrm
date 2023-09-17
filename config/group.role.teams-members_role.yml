@@ -1,0 +1,15 @@
+uuid: 8f3c002d-c64b-4afa-9d5d-47b9c9df2a27
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+id: teams-members_role
+label: Member
+weight: 103
+admin: false
+scope: individual
+global_role: null
+group_type: teams
+permissions:
+  - 'view group'

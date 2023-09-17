@@ -1,0 +1,23 @@
+uuid: d513bd8b-ec4a-42a4-8ff3-7671e2252b9b
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - zurb_foundation
+_core:
+  default_config_hash: vs691EqoP-AZdatt0BRE4YYwNfTlL1X99lZ30wFX34c
+id: zurb_foundation_search
+theme: zurb_foundation
+region: sidebar_first
+weight: -1
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  label_display: visible
+  provider: search
+  page_id: ''
+visibility: {  }

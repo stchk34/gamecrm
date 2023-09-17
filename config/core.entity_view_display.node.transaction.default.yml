@@ -1,0 +1,84 @@
+uuid: e82948f9-c0ea-4a58-b57b-675a8a584bb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.transaction.field_actual_balance
+    - field.field.node.transaction.field_group
+    - field.field.node.transaction.field_mission_operation
+    - field.field.node.transaction.field_order_operation
+    - field.field.node.transaction.field_transaction
+    - field.field.node.transaction.field_transaction_type
+    - field.field.node.transaction.field_user
+    - node.type.transaction
+  module:
+    - options
+    - user
+id: node.transaction.default
+targetEntityType: node
+bundle: transaction
+mode: default
+content:
+  field_actual_balance:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_group:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_mission_operation:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_order_operation:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_transaction:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_transaction_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_user:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

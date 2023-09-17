@@ -1,0 +1,25 @@
+uuid: 750bbbf7-ec6e-4211-a217-6a5952068f26
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.admin-menu
+  module:
+    - system
+  theme:
+    - gamecrm_dark
+id: gamecrm_dark_adminmenu_2
+theme: gamecrm_dark
+region: header_menu
+weight: -6
+provider: null
+plugin: 'system_menu_block:admin-menu'
+settings:
+  id: 'system_menu_block:admin-menu'
+  label: 'Admin menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

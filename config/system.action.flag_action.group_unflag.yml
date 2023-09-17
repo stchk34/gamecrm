@@ -1,0 +1,15 @@
+uuid: a7ae6b99-45d5-4490-948a-8cfca57d0266
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.group
+  module:
+    - flag
+id: flag_action.group_unflag
+label: 'Unflag this item'
+type: taxonomy_term
+plugin: 'flag_action:group_unflag'
+configuration:
+  flag_id: group
+  flag_action: unflag

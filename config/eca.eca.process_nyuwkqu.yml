@@ -1,0 +1,266 @@
+uuid: a12a3914-284e-46fc-a639-10259dd64baf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.balance.field_balance
+    - field.field.node.balance.field_group
+    - field.field.node.balance.field_user
+    - field.field.node.mission.field_group
+    - field.field.node.transaction.field_actual_balance
+    - field.field.node.transaction.field_group
+    - field.field.node.transaction.field_transaction
+    - field.field.node.transaction.field_user
+    - field.field.user.user.field_group
+    - field.storage.node.field_actual_balance
+    - field.storage.node.field_balance
+    - field.storage.node.field_group
+    - field.storage.node.field_transaction
+    - field.storage.node.field_user
+    - field.storage.user.field_group
+    - node.type.transaction
+    - views.view.group_balance
+    - views.view.my_balance
+  module:
+    - eca_content
+    - eca_tamper
+    - eca_user
+    - eca_views
+id: process_nyuwkqu
+modeller: bpmn_io
+label: 'Process transaction'
+version: ''
+weight: -10
+events:
+  Event_16x1phb:
+    plugin: 'content_entity:insert'
+    label: 'After create transaction'
+    configuration:
+      type: 'node transaction'
+    successors:
+      -
+        id: Activity_0g7arb1
+        condition: ''
+conditions:
+  Flow_03ubmwc:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      field_name: field_user
+      negate: true
+      entity: transaction
+  Flow_0c6pdes:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      field_name: field_group
+      negate: true
+      entity: transaction
+gateways: {  }
+actions:
+  Activity_0g7arb1:
+    plugin: eca_token_load_entity
+    label: 'Load transaction node entity'
+    configuration:
+      token_name: transaction
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_1p6n49w
+        condition: ''
+  Activity_1p6n49w:
+    plugin: eca_switch_account
+    label: 'switch user to admin'
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_0xiegqp
+        condition: Flow_03ubmwc
+      -
+        id: Activity_1iuuut7
+        condition: Flow_0c6pdes
+  Activity_0xiegqp:
+    plugin: eca_token_load_entity_ref
+    label: 'Load User from field reference'
+    configuration:
+      field_name_entity_ref: field_user
+      token_name: user
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: transactiom
+    successors:
+      -
+        id: Activity_08cwvtg
+        condition: ''
+  Activity_1rglser:
+    plugin: eca_token_load_entity
+    label: 'Load balance node entity'
+    configuration:
+      token_name: balance
+      from: id
+      entity_type: node
+      entity_id: '[view_balance:0:nid]'
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_09l7s06
+        condition: ''
+  Activity_0e814tl:
+    plugin: eca_set_field_value
+    label: 'Set new value to field balance'
+    configuration:
+      field_name: field_balance
+      field_value: '[calc_balance]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: balance
+    successors:
+      -
+        id: Activity_1nw3b5c
+        condition: ''
+  Activity_09l7s06:
+    plugin: 'eca_tamper:math'
+    label: calc_balance
+    configuration:
+      operation: addition
+      flip: false
+      value: '[transaction:field_transaction:value]'
+      eca_data: '[balance:field_balance:value]'
+      eca_token_name: calc_balance
+    successors:
+      -
+        id: Activity_0e814tl
+        condition: ''
+  Activity_1iuuut7:
+    plugin: eca_token_load_entity_ref
+    label: 'Load group node from field reference'
+    configuration:
+      field_name_entity_ref: field_group
+      token_name: group
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: transaction
+    successors:
+      -
+        id: Activity_1vmz137
+        condition: ''
+  Activity_0t23pb2:
+    plugin: eca_token_load_entity
+    label: 'Load balance node entity'
+    configuration:
+      token_name: balance
+      from: id
+      entity_type: node
+      entity_id: '[view_balance:0:nid]'
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_02benp0
+        condition: ''
+  Activity_02benp0:
+    plugin: 'eca_tamper:math'
+    label: calc_balance
+    configuration:
+      operation: addition
+      flip: false
+      value: '[transaction:field_transaction:value]'
+      eca_data: '[balance:field_balance:value]'
+      eca_token_name: calc_balance
+    successors:
+      -
+        id: Activity_0px9zh7
+        condition: ''
+  Activity_0px9zh7:
+    plugin: eca_set_field_value
+    label: 'Set new value to field balance'
+    configuration:
+      field_name: field_balance
+      field_value: '[calc_balance]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: balance
+    successors:
+      -
+        id: Activity_01i7vcu
+        condition: ''
+  Activity_1nw3b5c:
+    plugin: eca_set_field_value
+    label: 'Set value to field actual balance'
+    configuration:
+      field_name: field_actual_balance
+      field_value: '[calc_balance]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors: {  }
+  Activity_01i7vcu:
+    plugin: eca_set_field_value
+    label: 'Set value to field actual balance'
+    configuration:
+      field_name: field_actual_balance
+      field_value: '[calc_balance]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: transaction
+    successors: {  }
+  Activity_08cwvtg:
+    plugin: eca_views_query
+    label: view_balance
+    configuration:
+      token_name: view_balance
+      view_id: my_balance
+      display_id: block_1
+      arguments: '[user:uid]'
+    successors:
+      -
+        id: Activity_1rglser
+        condition: ''
+  Activity_1vmz137:
+    plugin: eca_views_query
+    label: view_balance
+    configuration:
+      token_name: view_balance
+      view_id: group_balance
+      display_id: block_1
+      arguments: '[group:id]'
+    successors:
+      -
+        id: Activity_0t23pb2
+        condition: ''

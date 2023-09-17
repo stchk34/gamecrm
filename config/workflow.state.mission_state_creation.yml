@@ -1,0 +1,12 @@
+uuid: 5226530a-2338-43aa-a771-48054cedea41
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.mission_state
+id: mission_state_creation
+label: Creation
+module: workflow
+wid: mission_state
+weight: -11
+sysid: 1

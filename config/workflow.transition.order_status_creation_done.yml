@@ -1,0 +1,18 @@
+uuid: 3df52444-dbd9-4efa-a677-685560ae8df7
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_creation
+    - workflow.state.order_status_done
+id: order_status_creation_done
+label: null
+module: workflow
+from_sid: order_status_creation
+to_sid: order_status_done
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

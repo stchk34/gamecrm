@@ -1,0 +1,86 @@
+uuid: 6905fd18-0abf-45af-855d-abb6fb38b953
+langcode: en
+status: false
+dependencies:
+  module:
+    - eca_form
+id: process_vfkjyku
+modeller: bpmn_io
+label: noname
+version: ''
+weight: null
+events:
+  Event_0cqbu2c:
+    plugin: 'form:form_validate'
+    label: Event_0cqbu2c
+    configuration:
+      form_id: node-mission-edit-form
+      entity_type_id: ''
+      bundle: ''
+      operation: ''
+    successors:
+      -
+        id: Activity_14xen48
+        condition: ''
+conditions: {  }
+gateways: {  }
+actions:
+  Activity_14xen48:
+    plugin: eca_form_field_get_value
+    label: Activity_14xen48
+    configuration:
+      token_name: reward
+      field_name: field_reward
+      strip_tags: true
+      trim: true
+      xss_filter: true
+    successors:
+      -
+        id: Activity_1b9avb7
+        condition: ''
+  Activity_1b9avb7:
+    plugin: eca_form_field_get_value
+    label: Activity_1b9avb7
+    configuration:
+      token_name: badge
+      field_name: field_badge
+      strip_tags: true
+      trim: true
+      xss_filter: true
+    successors:
+      -
+        id: Activity_0ktp4wb
+        condition: ''
+  Activity_0ktp4wb:
+    plugin: eca_form_field_get_value
+    label: Activity_0ktp4wb
+    configuration:
+      token_name: doer
+      field_name: field_doer
+      strip_tags: true
+      trim: true
+      xss_filter: true
+    successors:
+      -
+        id: Activity_07ps68k
+        condition: ''
+  Activity_07ps68k:
+    plugin: eca_form_field_get_value
+    label: Activity_07ps68k
+    configuration:
+      token_name: group
+      field_name: field_group
+      strip_tags: true
+      trim: true
+      xss_filter: true
+    successors:
+      -
+        id: Activity_0yjlphv
+        condition: ''
+  Activity_0yjlphv:
+    plugin: eca_form_field_set_error
+    label: Activity_0yjlphv
+    configuration:
+      message: 'reward [reward] , badge [badge] , doer [doer] , group [group]'
+      field_name: op
+    successors: {  }

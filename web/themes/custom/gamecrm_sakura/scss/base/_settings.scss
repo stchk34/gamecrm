@@ -1,0 +1,43 @@
+@import 'util/util';
+
+$global-font-size: 100%;
+$global-width: rem-calc(1200);
+$global-lineheight: 1.5;
+$light-gray: #e6e6e6;
+$medium-gray: #c1c1c0;
+$dark-gray-default-theme: #222222;
+$black: #0a0a0a;
+$white: #fefefe;
+
+//Variables for SAKURA theme:
+$background-sakura-theme:#EAE7E6;
+$pink:#C1424D;
+$foundation-palette: (
+  primary: $black,
+  secondary: #767676,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #cc4b37,
+);
+
+//Variables for default theme:
+$yellow:#ffbc11;
+$brown:#712f00;
+$red: #a02222;
+
+//Variables for DARK theme:
+$background-dark-theme:#222222;
+$background-header-dark-theme:#111111;
+$background-basic-dark-theme:#2a2a2d;
+$body-font-family:'Chakra Petch', 'Roboto Slab', serif;
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1024px,
+  xlarge: 1200px,
+  xxlarge: 1440px,
+);
+$print-breakpoint: large;
+$breakpoint-classes: (small medium large);
+

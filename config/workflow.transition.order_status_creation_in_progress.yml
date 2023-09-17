@@ -1,0 +1,18 @@
+uuid: 9ebf325b-b159-4ed8-a124-8732f8d20c48
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_creation
+    - workflow.state.order_status_in_progress
+id: order_status_creation_in_progress
+label: null
+module: workflow
+from_sid: order_status_creation
+to_sid: order_status_in_progress
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

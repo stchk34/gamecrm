@@ -1,0 +1,145 @@
+uuid: 71c9121b-3537-4cac-a4d7-e55888b6c865
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.badge
+    - field.field.commerce_product.badge.field_badge
+    - field.field.commerce_product.badge.field_description
+    - field.field.commerce_product.badge.field_restriction
+    - views.view.badge_in_product
+  module:
+    - commerce
+    - commerce_product
+    - foundation_layouts
+    - layout_builder
+    - text
+    - views
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: foundation-4-8
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          wrappers:
+            sidebar_left: div
+            sidebar_right: div
+          wrapper_classes: ''
+          attributes: {  }
+          wrapper_id: product-page
+        components:
+          a2b754f9-2645-4d05-a1ca-c19371e86b27:
+            uuid: a2b754f9-2645-4d05-a1ca-c19371e86b27
+            region: sidebar_left
+            configuration:
+              id: 'views_block:badge_in_product-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: -1
+            additional: {  }
+          9fc74925-d52c-4f23-a76c-06f22112fbf0:
+            uuid: 9fc74925-d52c-4f23-a76c-06f22112fbf0
+            region: sidebar_right
+            configuration:
+              id: 'field_block:commerce_product:badge:field_description'
+              label: Description
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          c8fde6ea-649e-4ef9-8116-31dacaf1332e:
+            uuid: c8fde6ea-649e-4ef9-8116-31dacaf1332e
+            region: sidebar_left
+            configuration:
+              id: 'field_block:commerce_product_variation:badge:price'
+              label: Price
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: '@commerce_product.product_variation_route_context:commerce_product_variation'
+                view_mode: view_mode
+              formatter:
+                type: commerce_price_default
+                label: above
+                settings:
+                  strip_trailing_zeroes: false
+                  currency_display: none
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          f277cc8f-083f-44a1-b548-086a81182cce:
+            uuid: f277cc8f-083f-44a1-b548-086a81182cce
+            region: sidebar_left
+            configuration:
+              id: 'field_block:commerce_product:badge:variations'
+              label: Variations
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: commerce_add_to_cart
+                label: hidden
+                settings:
+                  combine: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: commerce_product.badge.default
+targetEntityType: commerce_product
+bundle: badge
+mode: default
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_restriction:
+    type: commerce_plugin_item_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: sidebar_left
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  variations:
+    type: commerce_add_to_cart
+    label: above
+    settings:
+      combine: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  created: true
+  field_badge: true
+  stores: true
+  uid: true

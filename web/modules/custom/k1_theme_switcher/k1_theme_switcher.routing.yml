@@ -1,0 +1,7 @@
+k1_theme_switcher.admin_structure:
+  path: '/admin/structure/theme_switcher'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Theme Switcher'
+  requirements:
+    _permission: 'administer site configuration'

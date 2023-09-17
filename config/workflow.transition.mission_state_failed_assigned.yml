@@ -1,0 +1,20 @@
+uuid: b14f7192-c963-4e67-97d4-5b5e9f6dea07
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_assigned
+    - workflow.state.mission_state_failed
+id: mission_state_failed_assigned
+label: null
+module: workflow
+from_sid: mission_state_failed
+to_sid: mission_state_assigned
+roles:
+  workflow_author: '0'
+  anonymous: '0'
+  authenticated: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

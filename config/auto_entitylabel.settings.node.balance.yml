@@ -1,0 +1,9 @@
+status: 0
+pattern: 'Balance ID:[node:nid] | User: [node:field_user:entity:name]'
+escape: false
+preserve_titles: false
+save: true
+chunk: 50
+dependencies:
+  config:
+    - node.type.balance

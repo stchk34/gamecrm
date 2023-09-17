@@ -1,0 +1,236 @@
+uuid: 3cf6be63-6283-4fed-92ca-6c0caa6ef424
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+  module:
+    - eca_base
+    - eca_content
+    - eca_form
+    - group_action
+id: process_kmz9xcj
+modeller: bpmn_io
+label: noname
+version: ''
+weight: null
+events:
+  Event_0gz4sl4:
+    plugin: 'form:form_build'
+    label: 'build form'
+    configuration:
+      form_id: user-register-form
+      entity_type_id: ''
+      bundle: ''
+      operation: ''
+    successors:
+      -
+        id: Activity_1o3r6dk
+        condition: ''
+  Event_1w6y99g:
+    plugin: 'form:form_submit'
+    label: 'submit form'
+    configuration:
+      form_id: user-register-form
+      entity_type_id: ''
+      bundle: ''
+      operation: ''
+    successors:
+      -
+        id: Activity_1an5bjy
+        condition: ''
+  Event_0fy38rt:
+    plugin: 'form:form_build'
+    label: 'build form'
+    configuration:
+      form_id: user-form
+      entity_type_id: ''
+      bundle: ''
+      operation: ''
+    successors:
+      -
+        id: Activity_150zc78
+        condition: Flow_0nu4dxc
+conditions:
+  Flow_0xhi7df:
+    plugin: eca_entity_field_value
+    configuration:
+      negate: false
+      case: false
+      expected_value: user
+      field_name: field_role
+      operator: equal
+      type: value
+      entity: form
+  Flow_166102x:
+    plugin: eca_entity_field_value
+    configuration:
+      negate: false
+      case: false
+      expected_value: team_lead
+      field_name: field_role
+      operator: equal
+      type: value
+      entity: form
+  Flow_0nu4dxc:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[current-page:url:args:last]'
+      right: edit
+      operator: equal
+      type: value
+gateways: {  }
+actions:
+  Activity_1o3r6dk:
+    plugin: eca_form_build_entity
+    label: 'load form'
+    configuration:
+      token_name: form
+    successors:
+      -
+        id: Activity_1p874i3
+        condition: ''
+  Activity_1p874i3:
+    plugin: eca_form_field_access
+    label: 'set no access'
+    configuration:
+      flag: false
+      field_name: roles
+    successors: {  }
+  Activity_1an5bjy:
+    plugin: eca_form_build_entity
+    label: 'load form'
+    configuration:
+      token_name: form
+    successors:
+      -
+        id: Activity_021xski
+        condition: ''
+  Activity_021xski:
+    plugin: eca_token_load_entity_ref
+    label: 'load role'
+    configuration:
+      field_name_entity_ref: field_role
+      token_name: role
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_15hzi1y
+        condition: ''
+  Activity_15hzi1y:
+    plugin: eca_set_field_value
+    label: 'set role'
+    configuration:
+      field_name: roles
+      field_value: '[role]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: form
+    successors:
+      -
+        id: Activity_0aj07t3
+        condition: Flow_0xhi7df
+      -
+        id: Activity_14d0a0l
+        condition: Flow_166102x
+  Activity_0aj07t3:
+    plugin: group_add_member
+    label: 'set user as member'
+    configuration:
+      replace_tokens: false
+      values:
+        group_roles:
+          - teams-members_role
+      operation: create
+      content_plugin: group_membership
+      group_id: '[form:field_group:entity:id]'
+      entity_id: ''
+      add_method: skip_existing
+      object: form
+    successors: {  }
+  Activity_14d0a0l:
+    plugin: eca_new_entity
+    label: 'create group'
+    configuration:
+      token_name: group
+      type: 'group teams'
+      langcode: ''
+      label: '[form:field_first_name] [form:field_second_name] team'
+      published: true
+      owner: '[form:uid]'
+    successors:
+      -
+        id: Activity_1280u1a
+        condition: ''
+  Activity_167khli:
+    plugin: group_add_member
+    label: 'add user as member'
+    configuration:
+      replace_tokens: false
+      values:
+        group_roles:
+          - teams-admin
+      operation: create
+      content_plugin: group_membership
+      group_id: '[group:id]'
+      entity_id: ''
+      add_method: skip_existing
+      object: form
+    successors: {  }
+  Activity_1280u1a:
+    plugin: eca_save_entity
+    label: 'save group'
+    configuration:
+      object: group
+    successors:
+      -
+        id: Activity_167khli
+        condition: ''
+  Activity_150zc78:
+    plugin: eca_form_build_entity
+    label: 'Build form'
+    configuration:
+      token_name: form
+    successors:
+      -
+        id: Activity_0ajlgfs
+        condition: ''
+  Activity_0ajlgfs:
+    plugin: eca_form_field_access
+    label: 'Set access field role'
+    configuration:
+      flag: false
+      field_name: field_role
+    successors:
+      -
+        id: Activity_1kv4rhg
+        condition: ''
+  Activity_1kv4rhg:
+    plugin: eca_form_field_access
+    label: 'set access field group'
+    configuration:
+      flag: false
+      field_name: field_group
+    successors:
+      -
+        id: Activity_197420u
+        condition: ''
+  Activity_197420u:
+    plugin: eca_form_field_access
+    label: 'set access field email'
+    configuration:
+      flag: false
+      field_name: mail
+    successors: {  }

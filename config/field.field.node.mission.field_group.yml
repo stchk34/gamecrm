@@ -1,0 +1,25 @@
+uuid: 1a544f0f-749c-4e49-ad5a-8766e70384bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_group
+    - node.type.mission
+id: node.mission.field_group
+field_name: field_group
+entity_type: node
+bundle: mission
+label: Assigned
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: display_group_to_each_owner
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

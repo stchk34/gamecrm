@@ -1,0 +1,20 @@
+uuid: 089778b6-547b-4dd2-85e9-1ae9b70ca75f
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_assigned
+    - workflow.state.mission_state_expired
+id: mission_state_expired_assigned
+label: null
+module: workflow
+from_sid: mission_state_expired
+to_sid: mission_state_assigned
+roles:
+  workflow_author: '0'
+  anonymous: '0'
+  authenticated: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

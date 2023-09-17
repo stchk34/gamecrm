@@ -1,0 +1,57 @@
+uuid: 7bbd6219-9ab9-4af3-9b0d-18c5f44e38a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.teaser
+    - field.field.node.mission.field_assigned
+    - field.field.node.mission.field_badge
+    - field.field.node.mission.field_comments_to_the_mission
+    - field.field.node.mission.field_description_mision
+    - field.field.node.mission.field_doer
+    - field.field.node.mission.field_end_date
+    - field.field.node.mission.field_group
+    - field.field.node.mission.field_number_of_points
+    - field.field.node.mission.field_reward
+    - field.field.node.mission.field_state
+    - field.field.node.mission.field_type_mission
+    - node.type.mission
+  module:
+    - comment
+    - user
+id: node.mission.teaser
+targetEntityType: node
+bundle: mission
+mode: teaser
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_comments_to_the_mission:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_assigned: true
+  field_badge: true
+  field_description_mision: true
+  field_doer: true
+  field_end_date: true
+  field_group: true
+  field_number_of_points: true
+  field_reward: true
+  field_state: true
+  field_type_mission: true

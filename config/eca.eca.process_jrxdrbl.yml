@@ -1,0 +1,318 @@
+uuid: 3b3a02bc-a51c-442d-8d17-398832e90e65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.balance.field_group
+    - field.field.node.balance.field_user
+    - field.field.node.mission.field_group
+    - field.field.node.transaction.field_group
+    - field.field.node.transaction.field_user
+    - field.field.user.user.field_group
+    - field.storage.node.field_group
+    - field.storage.node.field_user
+    - field.storage.user.field_group
+    - group.type.teams
+    - node.type.balance
+    - views.view.group_balance
+    - views.view.my_balance
+  module:
+    - eca_base
+    - eca_content
+    - eca_user
+    - eca_views
+    - user
+id: process_jrxdrbl
+modeller: bpmn_io
+label: 'Create node balance'
+version: ''
+weight: -10
+events:
+  Event_0y75ydb:
+    plugin: 'content_entity:insert'
+    label: 'After create user'
+    configuration:
+      type: 'user user'
+    successors:
+      -
+        id: Activity_1s87ac2
+        condition: ''
+  Event_1hxrvs0:
+    plugin: 'content_entity:insert'
+    label: 'After create group'
+    configuration:
+      type: 'group teams'
+    successors:
+      -
+        id: Activity_0ovgo8l
+        condition: ''
+  Event_0mrzzdm:
+    plugin: 'content_entity:update'
+    label: 'Update user'
+    configuration:
+      type: 'user user'
+    successors:
+      -
+        id: Activity_1wmpm4n
+        condition: ''
+  Event_1kwr057:
+    plugin: 'content_entity:update'
+    label: 'Update group'
+    configuration:
+      type: 'group teams'
+    successors:
+      -
+        id: Activity_1s0situ
+        condition: ''
+conditions: {  }
+gateways: {  }
+actions:
+  Activity_1s87ac2:
+    plugin: eca_token_load_entity
+    label: 'Load user entity'
+    configuration:
+      token_name: user
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_0hzbv7o
+        condition: ''
+  Activity_0hzbv7o:
+    plugin: eca_switch_account
+    label: 'Switch user to admin'
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_05mjt7i
+        condition: ''
+  Activity_05mjt7i:
+    plugin: eca_new_entity
+    label: 'Create node balance'
+    configuration:
+      token_name: balance
+      type: 'node balance'
+      langcode: ''
+      label: 'Balance of [user:account-name]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_0v8wre4
+        condition: ''
+  Activity_0v8wre4:
+    plugin: eca_set_field_value
+    label: 'Set field user value'
+    configuration:
+      field_name: field_user
+      field_value: '[user]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: balance
+    successors: {  }
+  Activity_0ovgo8l:
+    plugin: eca_token_load_entity
+    label: 'Load group node entity'
+    configuration:
+      token_name: group
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_1eyxhv0
+        condition: ''
+  Activity_1eyxhv0:
+    plugin: eca_switch_account
+    label: 'Swith user to admin'
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_0posa6p
+        condition: ''
+  Activity_0posa6p:
+    plugin: eca_new_entity
+    label: 'Create mode balance'
+    configuration:
+      token_name: balance
+      type: 'node balance'
+      langcode: ''
+      label: 'Balance of [group:title]'
+      published: true
+      owner: ''
+    successors:
+      -
+        id: Activity_1s8hsgh
+        condition: ''
+  Activity_1s8hsgh:
+    plugin: eca_set_field_value
+    label: 'Set field group value'
+    configuration:
+      field_name: field_group
+      field_value: '[group]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: balance
+    successors:
+      -
+        id: Activity_0yo0mfw
+        condition: ''
+  Activity_0e6dpry:
+    plugin: eca_views_query
+    label: 'Load view balance'
+    configuration:
+      token_name: view_balance
+      view_id: my_balance
+      display_id: block_1
+      arguments: '[user]'
+    successors:
+      -
+        id: Activity_1yq4857
+        condition: ''
+  Activity_1wmpm4n:
+    plugin: eca_token_load_entity
+    label: 'Load user'
+    configuration:
+      token_name: user
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_1lpj1io
+        condition: ''
+  Activity_1yq4857:
+    plugin: eca_list_remove
+    label: 'Load balance'
+    configuration:
+      value: ''
+      token_name: balance
+      method: first
+      index: '0'
+      list_token: view_balance
+    successors:
+      -
+        id: Activity_0wgjsmb
+        condition: ''
+  Activity_0wgjsmb:
+    plugin: eca_set_field_value
+    label: 'Set balance title'
+    configuration:
+      field_name: title
+      field_value: 'Balance ID:[balance:nid] | User: [balance:field_user:entity:name]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: balance
+    successors: {  }
+  Activity_1s0situ:
+    plugin: eca_token_load_entity
+    label: 'Load group'
+    configuration:
+      token_name: group
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_000vj3e
+        condition: ''
+  Activity_02wqr3r:
+    plugin: eca_views_query
+    label: 'Load view balance'
+    configuration:
+      token_name: view_balance
+      view_id: group_balance
+      display_id: block_1
+      arguments: '[group]'
+    successors:
+      -
+        id: Activity_1jf11q1
+        condition: ''
+  Activity_1jf11q1:
+    plugin: eca_list_remove
+    label: 'Load balance'
+    configuration:
+      value: ''
+      token_name: balance
+      method: first
+      index: '0'
+      list_token: view_balance
+    successors:
+      -
+        id: Activity_0xx09dr
+        condition: ''
+  Activity_0xx09dr:
+    plugin: eca_set_field_value
+    label: 'Set balance title'
+    configuration:
+      field_name: title
+      field_value: 'Balance ID:[balance:nid] | Group: [balance:field_group:entity:title]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: balance
+    successors: {  }
+  Activity_0yo0mfw:
+    plugin: eca_set_field_value
+    label: 'Set balance title'
+    configuration:
+      field_name: title
+      field_value: 'Balance ID:[balance:nid] | Group: [balance:field_group:entity:title]'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: balance
+    successors: {  }
+  Activity_1lpj1io:
+    plugin: eca_switch_account
+    label: Switch
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_0e6dpry
+        condition: ''
+  Activity_000vj3e:
+    plugin: eca_switch_account
+    label: Switch
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_02wqr3r
+        condition: ''

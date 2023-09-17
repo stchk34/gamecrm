@@ -1,0 +1,20 @@
+uuid: 9af2fe27-8b63-47c2-91e6-7788ff37d57f
+langcode: en
+status: true
+dependencies:
+  theme:
+    - gamecrm_dark
+_core:
+  default_config_hash: Q9_2whdOj1YIomfvsIfopROW4FT_X5pY0DjdOiOaQ5U
+id: gamecrm_dark_primary_admin_actions
+theme: gamecrm_dark
+region: help
+weight: -4
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

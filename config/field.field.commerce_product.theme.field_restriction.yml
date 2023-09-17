@@ -1,0 +1,25 @@
+uuid: 3da4faaa-9c5b-449d-8ae8-0cb1d8af0bf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.theme
+    - field.storage.commerce_product.field_restriction
+  module:
+    - commerce
+id: commerce_product.theme.field_restriction
+field_name: field_restriction
+entity_type: commerce_product
+bundle: theme
+label: Restriction
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_plugin_id: purchase_quantity_restriction
+    target_plugin_configuration:
+      quantity: '1'
+default_value_callback: ''
+settings: {  }
+field_type: 'commerce_plugin_item:product_restriction'

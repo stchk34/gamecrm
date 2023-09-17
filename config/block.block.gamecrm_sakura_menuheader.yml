@@ -1,0 +1,25 @@
+uuid: 6f44a8b8-bca5-46a1-bd18-421c66c14233
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-header
+  module:
+    - system
+  theme:
+    - gamecrm_sakura
+id: gamecrm_sakura_menuheader
+theme: gamecrm_sakura
+region: header_menu
+weight: -8
+provider: null
+plugin: 'system_menu_block:menu-header'
+settings:
+  id: 'system_menu_block:menu-header'
+  label: 'Menu header'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

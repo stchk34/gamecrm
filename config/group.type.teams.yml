@@ -1,0 +1,12 @@
+uuid: d441f004-453d-4f2f-9265-769782b570a6
+langcode: en
+status: true
+dependencies: {  }
+id: teams
+label: Teams
+description: ''
+new_revision: true
+creator_membership: false
+creator_wizard: false
+creator_roles:
+  - teams-admin

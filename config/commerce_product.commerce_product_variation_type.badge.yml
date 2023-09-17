@@ -1,0 +1,10 @@
+uuid: 2b217c9e-15ac-4168-b49f-3003f521f1d6
+langcode: en
+status: true
+dependencies: {  }
+id: badge
+label: Badge
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: null

@@ -1,0 +1,18 @@
+uuid: 8d6cbac9-aaf0-4b62-95e5-3e93bd547a6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_creation
+    - workflow.state.order_status_on_hold
+id: order_status_creation_on_hold
+label: null
+module: workflow
+from_sid: order_status_creation
+to_sid: order_status_on_hold
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

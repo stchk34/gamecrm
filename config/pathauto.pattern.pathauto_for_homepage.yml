@@ -1,0 +1,23 @@
+uuid: 1d7efd89-60fe-42bc-8e5a-e927ab938938
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: pathauto_for_homepage
+label: 'Pathauto for homepage'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  9d78b551-943c-4d7f-bc4d-e4963f246f18:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 9d78b551-943c-4d7f-bc4d-e4963f246f18
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+      page: page
+selection_logic: and
+weight: -5
+relationships: {  }

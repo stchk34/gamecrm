@@ -1,0 +1,18 @@
+uuid: b72272c1-386f-451b-b767-c8a17dc95520
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_draft
+    - workflow.state.order_status_in_progress
+id: order_status_in_progress_draft
+label: null
+module: workflow
+from_sid: order_status_in_progress
+to_sid: order_status_draft
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

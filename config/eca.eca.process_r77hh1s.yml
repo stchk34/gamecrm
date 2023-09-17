@@ -1,0 +1,49 @@
+uuid: ae045343-eb3b-48d2-a2dd-aa5b445735c0
+langcode: en
+status: false
+dependencies:
+  module:
+    - eca_base
+    - eca_form
+id: process_r77hh1s
+modeller: bpmn_io
+label: noname
+version: ''
+weight: null
+events:
+  Event_05zvl34:
+    plugin: 'form:form_validate'
+    label: 'register form'
+    configuration:
+      form_id: user-register-form
+      entity_type_id: ''
+      bundle: ''
+      operation: ''
+    successors:
+      -
+        id: Activity_05caz5h
+        condition: ''
+conditions:
+  Flow_08muabt:
+    plugin: eca_token_exists
+    configuration:
+      token_name: '[form:roles:keys:value:2]'
+      negate: true
+gateways: {  }
+actions:
+  Activity_05caz5h:
+    plugin: eca_form_build_entity
+    label: 'Load form'
+    configuration:
+      token_name: form
+    successors:
+      -
+        id: Activity_00sf5yc
+        condition: Flow_08muabt
+  Activity_00sf5yc:
+    plugin: eca_form_field_set_error
+    label: Error
+    configuration:
+      message: 'You must select a role'
+      field_name: op
+    successors: {  }

@@ -1,0 +1,23 @@
+uuid: 2b14c17a-49c4-48be-bb07-1a9b6bc1c6ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_mission
+    - node.type.mission
+  module:
+    - options
+id: node.mission.field_type_mission
+field_name: field_type_mission
+entity_type: node
+bundle: mission
+label: 'Type mission'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '1'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

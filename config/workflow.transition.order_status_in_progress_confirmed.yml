@@ -1,0 +1,18 @@
+uuid: ba159125-c281-4a3d-a53f-35dfdb45cc8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_confirmed
+    - workflow.state.order_status_in_progress
+id: order_status_in_progress_confirmed
+label: null
+module: workflow
+from_sid: order_status_in_progress
+to_sid: order_status_confirmed
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

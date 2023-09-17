@@ -1,0 +1,25 @@
+uuid: b2310316-6349-429c-8401-b0131f1300fc
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ca4826fa-6153-408c-b061-10d5e5e86ab2'
+  module:
+    - block_content
+  theme:
+    - gamecrm_sakura
+id: gamecrm_sakura_copyright
+theme: gamecrm_sakura
+region: footer_first
+weight: -6
+provider: null
+plugin: 'block_content:ca4826fa-6153-408c-b061-10d5e5e86ab2'
+settings:
+  id: 'block_content:ca4826fa-6153-408c-b061-10d5e5e86ab2'
+  label: Copyright
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

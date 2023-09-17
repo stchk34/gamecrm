@@ -1,0 +1,34 @@
+uuid: 1ef7b527-e21b-4167-b663-b4cf5953628c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.balance
+  module:
+    - commerce_order
+    - disable_messages
+    - field_ui
+    - node
+    - profile
+    - workflow
+id: user
+label: User
+weight: 5
+is_admin: null
+permissions:
+  - 'access mission_state workflow_transition form'
+  - 'access order_status workflow_transition form'
+  - 'access user profiles'
+  - 'administer workflow_transition fields'
+  - 'administer workflow_transition form display'
+  - 'create mission_state workflow_transition'
+  - 'create order_status workflow_transition'
+  - 'edit own mission_state workflow_transition'
+  - 'update default commerce_order'
+  - 'view any profile'
+  - 'view balance revisions'
+  - 'view error messages'
+  - 'view own customer profile'
+  - 'view own profile'
+  - 'view status messages'
+  - 'view warning messages'

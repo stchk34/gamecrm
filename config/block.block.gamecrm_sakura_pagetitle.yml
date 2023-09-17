@@ -1,0 +1,33 @@
+uuid: 167eaf87-f3e4-4406-9503-87b362d2f773
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - system
+  theme:
+    - gamecrm_sakura
+id: gamecrm_sakura_pagetitle
+theme: gamecrm_sakura
+region: content
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      balance: balance
+      transaction: transaction
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/comment/reply/node/*/field_comments_to_the_mission'

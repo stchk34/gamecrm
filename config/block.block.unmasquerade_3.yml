@@ -1,0 +1,25 @@
+uuid: 6890b798-3704-452f-b1be-834ec748a38b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.unmasquerade
+  module:
+    - system
+  theme:
+    - gamecrm_sakura
+id: unmasquerade_3
+theme: gamecrm_sakura
+region: footer_first
+weight: -7
+provider: null
+plugin: 'system_menu_block:unmasquerade'
+settings:
+  id: 'system_menu_block:unmasquerade'
+  label: Unmasquerade
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

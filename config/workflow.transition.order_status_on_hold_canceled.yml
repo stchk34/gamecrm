@@ -1,0 +1,18 @@
+uuid: 90dfedd5-8a29-4622-9636-fedd069cfede
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_canceled
+    - workflow.state.order_status_on_hold
+id: order_status_on_hold_canceled
+label: null
+module: workflow
+from_sid: order_status_on_hold
+to_sid: order_status_canceled
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

@@ -1,0 +1,19 @@
+uuid: faab4339-2ca1-4f78-a115-7ca1062e0396
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_description_mision
+field_name: field_description_mision
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

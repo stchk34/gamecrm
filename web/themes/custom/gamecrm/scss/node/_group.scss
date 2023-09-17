@@ -1,0 +1,92 @@
+.group,.group-content{
+  .field--group-uid,
+  .field--group-relationship-group-roles,
+  .field--group-relationship-entity-id {
+    display:flex;
+    @include field-label-node;
+  }
+
+  //Title Group.
+  .field--group-label{
+    @include title-bolder-default;
+    margin:10px 0;
+  }
+
+  .block-views-blockgroup-balance-block-1{
+    display:flex;
+    align-items:baseline;
+    .block-title{
+      font-weight:600;
+      margin-right:5px;
+      &:after{
+        content:':';
+      }
+    }
+  }
+
+  //Group balance and rewards.
+  .block-views-blocktest4-group--block-1{
+    margin-bottom: 30px;
+  }
+
+  .block-views-blockgroup-balance-block-1,
+  .block-views-blocktest4-group--block-1{
+    .block-title{
+      font-size:20px;
+      font-weight:600;
+    }
+    .contextual-region{
+      font-size:16px;
+    }
+  }
+}
+.group--full{
+  .block-views-blockgroup-balance-block-1{
+    .block-title{
+      font-size: 20px;
+    }
+  }
+}
+
+//Page "Add group".
+.group-teams-add-form.group-form{
+  .vertical-tabs__menu-item.is-selected{
+    background:transparent;
+  }
+}
+
+.block-views-block-group-settings-block-1,
+.block-views-block-group-settings-block-1-2,
+.block-views-blockgroup-settings-block-3 {
+  padding-right: 10px;
+  .field_group_settings, .views-field-view-group{
+    a{
+      font-size: 0;
+      &:before{
+        font-family: FontAwesome,serif;
+        font-size: 25px;
+        display: inline-block;
+        content: "\f0c0";
+        color: #c1c1c0;
+      }
+    }
+  }
+}
+
+//View "Members list".
+.view-my-orders{
+  .form-save-default-button{
+    display: none;
+  }
+}
+
+.path-group{
+  .block-local-actions-block{
+    .button-action{
+      margin-top: 15px
+    }
+  }
+  li{
+    list-style: none;
+  }
+}

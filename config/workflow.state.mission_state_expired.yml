@@ -1,0 +1,12 @@
+uuid: ced1db21-bd8f-4aea-8891-ae657409eb93
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.mission_state
+id: mission_state_expired
+label: Expired
+module: workflow
+wid: mission_state
+weight: -7
+sysid: 0

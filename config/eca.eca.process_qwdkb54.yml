@@ -1,0 +1,77 @@
+uuid: 8f437a67-4007-465c-bd12-a73b722e29d4
+langcode: en
+status: true
+dependencies:
+  module:
+    - eca_base
+    - eca_form
+    - eca_tamper
+id: process_qwdkb54
+modeller: bpmn_io
+label: noname
+version: ''
+weight: null
+events:
+  Event_0yc79rb:
+    plugin: 'form:form_validate'
+    label: Event_0yc79rb
+    configuration:
+      form_id: node-mission-form
+      entity_type_id: ''
+      bundle: ''
+      operation: ''
+    successors:
+      -
+        id: Activity_1ncz2xh
+        condition: ''
+conditions:
+  Flow_1q0d7kr:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[end_sec]'
+      right: '[current-date:raw]'
+      operator: lessthan
+      type: value
+gateways: {  }
+actions:
+  Activity_1ncz2xh:
+    plugin: eca_form_field_get_value
+    label: Activity_1ncz2xh
+    configuration:
+      token_name: end
+      field_name: 'field_end_date[0][value][date]'
+      strip_tags: true
+      trim: true
+      xss_filter: true
+    successors:
+      -
+        id: Activity_0ugsaqg
+        condition: ''
+  Activity_0sr0141:
+    plugin: eca_form_field_set_error
+    label: Activity_0sr0141
+    configuration:
+      message: 'The date of this must be equal to or greater than today'
+      field_name: op
+    successors: {  }
+  Activity_1od7lhz:
+    plugin: action_message_action
+    label: Activity_1od7lhz
+    configuration:
+      replace_tokens: false
+      message: |-
+        hello [end_sec]
+        [current-date:raw]
+    successors: {  }
+  Activity_0ugsaqg:
+    plugin: 'eca_tamper:strtotime'
+    label: Activity_0ugsaqg
+    configuration:
+      eca_data: '[end]'
+      eca_token_name: end_sec
+    successors:
+      -
+        id: Activity_0sr0141
+        condition: Flow_1q0d7kr

@@ -1,0 +1,18 @@
+uuid: 121f535b-8a4a-4143-ac55-920498bc7e18
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+id: group.teams.label
+field_name: label
+entity_type: group
+bundle: teams
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

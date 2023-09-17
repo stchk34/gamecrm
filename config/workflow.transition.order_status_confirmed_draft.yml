@@ -1,0 +1,18 @@
+uuid: 73e7cda9-abbb-4825-b183-30237d918ddf
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.order_status_confirmed
+    - workflow.state.order_status_draft
+id: order_status_confirmed_draft
+label: null
+module: workflow
+from_sid: order_status_confirmed
+to_sid: order_status_draft
+roles:
+  workflow_author: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

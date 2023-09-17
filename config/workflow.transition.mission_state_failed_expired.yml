@@ -1,0 +1,20 @@
+uuid: ab740a05-de87-4c2f-81d4-beec46c00910
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_expired
+    - workflow.state.mission_state_failed
+id: mission_state_failed_expired
+label: null
+module: workflow
+from_sid: mission_state_failed
+to_sid: mission_state_expired
+roles:
+  workflow_author: '0'
+  anonymous: '0'
+  authenticated: '0'
+  content_editor: '0'
+  administrator: '0'
+  team_lead: '0'
+  user: '0'

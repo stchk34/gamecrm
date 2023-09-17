@@ -1,0 +1,170 @@
+uuid: 6eee7f2a-5c77-4b0e-b586-ed72f1e1c3db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.balance.field_group
+    - field.field.node.mission.field_badge
+    - field.field.node.mission.field_doer
+    - field.field.node.mission.field_group
+    - field.field.node.mission.field_number_of_points
+    - field.field.node.transaction.field_group
+    - field.storage.node.field_badge
+    - field.storage.node.field_doer
+    - field.storage.node.field_group
+    - field.storage.node.field_number_of_points
+  module:
+    - eca_base
+    - eca_content
+    - eca_form
+id: process_uee4anj
+modeller: bpmn_io
+label: noname
+version: ''
+weight: null
+events:
+  Event_0wf0lrx:
+    plugin: 'form:form_validate'
+    label: Event_0wf0lrx
+    configuration:
+      form_id: ''
+      entity_type_id: node
+      bundle: mission
+      operation: default
+    successors:
+      -
+        id: Activity_1ebkufx
+        condition: ''
+conditions:
+  Flow_15y9r43:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[form:field_assigned:value]'
+      right: '2'
+      operator: equal
+      type: value
+  Flow_0kdaa0g:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      negate: false
+      field_name: field_group
+      entity: form
+  Flow_0fd5e98:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[form:field_assigned:value]'
+      right: '1'
+      operator: equal
+      type: value
+  Flow_0ujupm9:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      negate: false
+      field_name: field_doer
+      entity: form
+  Flow_00eam9f:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[form:field_reward:value]'
+      right: '1'
+      operator: equal
+      type: value
+  Flow_1ps292a:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      negate: false
+      field_name: field_badge
+      entity: form
+  Flow_0rw0cc0:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[form:field_reward:value]'
+      right: '2'
+      operator: equal
+      type: value
+  Flow_0x49lno:
+    plugin: eca_entity_field_value_empty
+    configuration:
+      negate: false
+      field_name: field_number_of_points
+      entity: form
+gateways:
+  Gateway_1fug51o:
+    type: 0
+    successors:
+      -
+        id: Activity_0w0409g
+        condition: Flow_0kdaa0g
+  Gateway_0wfuwxr:
+    type: 0
+    successors:
+      -
+        id: Activity_1h8vuh7
+        condition: Flow_0ujupm9
+  Gateway_04risie:
+    type: 0
+    successors:
+      -
+        id: Activity_1uxb3dy
+        condition: Flow_1ps292a
+  Gateway_087p80h:
+    type: 0
+    successors:
+      -
+        id: Activity_0g7esb8
+        condition: Flow_0x49lno
+actions:
+  Activity_0w0409g:
+    plugin: eca_form_field_set_error
+    label: Activity_0w0409g
+    configuration:
+      message: 'You must select a group'
+      field_name: field_group
+    successors: {  }
+  Activity_1ebkufx:
+    plugin: eca_form_build_entity
+    label: Activity_1ebkufx
+    configuration:
+      token_name: form
+    successors:
+      -
+        id: Gateway_1fug51o
+        condition: Flow_15y9r43
+      -
+        id: Gateway_0wfuwxr
+        condition: Flow_0fd5e98
+      -
+        id: Gateway_04risie
+        condition: Flow_00eam9f
+      -
+        id: Gateway_087p80h
+        condition: Flow_0rw0cc0
+  Activity_1h8vuh7:
+    plugin: eca_form_field_set_error
+    label: Activity_1h8vuh7
+    configuration:
+      message: 'You must select a user'
+      field_name: field_doer
+    successors: {  }
+  Activity_1uxb3dy:
+    plugin: eca_form_field_set_error
+    label: Activity_1uxb3dy
+    configuration:
+      message: 'You must select a badge'
+      field_name: field_badge
+    successors: {  }
+  Activity_0g7esb8:
+    plugin: eca_form_field_set_error
+    label: Activity_0g7esb8
+    configuration:
+      message: 'You must specify the number of points'
+      field_name: field_number_of_points
+    successors: {  }

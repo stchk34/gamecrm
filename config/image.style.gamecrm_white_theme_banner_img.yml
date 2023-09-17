@@ -1,0 +1,15 @@
+uuid: c9f4e4bd-edcc-4ea3-a1e5-811b1247d3b1
+langcode: en
+status: true
+dependencies: {  }
+name: gamecrm_white_theme_banner_img
+label: 'Gamecrm white theme banner img'
+effects:
+  de305936-8024-4c6f-a0eb-eb4c0f389375:
+    uuid: de305936-8024-4c6f-a0eb-eb4c0f389375
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 170
+      height: 167
+      anchor: center-center

@@ -1,0 +1,21 @@
+uuid: fadeba11-52e5-4678-bd59-a5ebaa2f877e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_transaction_type
+    - node.type.transaction
+  module:
+    - options
+id: node.transaction.field_transaction_type
+field_name: field_transaction_type
+entity_type: node
+bundle: transaction
+label: 'Transaction type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

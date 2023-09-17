@@ -1,0 +1,12 @@
+uuid: ab72a548-166c-4d63-b34b-acc49a6aca88
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.workflow.order_status
+id: order_status_draft
+label: 'New Order'
+module: workflow
+wid: order_status
+weight: -9
+sysid: 0

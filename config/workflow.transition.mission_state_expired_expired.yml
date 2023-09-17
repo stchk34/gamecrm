@@ -1,0 +1,12 @@
+uuid: 6be2aaf4-a6bf-4a20-b60c-3500c3c4adf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - workflow.state.mission_state_expired
+id: mission_state_expired_expired
+label: ''
+module: workflow
+from_sid: mission_state_expired
+to_sid: mission_state_expired
+roles: {  }

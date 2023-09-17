@@ -1,0 +1,10 @@
+uuid: 8f6775c4-3606-45c1-a4d6-4e4f2eb4abb0
+langcode: en
+status: true
+dependencies: {  }
+id: pants
+label: Pants
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

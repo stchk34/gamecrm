@@ -1,0 +1,180 @@
+//Stylization theme and badge product.
+#product-page{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .views-row{
+    text-align:center;
+  }
+  //Field img.
+  .field--commerce-product-field-media-product{
+    display: flex;
+    justify-content: center;
+  }
+  //Field title.
+  .field--commerce-product-variation-title{
+    font-weight:600;
+    font-size:22px;
+    text-align: left;
+    text-transform:uppercase;
+    overflow-wrap: anywhere;
+    margin: 0 0 20px 0;
+    padding-left: 10px;
+    @media (max-width: 1199px) {
+      margin: 20px auto;
+      padding-left: 0;
+      text-align: center;
+    }
+  }
+
+  //Field description.
+  .field--commerce-product-field-description{
+    padding-left:10px;
+    font-size:16px;
+    overflow-wrap: anywhere;
+    .field-label{
+      font-weight:600;
+    }
+    p{
+      margin-bottom:0.5rem;
+    }
+    strong,p{
+      font-size:14px;
+    }
+  }
+
+  //Button "Buy".
+  .field--commerce-product-variations{
+    form{
+      gap: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items:center;
+      .attribute-widgets{
+        display: flex;
+        gap: 15px;
+      }
+      @media (max-width: 420px) {
+        gap: 0;
+        flex-direction: column;
+        .attribute-widgets{
+          flex-direction: column;
+          gap: 0;
+          margin-bottom: 10px;
+        }
+        .button--add-to-cart{
+          margin-top: 0;
+        }
+      }
+      select{
+        width:170px;
+        margin-bottom:10px;
+      }
+      .button--add-to-cart{
+        padding: 11px;
+      }
+      input{
+       @include button;
+        min-width:170px;
+        height: 2.4375rem;
+        margin-bottom: 0;
+        margin-top: 15px
+      }
+      .js-form-item{
+        label{
+          font-weight:600;
+        }
+      }
+    }
+  }
+
+  //Badge.
+  .views-field-name{
+    font-weight:600;
+    font-size:20px;
+  }
+
+  //Block Product Restriction.
+  .messages--product-restriction{
+    font-size:16px;
+    text-align:center;
+  }
+
+  #edit-actions{
+    .is-disabled {
+      display: flex;
+      justify-content: center;
+      margin:0;
+    }
+  }
+  //Button "Buy" for badge.
+  .field--commerce-product-variation-price{
+    padding-top: 5px;
+    display: flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-bottom:5px;
+    font-size:18px;
+    .field-label{
+      font-weight:600;
+    }
+    .field__item{
+      margin-left:5px;
+      &:after{
+        content: ' PNT';
+      }
+    }
+  }
+}
+.view-order-moderation{
+  .views-exposed-form{
+    flex-wrap: wrap;
+    .form-autocomplete{
+      width: 230px;
+    }
+  }
+  .form-save-default-button{
+    display: none;
+  }
+  table{
+    .views-field-field-order-status{
+      .workflow-transition-form{
+        .form-actions{
+          & > input{
+            margin: 2px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+//Page "Transaction & Balance".
+.field--node-field-mission-operation,
+.field--commerce-order-completed,
+.field--commerce-order-placed,
+.field--commerce-order-state{
+  display:flex;
+  align-items: center;
+  @include field-label-node;
+}
+
+@include breakpoint(large down) {
+  #product-page{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@include breakpoint(medium down) {
+  .gamecrm-product{
+    .layout{
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+uuid: 4b57e779-0baf-4b94-8fd0-0bae33a371e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - group.type.teams
+    - user.role.anonymous
+id: teams-anonymous
+label: Anonymous
+weight: -102
+admin: false
+scope: outsider
+global_role: anonymous
+group_type: teams
+permissions: {  }

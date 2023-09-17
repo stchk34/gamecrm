@@ -1,0 +1,38 @@
+uuid: eac440a4-1498-4905-9d0c-3c308c2e2e68
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:banner:9a701439-6a20-4662-b094-e8d4f7a4c0ab'
+  module:
+    - block_content
+    - system
+    - user
+  theme:
+    - gamecrm
+id: userstatistic
+theme: gamecrm
+region: highlighted
+weight: -8
+provider: null
+plugin: 'block_content:9a701439-6a20-4662-b094-e8d4f7a4c0ab'
+settings:
+  id: 'block_content:9a701439-6a20-4662-b094-e8d4f7a4c0ab'
+  label: 'User statistic'
+  label_display: '0'
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: "/homepage\r\n/user/*\r\n"
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated

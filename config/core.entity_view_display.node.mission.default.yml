@@ -1,0 +1,345 @@
+uuid: 3b4b2974-82a4-453c-b3e8-f03f6ca64451
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.mission.field_assigned
+    - field.field.node.mission.field_badge
+    - field.field.node.mission.field_comments_to_the_mission
+    - field.field.node.mission.field_description_mision
+    - field.field.node.mission.field_doer
+    - field.field.node.mission.field_end_date
+    - field.field.node.mission.field_group
+    - field.field.node.mission.field_number_of_points
+    - field.field.node.mission.field_reward
+    - field.field.node.mission.field_state
+    - field.field.node.mission.field_type_mission
+    - node.type.mission
+    - views.view.badge_in_mission
+  module:
+    - comment
+    - datetime
+    - foundation_layouts
+    - layout_builder
+    - layout_discovery
+    - options
+    - text
+    - user
+    - views
+    - workflow
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: foundation-12
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          wrappers:
+            main: div
+          wrapper_classes: mission-title
+          attributes: {  }
+          wrapper_id: ''
+        components:
+          582a3d5d-719f-4fd2-9bd5-24da500f078a:
+            uuid: 582a3d5d-719f-4fd2-9bd5-24da500f078a
+            region: main
+            configuration:
+              id: 'field_block:node:mission:title'
+              label: Title
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: foundation-12
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          wrappers:
+            main: div
+          wrapper_classes: description-mission
+          attributes: {  }
+          wrapper_id: ''
+        components:
+          aa3dbdee-4798-468e-8383-fe9213ee2786:
+            uuid: aa3dbdee-4798-468e-8383-fe9213ee2786
+            region: main
+            configuration:
+              id: 'field_block:node:mission:field_description_mision'
+              label: 'Description mission'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: foundation-12
+        layout_settings:
+          label: ''
+          context_mapping: {  }
+          wrappers:
+            main: div
+          wrapper_classes: basic-info-mission
+          attributes: {  }
+          wrapper_id: ''
+        components:
+          b5a4716f-600f-405c-8b1b-e88dfb872567:
+            uuid: b5a4716f-600f-405c-8b1b-e88dfb872567
+            region: main
+            configuration:
+              id: 'field_block:node:mission:field_state'
+              label: State
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: workflow_default
+                label: hidden
+                settings: {  }
+                third_party_settings: {  }
+            weight: -4
+            additional: {  }
+          9bdcba78-5db9-42c3-b95e-ad917e79e9bc:
+            uuid: 9bdcba78-5db9-42c3-b95e-ad917e79e9bc
+            region: main
+            configuration:
+              id: 'field_block:node:mission:field_end_date'
+              label: 'End date'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: datetime_default
+                label: inline
+                settings:
+                  timezone_override: Europe/Kiev
+                  format_type: custom_date_for_mission
+                third_party_settings: {  }
+            weight: -3
+            additional: {  }
+          25c3084c-5cc5-4e28-a2d6-00a84c183b27:
+            uuid: 25c3084c-5cc5-4e28-a2d6-00a84c183b27
+            region: main
+            configuration:
+              id: 'field_block:node:mission:field_doer'
+              label: Assigned
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: -2
+            additional: {  }
+          b513239a-8b45-49ea-82fb-31cdeb9abaa2:
+            uuid: b513239a-8b45-49ea-82fb-31cdeb9abaa2
+            region: main
+            configuration:
+              id: 'field_block:node:mission:field_group'
+              label: Assigned
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: entity_reference_label
+                label: inline
+                settings:
+                  link: true
+                third_party_settings: {  }
+            weight: -1
+            additional: {  }
+          a26452ef-f53b-45e4-be4d-7f364e3359f8:
+            uuid: a26452ef-f53b-45e4-be4d-7f364e3359f8
+            region: main
+            configuration:
+              id: 'field_block:node:mission:field_type_mission'
+              label: 'Type mission'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: list_default
+                label: inline
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          266066cc-a7cd-408d-a493-e8d44d52492e:
+            uuid: 266066cc-a7cd-408d-a493-e8d44d52492e
+            region: main
+            configuration:
+              id: 'field_block:node:mission:field_number_of_points'
+              label: 'Number of points'
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: number_integer
+                label: inline
+                settings:
+                  thousand_separator: ' '
+                  prefix_suffix: true
+                third_party_settings: {  }
+            weight: 2
+            additional: {  }
+          672a400b-5afd-4605-9bec-87e116f28759:
+            uuid: 672a400b-5afd-4605-9bec-87e116f28759
+            region: main
+            configuration:
+              id: 'views_block:badge_in_mission-block_1'
+              label: ''
+              label_display: '0'
+              provider: views
+              context_mapping: {  }
+              views_label: ''
+              items_per_page: none
+            weight: 1
+            additional: {  }
+        third_party_settings: {  }
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components:
+          96f74836-f326-4ebe-801a-3d79044eb63b:
+            uuid: 96f74836-f326-4ebe-801a-3d79044eb63b
+            region: content
+            configuration:
+              id: 'field_block:node:mission:field_comments_to_the_mission'
+              label_display: '0'
+              context_mapping:
+                entity: layout_builder.entity
+              formatter:
+                type: comment_default
+                label: hidden
+                settings:
+                  view_mode: default
+                  pager_id: 1
+                third_party_settings: {  }
+            weight: 9
+            additional: {  }
+        third_party_settings: {  }
+id: node.mission.default
+targetEntityType: node
+bundle: mission
+mode: default
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_badge:
+    type: entity_reference_entity_view
+    label: inline
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_comments_to_the_mission:
+    type: comment_default
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 1
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_description_mision:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_doer:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_end_date:
+    type: datetime_default
+    label: inline
+    settings:
+      timezone_override: Europe/Kyiv
+      format_type: custom_date_for_mission
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_group:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_number_of_points:
+    type: number_integer
+    label: inline
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_state:
+    type: workflow_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_type_mission:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  field_assigned: true
+  field_reward: true
+  links: true

@@ -1,0 +1,78 @@
+uuid: a03c3362-bf39-4b2c-b920-4e9dd6cd9d92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.mission.field_comments_to_the_mission
+    - field.storage.node.field_comments_to_the_mission
+    - node.type.mission
+  module:
+    - eca_base
+    - eca_content
+    - eca_user
+id: process_xqdyszs
+modeller: bpmn_io
+label: 'Close comments after done'
+version: ''
+weight: null
+events:
+  Event_0u8sk4f:
+    plugin: 'content_entity:presave'
+    label: 'Update mission'
+    configuration:
+      type: 'node mission'
+    successors:
+      -
+        id: Activity_0jsyj07
+        condition: ''
+conditions:
+  Flow_1cfifbq:
+    plugin: eca_scalar
+    configuration:
+      negate: false
+      case: false
+      left: '[mission:field_state:value]'
+      right: mission_state_done
+      operator: equal
+      type: value
+gateways: {  }
+actions:
+  Activity_0jsyj07:
+    plugin: eca_switch_account
+    label: Switch
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: Activity_0rvpcnz
+        condition: ''
+  Activity_1v4okso:
+    plugin: eca_set_field_value
+    label: 'Disable comment form'
+    configuration:
+      field_name: 'field_comments_to_the_mission:status'
+      field_value: '1'
+      method: 'set:clear'
+      strip_tags: false
+      trim: false
+      save_entity: true
+      object: mission
+    successors: {  }
+  Activity_0rvpcnz:
+    plugin: eca_token_load_entity
+    label: 'Load mission'
+    configuration:
+      token_name: mission
+      from: current
+      entity_type: _none
+      entity_id: ''
+      revision_id: ''
+      properties: ''
+      langcode: _interface
+      latest_revision: false
+      unchanged: false
+      object: ''
+    successors:
+      -
+        id: Activity_1v4okso
+        condition: Flow_1cfifbq

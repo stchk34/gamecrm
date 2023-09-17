@@ -1,0 +1,17 @@
+uuid: fe8bffb3-45f7-48fd-9e7a-9ea4451902c7
+langcode: en
+status: true
+dependencies: {  }
+id: merch
+label: Merch
+traits: {  }
+locked: false
+description: ''
+variationType: merch
+variationTypes:
+  - cap
+  - pants
+  - sweatshirt
+  - t_shirt
+multipleVariations: true
+injectVariationFields: true

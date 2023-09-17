@@ -1,0 +1,115 @@
+uuid: dafe2ef1-5fe4-4b66-9d9a-934b80e4a501
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.badge.field_icon
+    - taxonomy.vocabulary.badge
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: false
+    sections:
+      -
+        layout_id: layout_twocol_section
+        layout_settings:
+          label: badge-wrapper
+          context_mapping: {  }
+          column_widths: 50-50
+        components:
+          113ab9e7-5fff-443e-a20b-d011932d29bd:
+            uuid: 113ab9e7-5fff-443e-a20b-d011932d29bd
+            region: first
+            configuration:
+              id: 'field_block:taxonomy_term:badge:field_icon'
+              label: Icon
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: image
+                label: hidden
+                settings:
+                  image_link: ''
+                  image_style: ''
+                  image_loading:
+                    attribute: lazy
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+          06b94554-877d-4b23-8cac-c330f162484a:
+            uuid: 06b94554-877d-4b23-8cac-c330f162484a
+            region: first
+            configuration:
+              id: 'field_block:taxonomy_term:badge:name'
+              label: Name
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: string
+                label: hidden
+                settings:
+                  link_to_entity: false
+                third_party_settings: {  }
+            weight: 1
+            additional: {  }
+          8c807b83-645c-4461-b428-4911c8118bf4:
+            uuid: 8c807b83-645c-4461-b428-4911c8118bf4
+            region: second
+            configuration:
+              id: 'field_block:taxonomy_term:badge:description'
+              label: Description
+              label_display: '0'
+              provider: layout_builder
+              context_mapping:
+                entity: layout_builder.entity
+                view_mode: view_mode
+              formatter:
+                type: text_default
+                label: above
+                settings: {  }
+                third_party_settings: {  }
+            weight: 0
+            additional: {  }
+        third_party_settings: {  }
+id: taxonomy_term.badge.default
+targetEntityType: taxonomy_term
+bundle: badge
+mode: default
+content:
+  field_icon:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  flag_group:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  flag_visibility:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  flag_visibility_group:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+hidden:
+  description: true

@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: en
+uuid: 42898583-c3ae-4bbe-9274-8fa3b76967e8
+name: gamecrm.dev.drudesk.com
+mail: v.chumachenko@edu.internetdevels.com
+slogan: ''
+page:
+  403: /node/40
+  404: /node/39
+  front: /node/6
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: ''

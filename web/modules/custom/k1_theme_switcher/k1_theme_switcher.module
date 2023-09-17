@@ -1,0 +1,37 @@
+<?php
+
+use Drupal\commerce_order\Entity\OrderInterface;
+use Drupal\k1_theme_switcher\Entity\AvailableTheme;
+use Drupal\commerce_product\Entity\ProductVariationInterface;
+use Drupal\commerce_product\Entity\ProductInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function k1_theme_switcher_commerce_order_update(OrderInterface $order) {
+  // Check if the field "field_order_status" is equal to 'order_status_done'.
+  if ($order->get('field_order_status')->value == 'order_status_done') {
+    // Get the first product of the order.
+    $orderItems = $order->get('order_items')->referencedEntities();
+    $purchasedEntity = reset($orderItems)->getPurchasedEntity();
+
+    // Check if the shopping item is an instance of ProductVariationInterface.
+    if ($purchasedEntity instanceof ProductVariationInterface) {
+      $product = $purchasedEntity->getProduct();
+
+      // Check if the product has a "field_theme" field and get its value.
+      if ($product instanceof ProductInterface && $product->hasField('field_theme')) {
+        $themeValue = $product->get('field_theme')->value;
+
+        // Create a new "AvailableTheme" node.
+        $availableTheme = AvailableTheme::create([
+          'uid' => $order->get('uid'),
+          'theme' => $themeValue,
+        ]);
+
+        // Save the new "AvailableTheme" node.
+        $availableTheme->save();
+      }
+    }
+  }
+}

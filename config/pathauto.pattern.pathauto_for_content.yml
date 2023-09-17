@@ -1,0 +1,14 @@
+uuid: 0707e113-194e-4493-ac61-4acf257cb0b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: pathauto_for_content
+label: 'Pathauto for content'
+type: 'canonical_entities:node'
+pattern: '[node:content-type]/[node:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

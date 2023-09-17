@@ -1,0 +1,10 @@
+uuid: a2747e8f-f6b0-45eb-8f39-1d82f7eed1d3
+langcode: en
+status: true
+dependencies: {  }
+id: service
+label: Service
+traits: {  }
+locked: false
+orderItemType: default
+generateTitle: false

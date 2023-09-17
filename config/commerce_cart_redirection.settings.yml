@@ -1,0 +1,18 @@
+product_bundles:
+  badge: badge
+  cap: cap
+  computer_mouse: computer_mouse
+  event: event
+  keyboard: keyboard
+  mouse_pad: mouse_pad
+  pants: pants
+  service: service
+  sweatshirt: sweatshirt
+  theme: theme
+  t_shirt: t_shirt
+negate_product_bundles: 0
+redirection_route_path: checkout
+redirection_route_path_other: ''
+add_to_cart_replacement_text: Buy
+clear_cart_before_add: 1
+suppress_add_to_cart_message: 1

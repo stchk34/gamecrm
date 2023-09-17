@@ -1,0 +1,23 @@
+uuid: 0a548b45-3bb7-4c0c-9b38-b99dac36f013
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_number_of_points
+    - node.type.mission
+id: node.mission.field_number_of_points
+field_name: field_number_of_points
+entity_type: node
+bundle: mission
+label: 'Number of points'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 10000
+  prefix: ''
+  suffix: ''
+field_type: integer

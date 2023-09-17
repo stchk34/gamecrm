@@ -1,0 +1,22 @@
+uuid: edf33a03-8228-40d6-99c0-18c295a81200
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - gamecrm_dark
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: gamecrm_dark_content
+theme: gamecrm_dark
+region: content
+weight: -6
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

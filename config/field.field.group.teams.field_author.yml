@@ -1,0 +1,29 @@
+uuid: 10a06436-ee0e-4062-bf9d-ff05b519744f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.group.field_author
+    - group.type.teams
+id: group.teams.field_author
+field_name: field_author
+entity_type: group
+bundle: teams
+label: author
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

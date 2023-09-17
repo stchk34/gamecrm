@@ -1,0 +1,39 @@
+.error-page{
+  .block-field-blocknodepagetitle{
+    font-size:200px;
+    font-weight:600;
+    text-align:center;
+    text-shadow: 2px 0 $medium-gray;
+  }
+  .field--node-body{
+    text-align:center;
+    p{
+      margin:0;
+      font-size:20px;
+    }
+    a{
+      color:$red;
+      margin: 0 -.25rem;
+      padding: 0 .25rem;
+      transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+      &:hover {
+        box-shadow: inset 100px 0 0 0 $red;
+        color: white;
+        text-decoration:none;
+      }
+    }
+  }
+}
+@include breakpoint(small only) {
+  .error-page{
+    .block-field-blocknodepagetitle{
+      font-size:150px;
+    }
+    .field--node-body{
+      p,a{
+        font-size:18px;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,15 @@
+uuid: de916260-a3af-4b8d-afa3-d3721aa10c2d
+langcode: en
+status: true
+dependencies: {  }
+name: gamecrm_banner_img_user
+label: 'Gamecrm banner img user'
+effects:
+  562da780-9400-415b-93f3-dbdc6660ed2d:
+    uuid: 562da780-9400-415b-93f3-dbdc6660ed2d
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 250
+      height: 250
+      anchor: center-center

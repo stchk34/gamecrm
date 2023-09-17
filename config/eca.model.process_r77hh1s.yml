@@ -1,0 +1,104 @@
+uuid: 8a4aff4a-5b97-487a-8986-901deeda6bf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - eca.eca.process_r77hh1s
+id: process_r77hh1s
+label: noname
+tags:
+  - untagged
+documentation: ''
+filename: ''
+modeldata: |
+  <?xml version="1.0" encoding="UTF-8"?>
+  <bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:qa="http://some-company/schema/bpmn/qa" id="sample-diagram" targetNamespace="http://bpmn.io/schema/bpmn" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+    <bpmn2:process id="Process_r77Hh1s" isExecutable="false">
+      <bpmn2:startEvent id="Event_05zvl34" name="register form" camunda:modelerTemplate="org.drupal.event.form:form_validate">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="form:form_validate"/>
+          </camunda:properties>
+          <camunda:field name="form_id">
+            <camunda:string>user-register-form</camunda:string>
+          </camunda:field>
+          <camunda:field name="entity_type_id">
+            <camunda:string/>
+          </camunda:field>
+          <camunda:field name="bundle">
+            <camunda:string/>
+          </camunda:field>
+          <camunda:field name="operation">
+            <camunda:string/>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:outgoing>Flow_1fldec8</bpmn2:outgoing>
+      </bpmn2:startEvent>
+      <bpmn2:sequenceFlow id="Flow_1fldec8" sourceRef="Event_05zvl34" targetRef="Activity_05caz5h"/>
+      <bpmn2:task id="Activity_05caz5h" name="Load form" camunda:modelerTemplate="org.drupal.action.eca_form_build_entity">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_form_build_entity"/>
+          </camunda:properties>
+          <camunda:field name="token_name">
+            <camunda:string>form</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_1fldec8</bpmn2:incoming>
+        <bpmn2:outgoing>Flow_08muabt</bpmn2:outgoing>
+      </bpmn2:task>
+      <bpmn2:task id="Activity_00sf5yc" name="Error" camunda:modelerTemplate="org.drupal.action.eca_form_field_set_error">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_form_field_set_error"/>
+          </camunda:properties>
+          <camunda:field name="field_name">
+            <camunda:string>op</camunda:string>
+          </camunda:field>
+          <camunda:field name="message">
+            <camunda:string>You must select a role</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+        <bpmn2:incoming>Flow_08muabt</bpmn2:incoming>
+      </bpmn2:task>
+      <bpmn2:sequenceFlow id="Flow_08muabt" camunda:modelerTemplate="org.drupal.condition.eca_token_exists" sourceRef="Activity_05caz5h" targetRef="Activity_00sf5yc">
+        <bpmn2:extensionElements>
+          <camunda:properties>
+            <camunda:property name="pluginid" value="eca_token_exists"/>
+          </camunda:properties>
+          <camunda:field name="token_name">
+            <camunda:string>[form:roles:keys:value:2]</camunda:string>
+          </camunda:field>
+          <camunda:field name="negate">
+            <camunda:string>yes</camunda:string>
+          </camunda:field>
+        </bpmn2:extensionElements>
+      </bpmn2:sequenceFlow>
+    </bpmn2:process>
+    <bpmndi:BPMNDiagram id="sid-cd3d4d6a-1df9-4423-bb5e-a070c78cbf1f">
+      <bpmndi:BPMNPlane id="sid-09bd671f-a1a1-47ca-ba8d-3b02ceff68c4" bpmnElement="Process_r77Hh1s">
+        <bpmndi:BPMNShape id="Activity_05caz5h_di" bpmnElement="Activity_05caz5h">
+          <dc:Bounds x="380" y="280" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Event_05zvl34_di" bpmnElement="Event_05zvl34">
+          <dc:Bounds x="292" y="302" width="36" height="36"/>
+          <bpmndi:BPMNLabel>
+            <dc:Bounds x="279" y="345" width="62" height="14"/>
+          </bpmndi:BPMNLabel>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNShape id="Activity_00sf5yc_di" bpmnElement="Activity_00sf5yc">
+          <dc:Bounds x="540" y="280" width="100" height="80"/>
+          <bpmndi:BPMNLabel/>
+        </bpmndi:BPMNShape>
+        <bpmndi:BPMNEdge id="Flow_1fldec8_di" bpmnElement="Flow_1fldec8">
+          <di:waypoint x="328" y="320"/>
+          <di:waypoint x="380" y="320"/>
+        </bpmndi:BPMNEdge>
+        <bpmndi:BPMNEdge id="Flow_08muabt_di" bpmnElement="Flow_08muabt">
+          <di:waypoint x="480" y="320"/>
+          <di:waypoint x="540" y="320"/>
+        </bpmndi:BPMNEdge>
+      </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+  </bpmn2:definitions>

@@ -1,0 +1,25 @@
+uuid: 771b4aa7-4338-4048-8dfb-98ec25722c15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_balance
+    - node.type.balance
+id: node.balance.field_balance
+field_name: field_balance
+entity_type: node
+bundle: balance
+label: Balance
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
